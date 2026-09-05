@@ -36,14 +36,19 @@ body.preview {
   padding: 28px;
 }
 
-body.preview #stage {
-  align-items: center;
-  justify-content: center;
-}
+#stage[data-place="tl"] { align-items: flex-start; justify-content: flex-start; }
+#stage[data-place="tc"] { align-items: flex-start; justify-content: center; }
+#stage[data-place="tr"] { align-items: flex-start; justify-content: flex-end; }
+#stage[data-place="ml"] { align-items: center; justify-content: flex-start; }
+#stage[data-place="mc"] { align-items: center; justify-content: center; }
+#stage[data-place="mr"] { align-items: center; justify-content: flex-end; }
+#stage[data-place="bl"] { align-items: flex-end; justify-content: flex-start; }
+#stage[data-place="bc"] { align-items: flex-end; justify-content: center; }
+#stage[data-place="br"] { align-items: flex-end; justify-content: flex-end; }
 
 .player {
   position: relative;
-  transform-origin: left bottom;
+  transform-origin: center center;
   transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease;
 }
 

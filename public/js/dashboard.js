@@ -61,6 +61,9 @@
     document.querySelectorAll("#cover-styles button").forEach((b) => {
       b.classList.toggle("active", b.dataset.cover === p.cover);
     });
+    document.querySelectorAll("#place-grid button").forEach((b) => {
+      b.classList.toggle("active", b.dataset.place === (p.placement || "bl"));
+    });
 
     fields.forEach((k) => {
       const el = $(k);
@@ -154,6 +157,9 @@
   });
   document.querySelectorAll("#cover-styles button").forEach((b) => {
     b.addEventListener("click", () => saveProfile({ cover: b.dataset.cover }));
+  });
+  document.querySelectorAll("#place-grid button").forEach((b) => {
+    b.addEventListener("click", () => saveProfile({ placement: b.dataset.place }));
   });
 
   fields.forEach((k) => {

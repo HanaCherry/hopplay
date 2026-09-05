@@ -151,6 +151,9 @@
     const pct = np.duration_ms ? Math.min(100, (localProgress / np.duration_ms) * 100) : 0;
     const blur = np.image ? `style="background-image:url('${proxied(np.image)}')"` : "";
 
+    const place = profile.placement || "bl";
+    const stage = document.getElementById("stage");
+    if (stage) stage.dataset.place = place;
     playerEl.className = `player ${style}${np.is_playing ? " playing" : ""}${profile.coverBlur ? " blur-on" : ""}${profile.hideVisualizer ? " hide-viz" : ""}`;
 
     let inner = `<div class="blur-bg" ${blur}></div>`;
@@ -437,6 +440,7 @@
         theme: settings.theme,
         coverBlur: settings.coverBlur,
         hideVisualizer: settings.hideVisualizer,
+        placement: settings.placement,
         track: trackId,
         image: now.image,
         canvasUrl,

@@ -107,6 +107,7 @@ function defaultProfile(id, name) {
     songChangeDuration: 8,
     coverBlur: true,
     hideVisualizer: false,
+    placement: "bl",
   };
 }
 

@@ -130,6 +130,30 @@ h1 { margin: 0; font-size: 28px; letter-spacing: -0.03em; }
 
 .label { display: block; color: var(--muted); font-size: 12px; margin: 16px 0 8px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
 
+.place-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 36px);
+  gap: 8px;
+  width: fit-content;
+  padding: 10px;
+  background: #0b0e14;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.place-grid button {
+  width: 36px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+  padding: 0;
+}
+.place-grid button.active {
+  background: var(--accent);
+  border-color: transparent;
+}
+
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chips button {
   background: rgba(255,255,255,0.04);
