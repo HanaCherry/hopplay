@@ -694,27 +694,20 @@
           </div>
         </div>`;
     } else if (style === "galaxybunny") {
-      const gbSh = controlButton("shuffle", "Aléatoire", `<g fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></g>`);
-      const gbPrev = controlButton("previous", "Précédent", `<path fill="currentColor" d="M6 5.5h2.2v13H6zm13.5.7v11.6L9.2 12z"/>`);
-      const gbNext = controlButton("next", "Suivant", `<path fill="currentColor" d="M15.8 5.5H18v13h-2.2zM4.5 6.2v11.6L14.8 12z"/>`);
-      const gbRp = controlButton("repeat", "Répéter", `<g fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></g>`);
       inner = `
         <svg class="gb-skin" viewBox="80 60 1630 815" aria-hidden="true">
           <image href="/brand/galaxy-bunny-clean.png" width="1728" height="1152"/>
         </svg>
+        <div class="gb-sparkles" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+          <i class="gb-ear-star"></i><i class="gb-ear-star"></i><i class="gb-ear-star"></i><i class="gb-ear-star"></i>
+          <i class="gb-halo-star"></i><i class="gb-halo-star"></i><i class="gb-halo-star"></i><i class="gb-halo-star"></i>
+        </div>
         <div class="gb-body">
           ${cover}
           <div class="meta">
             <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
             <div class="artist">${escapeHtml(artist)}</div>
-            <div class="gb-ctrls">
-              ${gbSh}${gbPrev}
-              <button type="button" class="gb-button" data-action="toggle" aria-label="Lecture">
-                <svg class="gb-ic-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
-                <svg class="gb-ic-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>
-              </button>
-              ${gbNext}${gbRp}
-            </div>
             <div class="gb-prog"><span>${cur}</span><div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div><span>${dur}</span></div>
           </div>
         </div>
@@ -740,10 +733,6 @@
   }
 
   let controlBusy = false;
-  function controlButton(action, label, drawing) {
-    return `<button type="button" class="gb-button" data-action="${action}" aria-label="${label}" title="${label}"><svg viewBox="0 0 24 24" aria-hidden="true">${drawing}</svg></button>`;
-  }
-
   function syncControls() {
     if (!now) return;
     playerEl.querySelectorAll(".gb-button").forEach((button) => {
