@@ -160,13 +160,31 @@
 
         <section class="panel" id="visibilite">
           <h2 data-i18n="visibility">Visibility</h2>
+          <label class="label" data-i18n="fadeStyle">Fade style</label>
+          <div class="chips" id="fade-styles">
+            <button type="button" data-fx="fade" data-i18n="fxFade">Fade</button>
+            <button type="button" data-fx="slide" data-i18n="fxSlide">Slide</button>
+            <button type="button" data-fx="slide-left" data-i18n="fxSlideLeft">Slide left</button>
+            <button type="button" data-fx="scale" data-i18n="fxScale">Scale</button>
+            <button type="button" data-fx="pop" data-i18n="fxPop">Pop</button>
+            <button type="button" data-fx="blur" data-i18n="fxBlur">Blur</button>
+          </div>
+          <label class="field"><span data-i18n="appearDuration">Appear duration (s)</span>
+            <input type="number" id="appearDuration" min="0.1" max="5" step="0.1" />
+          </label>
+          <label class="field"><span data-i18n="hideDuration">Hide duration (s)</span>
+            <input type="number" id="hideDuration" min="0.1" max="5" step="0.1" />
+          </label>
+          <label class="field"><span data-i18n="appearDelay">Appear delay (s)</span>
+            <input type="number" id="appearDelay" min="0" max="10" step="0.05" />
+          </label>
           <label class="switch"><input type="checkbox" id="hideOnPause" /><span></span> <em data-i18n="hideOnPause">Hide on pause</em></label>
           <label class="field"><span data-i18n="hideDelay">Hide delay (s)</span>
-            <input type="number" id="hideOnPauseDelay" min="0" max="60" step="1" />
+            <input type="number" id="hideOnPauseDelay" min="0" max="60" step="0.5" />
           </label>
           <label class="switch"><input type="checkbox" id="songChangeOnly" /><span></span> <em data-i18n="songChangeOnly">Only show on song switch</em></label>
           <label class="field"><span data-i18n="songChangeDuration">Visible duration (s)</span>
-            <input type="number" id="songChangeDuration" min="1" max="60" step="1" />
+            <input type="number" id="songChangeDuration" min="0.5" max="60" step="0.5" />
           </label>
         </section>
 

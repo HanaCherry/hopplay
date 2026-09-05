@@ -11,6 +11,7 @@
   let lastPlaying = false;
   let hideTimer = null;
   let songSwitchTimer = null;
+  let appearTimer = null;
   let now = null;
   let localProgress = 0;
   let lastPoll = Date.now();
@@ -154,6 +155,7 @@
     const place = profile.placement || "bl";
     const stage = document.getElementById("stage");
     if (stage) stage.dataset.place = place;
+    applyMotion(profile);
     playerEl.className = `player ${style}${np.is_playing ? " playing" : ""}${profile.coverBlur ? " blur-on" : ""}${profile.hideVisualizer ? " hide-viz" : ""}${profile.playerGlow ? " player-glow" : ""}`;
 
     let inner = `<div class="blur-bg" ${blur}></div>`;
@@ -640,13 +642,31 @@
       .replace(/"/g, "&quot;");
   }
 
+  function applyMotion(profile) {
+    const appear = Math.max(0.05, Number(profile.appearDuration) || 0.7);
+    const hide = Math.max(0.05, Number(profile.hideDuration) || 0.45);
+    playerEl.style.setProperty("--appear-dur", `${appear}s`);
+    playerEl.style.setProperty("--hide-dur", `${hide}s`);
+    playerEl.dataset.fx = profile.appearEffect || "slide";
+  }
+
   function setVisible(show) {
-    playerEl.classList.toggle("hidden", !show);
-    playerEl.setAttribute("aria-hidden", show ? "false" : "true");
+    clearTimeout(appearTimer);
+    if (show) {
+      const delay = Math.max(0, Number(settings && settings.appearDelay) || 0) * 1000;
+      appearTimer = setTimeout(() => {
+        playerEl.classList.remove("hidden");
+        playerEl.setAttribute("aria-hidden", "false");
+      }, delay);
+    } else {
+      playerEl.classList.add("hidden");
+      playerEl.setAttribute("aria-hidden", "true");
+    }
   }
 
   function handleVisibility(profile, np, trackChanged) {
     clearTimeout(hideTimer);
+    applyMotion(profile);
     if (!np.item && !np.title) {
       setVisible(false);
       return;
@@ -654,12 +674,11 @@
 
     if (profile.songChangeOnly) {
       if (trackChanged) {
+        playerEl.classList.add("hidden");
         setVisible(true);
         clearTimeout(songSwitchTimer);
-        songSwitchTimer = setTimeout(
-          () => setVisible(false),
-          (Number(profile.songChangeDuration) || 8) * 1000
-        );
+        const vis = Math.max(0.3, Number(profile.songChangeDuration) || 8);
+        songSwitchTimer = setTimeout(() => setVisible(false), vis * 1000);
       }
       return;
     }
@@ -672,6 +691,9 @@
       return;
     }
 
+    if (trackChanged) {
+      playerEl.classList.add("hidden");
+    }
     setVisible(true);
   }
 
@@ -757,6 +779,10 @@
         coverBlur: settings.coverBlur,
         hideVisualizer: settings.hideVisualizer,
         placement: settings.placement,
+        appearEffect: settings.appearEffect,
+        appearDuration: settings.appearDuration,
+        hideDuration: settings.hideDuration,
+        appearDelay: settings.appearDelay,
         track: trackId,
         image: now.image,
         canvasUrl,

@@ -72,6 +72,12 @@
     });
     $("hideOnPauseDelay").value = p.hideOnPauseDelay;
     $("songChangeDuration").value = p.songChangeDuration;
+    $("appearDuration").value = p.appearDuration ?? 0.7;
+    $("hideDuration").value = p.hideDuration ?? 0.45;
+    $("appearDelay").value = p.appearDelay ?? 0.05;
+    document.querySelectorAll("#fade-styles button").forEach((b) => {
+      b.classList.toggle("active", b.dataset.fx === (p.appearEffect || "slide"));
+    });
     $("theme").value = p.theme;
     $("accentColor").value = p.accentColor || "#1db954";
     $("color-row").style.opacity = p.magicColors ? "0.4" : "1";
@@ -168,6 +174,12 @@
   });
   $("hideOnPauseDelay").addEventListener("change", () => saveProfile({ hideOnPauseDelay: Number($("hideOnPauseDelay").value) }));
   $("songChangeDuration").addEventListener("change", () => saveProfile({ songChangeDuration: Number($("songChangeDuration").value) }));
+  $("appearDuration").addEventListener("change", () => saveProfile({ appearDuration: Number($("appearDuration").value) }));
+  $("hideDuration").addEventListener("change", () => saveProfile({ hideDuration: Number($("hideDuration").value) }));
+  $("appearDelay").addEventListener("change", () => saveProfile({ appearDelay: Number($("appearDelay").value) }));
+  document.querySelectorAll("#fade-styles button").forEach((b) => {
+    b.addEventListener("click", () => saveProfile({ appearEffect: b.dataset.fx }));
+  });
   $("theme").addEventListener("change", () => saveProfile({ theme: $("theme").value }));
   $("accentColor").addEventListener("input", () => saveProfile({ accentColor: $("accentColor").value }));
 

@@ -49,19 +49,32 @@ body.preview {
 .player {
   position: relative;
   transform-origin: center center;
-  transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease;
+  --appear-dur: 0.7s;
+  --hide-dur: 0.45s;
+  transition-property: opacity, transform, filter;
+  transition-duration: var(--hide-dur);
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.player.player-glow {
+.player:not(.hidden) {
+  transition-duration: var(--appear-dur);
+}
+
+.player.player-glow:not(.hidden) {
   filter: drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 26px var(--accent));
 }
 
 .player.hidden {
   opacity: 0;
-  transform: translateY(18px);
   pointer-events: none;
-  filter: blur(6px);
 }
+.player.hidden[data-fx="fade"] { transform: none; }
+.player.hidden[data-fx="slide"] { transform: translateY(28px); }
+.player.hidden[data-fx="slide-left"] { transform: translateX(-32px); }
+.player.hidden[data-fx="slide-right"] { transform: translateX(32px); }
+.player.hidden[data-fx="scale"] { transform: scale(0.88); }
+.player.hidden[data-fx="pop"] { transform: scale(0.7); }
+.player.hidden[data-fx="blur"] { transform: none; filter: blur(16px); }
 
 .player.light {
   --text: #141414;

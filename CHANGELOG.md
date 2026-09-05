@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.1
+
+- Fade options: fade, slide, scale, pop, blur
+- Appear / hide duration and appear delay
+
 ## 1.5.0
 
 - 12 extra skins: Kawaii, Brutalist, Chrome, Origami, Frost, Wood, Jukebox, Walkman, Floppy, Film, Subway, Sakura

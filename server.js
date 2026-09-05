@@ -109,6 +109,10 @@ function defaultProfile(id, name) {
     coverBlur: true,
     hideVisualizer: false,
     placement: "bl",
+    appearEffect: "slide",
+    appearDuration: 0.7,
+    hideDuration: 0.45,
+    appearDelay: 0.05,
   };
 }
 
