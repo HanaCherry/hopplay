@@ -1,6 +1,16 @@
 # HopPlay
 
-**v1.6.1** — now-playing overlay for OBS, Streamlabs, and other browser sources.
+🌐 **Language / Langue**
+
+| [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇪🇸 Español](README.es.md) | [🇵🇹 Português](README.pt.md) | [🇩🇪 Deutsch](README.de.md) |
+| --- | --- | --- | --- | --- |
+| [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md) | [🇵🇱 Polski](README.pl.md) | [🇷🇺 Русский](README.ru.md) | [🇺🇦 Українська](README.uk.md) |
+| [🇯🇵 日本語](README.ja.md) | [🇰🇷 한국어](README.ko.md) | [🇨🇳 中文](README.zh.md) | [🇸🇦 العربية](README.ar.md) | [🇹🇷 Türkçe](README.tr.md) |
+| [🇮🇳 हिन्दी](README.hi.md) | [🇧🇩 বাংলা](README.bn.md) | [🇮🇩 Bahasa Indonesia](README.id.md) | [🇻🇳 Tiếng Việt](README.vi.md) | [🇹🇭 ไทย](README.th.md) |
+| [🇸🇪 Svenska](README.sv.md) | [🇳🇴 Norsk](README.no.md) | [🇩🇰 Dansk](README.da.md) | [🇫🇮 Suomi](README.fi.md) | [🇨🇿 Čeština](README.cs.md) |
+| [🇷🇴 Română](README.ro.md) | [🇬🇷 Ελληνικά](README.el.md) | [🇭🇺 Magyar](README.hu.md) | [🇮🇱 עברית](README.he.md) | [🇲🇾 Melayu](README.ms.md) |
+
+**v1.8.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
 **By [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -8,13 +18,16 @@ Play a track on Spotify (optional) or use demo mode, pick a player skin, copy th
 
 ## Features
 
-- 53 player skins (kawaii, chrome, walkman, film, sakura, tarot, arcade, and more)
+- 61 player skins (Galaxy Bunny, kawaii, chrome, walkman, film, sakura, tarot, arcade, and more)
 - Cover modes: Square, Canvas, Vinyl, None
 - Magic colors, cover glow, player glow, cover blur, visualizer
+- 9 overlay positions
 - Hide on pause / show only on song change
+- Appear and hide effects (fade, slide, scale, pop, blur) with timing
 - Up to 5 profiles with separate OBS URLs
 - UI in 30 languages
 - Local demo mode (no Spotify account required)
+- In-app updates from GitHub Releases (`data/` is kept)
 
 ## Run
 
