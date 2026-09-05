@@ -61,6 +61,7 @@ nav a {
 nav a.active, nav a:hover { background: rgba(255,255,255,0.05); color: white; }
 
 .side-foot { margin-top: auto; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.stop-btn { width: 100%; margin-top: 12px; }
 
 main { padding: 28px 32px 64px; }
 .top {

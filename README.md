@@ -29,6 +29,8 @@ Open http://127.0.0.1:3000
 
 On Windows you can also double-click `start.bat`.
 
+Stop the server from the dashboard (**Stop server** in the sidebar) or with `stop.bat`.
+
 ## OBS
 
 1. Source → Browser

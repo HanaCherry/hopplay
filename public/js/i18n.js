@@ -27,7 +27,11 @@ window.HOPPLAY_I18N = {
     setupSkip: "Skip and open the widget",
     verifying: "Checking credentials…", credsOk: "Credentials valid. Redirecting to Spotify…",
     spotifyConnected: "Spotify connected. Play a track in Spotify to see it here.",
-    spotifyError: "Spotify error"
+    spotifyError: "Spotify error",
+    stopServer: "Stop server",
+    stopConfirm: "Stop Hopplay? The overlay will stop until you launch it again.",
+    serverStopped: "Server stopped.",
+    startAgain: "To start again, run start.bat or npm start."
   },
   fr: {
     appTitle: "Hopplay", studio: "GalaxyBunny Studio",
@@ -57,7 +61,11 @@ window.HOPPLAY_I18N = {
     setupSkip: "Passer et ouvrir le widget",
     verifying: "Vérification des identifiants…", credsOk: "Identifiants valides. Redirection vers Spotify…",
     spotifyConnected: "Spotify connecté. Lance une musique pour la voir ici.",
-    spotifyError: "Erreur Spotify"
+    spotifyError: "Erreur Spotify",
+    stopServer: "Arrêter le serveur",
+    stopConfirm: "Arrêter Hopplay ? L'overlay s'arrêtera jusqu'à ce que tu le relances.",
+    serverStopped: "Serveur arrêté.",
+    startAgain: "Pour relancer, double-clique start.bat ou lance npm start."
   },
   es: {
     appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "Overlay de reproducción para OBS.",

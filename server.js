@@ -589,9 +589,27 @@ app.get("/widget", (_req, res) => {
   res.redirect("/widget.html");
 });
 
+function isLocal(req) {
+  const ip = req.socket.remoteAddress || "";
+  return ip === "127.0.0.1" || ip === "::1" || ip === "::ffff:127.0.0.1";
+}
+
+app.post("/api/stop", (req, res) => {
+  if (!isLocal(req)) return res.status(403).json({ error: "Local only." });
+  res.json({ ok: true, stopped: true });
+  setTimeout(() => {
+    try {
+      const pidFile = path.join(DATA_DIR, "hopplay.pid");
+      if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
+    } catch {}
+    process.exit(0);
+  }, 200);
+});
+
 ensureDir();
 if (!fs.existsSync(CONFIG_FILE)) saveConfig(defaultConfig());
 if (!fs.existsSync(SETTINGS_FILE)) saveSettings(defaultSettings());
+fs.writeFileSync(path.join(DATA_DIR, "hopplay.pid"), String(process.pid));
 
 app.listen(PORT, HOST, () => {
   console.log("");
@@ -600,4 +618,11 @@ app.listen(PORT, HOST, () => {
   console.log(`  Overlay   : http://${HOST}:${PORT}/widget.html`);
   console.log(`  Redirect  : ${redirectUri()}`);
   console.log("");
+});
+
+process.on("exit", () => {
+  try {
+    const pidFile = path.join(DATA_DIR, "hopplay.pid");
+    if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
+  } catch {}
 });
