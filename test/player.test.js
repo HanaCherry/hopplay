@@ -18,7 +18,20 @@ function harness() {
     } : name === './package.json' ? { version: 'test' } : require(name),
     __dirname: path.resolve(__dirname, '..'), Buffer, URL, URLSearchParams, AbortSignal,
     Date: Clock, console, setTimeout, process: { env: {}, pid: 1, on() {} },
-    fetch: async (url, options) => { requests.push({ url, ...options }); return { ok: spotifyStatus === 204, status: spotifyStatus }; },
+    fetch: async (url, options) => {
+      requests.push({ url, ...options });
+      return {
+        ok: spotifyStatus >= 200 && spotifyStatus < 300,
+        status: spotifyStatus,
+        headers: { get: () => null },
+        text: async () => "",
+        json: async () => ({
+          is_playing: true,
+          progress_ms: 12000,
+          item: { id: "track-1", name: "Test song", duration_ms: 180000, artists: [{ name: "Artist" }], album: { images: [] } },
+        }),
+      };
+    },
   });
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../server.js'), 'utf8'), context);
   return {
@@ -28,6 +41,11 @@ function harness() {
       const res = { code: 200, status(n) { this.code = n; return this; }, json(data) { this.data = data; return this; } };
       await routes.get('post /api/player/:action')({ params: { action }, body: { value }, headers: { host: '127.0.0.1:3000', origin }, socket: { remoteAddress: '127.0.0.1' } }, res);
       return res;
+    },
+    async nowPlaying() {
+      const res = { json(data) { this.data = data; return this; } };
+      await routes.get('get /api/now-playing')({ query: {} }, res);
+      return res.data;
     },
   };
 }
@@ -71,4 +89,23 @@ test('invalid commands and cross-origin requests never reach Spotify', async () 
   for (const [action,value] of [['seek',-1],['seek','10'],['shuffle','true'],['repeat','invalid'],['delete',null]]) assert.equal((await h.command(action,value)).code,400);
   assert.equal((await h.command('play',undefined,'https://example.com')).code,403);
   assert.equal(h.requests.length,0);
+});
+
+test('empty Spotify responses have safe display values', () => {
+  const h = harness();
+  const empty = h.run('publicNowPlaying({ item: null })');
+  assert.equal(empty.duration_ms, 0);
+  assert.equal(empty.progress_ms, 0);
+  assert.equal(empty.title, '');
+  assert.equal(empty.image, '');
+});
+
+test('concurrent widget polls share one Spotify request', async () => {
+  const h = harness();
+  h.status(200);
+  h.run('saveConfig({accessToken:"test",expiresAt:Date.now()+100000})');
+  const [first, second] = await Promise.all([h.nowPlaying(), h.nowPlaying()]);
+  assert.equal(first.title, 'Test song');
+  assert.equal(second.title, 'Test song');
+  assert.equal(h.requests.length, 1);
 });
