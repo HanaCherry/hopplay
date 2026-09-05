@@ -2,13 +2,13 @@
 
 🌐 **Language / Langue**
 
-| [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇪🇸 Español](README.es.md) | [🇵🇹 Português](README.pt.md) | [🇩🇪 Deutsch](README.de.md) |
+| [🇬🇧 English](README.md) | [🇫🇷 Français](docs/readme/README.fr.md) | [🇪🇸 Español](docs/readme/README.es.md) | [🇵🇹 Português](docs/readme/README.pt.md) | [🇩🇪 Deutsch](docs/readme/README.de.md) |
 | --- | --- | --- | --- | --- |
-| [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md) | [🇵🇱 Polski](README.pl.md) | [🇷🇺 Русский](README.ru.md) | [🇺🇦 Українська](README.uk.md) |
-| [🇯🇵 日本語](README.ja.md) | [🇰🇷 한국어](README.ko.md) | [🇨🇳 中文](README.zh.md) | [🇸🇦 العربية](README.ar.md) | [🇹🇷 Türkçe](README.tr.md) |
-| [🇮🇳 हिन्दी](README.hi.md) | [🇧🇩 বাংলা](README.bn.md) | [🇮🇩 Bahasa Indonesia](README.id.md) | [🇻🇳 Tiếng Việt](README.vi.md) | [🇹🇭 ไทย](README.th.md) |
-| [🇸🇪 Svenska](README.sv.md) | [🇳🇴 Norsk](README.no.md) | [🇩🇰 Dansk](README.da.md) | [🇫🇮 Suomi](README.fi.md) | [🇨🇿 Čeština](README.cs.md) |
-| [🇷🇴 Română](README.ro.md) | [🇬🇷 Ελληνικά](README.el.md) | [🇭🇺 Magyar](README.hu.md) | [🇮🇱 עברית](README.he.md) | [🇲🇾 Melayu](README.ms.md) |
+| [🇮🇹 Italiano](docs/readme/README.it.md) | [🇳🇱 Nederlands](docs/readme/README.nl.md) | [🇵🇱 Polski](docs/readme/README.pl.md) | [🇷🇺 Русский](docs/readme/README.ru.md) | [🇺🇦 Українська](docs/readme/README.uk.md) |
+| [🇯🇵 日本語](docs/readme/README.ja.md) | [🇰🇷 한국어](docs/readme/README.ko.md) | [🇨🇳 中文](docs/readme/README.zh.md) | [🇸🇦 العربية](docs/readme/README.ar.md) | [🇹🇷 Türkçe](docs/readme/README.tr.md) |
+| [🇮🇳 हिन्दी](docs/readme/README.hi.md) | [🇧🇩 বাংলা](docs/readme/README.bn.md) | [🇮🇩 Bahasa Indonesia](docs/readme/README.id.md) | [🇻🇳 Tiếng Việt](docs/readme/README.vi.md) | [🇹🇭 ไทย](docs/readme/README.th.md) |
+| [🇸🇪 Svenska](docs/readme/README.sv.md) | [🇳🇴 Norsk](docs/readme/README.no.md) | [🇩🇰 Dansk](docs/readme/README.da.md) | [🇫🇮 Suomi](docs/readme/README.fi.md) | [🇨🇿 Čeština](docs/readme/README.cs.md) |
+| [🇷🇴 Română](docs/readme/README.ro.md) | [🇬🇷 Ελληνικά](docs/readme/README.el.md) | [🇭🇺 Magyar](docs/readme/README.hu.md) | [🇮🇱 עברית](docs/readme/README.he.md) | [🇲🇾 Melayu](docs/readme/README.ms.md) |
 
 **v1.8.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
