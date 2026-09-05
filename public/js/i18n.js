@@ -33,7 +33,12 @@ window.HOPPLAY_I18N = {
     stopServer: "Stop server",
     stopConfirm: "Stop HopPlay? The overlay will stop until you launch it again.",
     serverStopped: "Server stopped.",
-    startAgain: "To start again, run start.bat or npm start."
+    startAgain: "To start again, run start.bat or npm start.",
+    updateAvailable: "Update available",
+    updateNow: "Update now",
+    updating: "Downloading update…",
+    updateDone: "Updated. Restarting…",
+    currentVersion: "Version"
   },
   fr: {
     appTitle: "HopPlay", studio: "GalaxyBunny Studio",
@@ -69,7 +74,12 @@ window.HOPPLAY_I18N = {
     stopServer: "Arrêter le serveur",
     stopConfirm: "Arrêter HopPlay ? L'overlay s'arrêtera jusqu'à ce que tu le relances.",
     serverStopped: "Serveur arrêté.",
-    startAgain: "Pour relancer, double-clique start.bat ou lance npm start."
+    startAgain: "Pour relancer, double-clique start.bat ou lance npm start.",
+    updateAvailable: "Mise à jour disponible",
+    updateNow: "Mettre à jour",
+    updating: "Téléchargement de la mise à jour…",
+    updateDone: "Mis à jour. Redémarrage…",
+    currentVersion: "Version"
   },
   es: {
     appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "Overlay de reproducción para OBS.",

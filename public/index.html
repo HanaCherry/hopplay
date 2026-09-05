@@ -34,6 +34,7 @@
     </nav>
     <div class="side-foot">
       <p data-i18n="footer">Now-playing widget for livestreams.</p>
+      <p class="ver" id="app-version"></p>
       <button id="btn-stop" class="danger ghost stop-btn" data-i18n="stopServer">Stop server</button>
     </div>
   </aside>
@@ -48,6 +49,13 @@
         <button id="btn-demo-next" class="ghost" data-i18n="nextSong">Next song</button>
       </div>
     </header>
+    <div id="update-banner" class="update-banner hidden">
+      <div>
+        <strong data-i18n="updateAvailable">Update available</strong>
+        <span id="update-info"></span>
+      </div>
+      <button id="btn-update" class="primary" data-i18n="updateNow">Update now</button>
+    </div>
     <div id="auth-banner" class="auth-banner hidden">
       <div>
         <strong data-i18n="demoBanner">You are in demo mode.</strong>
@@ -124,6 +132,7 @@
             <button data-player="filmstrip">Film</button>
             <button data-player="subway">Subway</button>
             <button data-player="sakura">Sakura</button>
+            <button data-player="galaxybunny">Galaxy Bunny</button>
             <button data-player="orb">Orb</button>
             <button data-player="orbmini">Orb mini</button>
             <button data-player="covercard">Cover card</button>

@@ -31,6 +31,8 @@ On Windows you can also double-click `start.bat`.
 
 Stop the server from the dashboard (**Stop server** in the sidebar) or with `stop.bat`.
 
+When a new GitHub release is published, the dashboard offers **Update now**. Your Spotify data in `data/` is kept.
+
 ## OBS
 
 1. Source → Browser

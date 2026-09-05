@@ -687,6 +687,19 @@
             <div class="vinyl-spindle"></div>
           </div>
         </div>`;
+    } else if (style === "galaxybunny") {
+      inner += `
+        <div class="gb-moon"></div>
+        <div class="gb-stars"><i></i><i></i><i></i><i></i></div>
+        <div class="gb-ears"><b></b><b></b></div>
+        ${cover}
+        <div class="gb-flower"></div>
+        <div class="meta">
+          <div class="gb-tag">GALAXY BUNNY</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
     }
 
     playerEl.innerHTML = inner;
@@ -850,7 +863,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 7,
+        ui: 8,
       });
       if (signature !== lastSig) {
         lastSig = signature;

@@ -148,6 +148,20 @@ h1 { margin: 0; font-size: 28px; letter-spacing: -0.03em; }
   margin-bottom: 18px;
 }
 .auth-banner.hidden { display: none; }
+.update-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: rgba(124, 108, 255, 0.18);
+  border: 1px solid rgba(180, 160, 255, 0.45);
+  color: #e8e0ff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+.update-banner.hidden { display: none; }
+.ver { opacity: 0.7; font-size: 11px; margin-top: 8px; }
 .auth-banner.ok {
   background: rgba(29, 185, 84, 0.12);
   border-color: rgba(29, 185, 84, 0.35);

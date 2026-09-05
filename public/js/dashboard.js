@@ -59,6 +59,13 @@
     settings = s;
     status = st;
     render();
+    if (!window.__hopplayUpdateChecked) {
+      window.__hopplayUpdateChecked = true;
+      checkUpdate();
+    } else {
+      const ver = $("app-version");
+      if (ver && status.version) ver.textContent = `${window.hopplayT("currentVersion")} ${status.version}`;
+    }
   }
 
   function currentProfile() {
@@ -242,6 +249,39 @@
     await fetch("/api/token/regenerate", { method: "POST" });
     await load();
   });
+  async function checkUpdate() {
+    try {
+      const info = await fetch("/api/update/check").then((r) => r.json());
+      const ver = $("app-version");
+      if (ver) ver.textContent = `${window.hopplayT("currentVersion")} ${info.current || ""}`;
+      const banner = $("update-banner");
+      const details = $("update-info");
+      if (info.updateAvailable) {
+        banner.classList.remove("hidden");
+        details.textContent = ` ${info.current} → ${info.latest}`;
+      } else {
+        banner.classList.add("hidden");
+      }
+    } catch {}
+  }
+
+  $("btn-update").addEventListener("click", async () => {
+    const btn = $("btn-update");
+    btn.disabled = true;
+    btn.textContent = window.hopplayT("updating");
+    try {
+      const res = await fetch("/api/update/apply", { method: "POST" });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "update failed");
+      btn.textContent = window.hopplayT("updateDone");
+      setTimeout(() => location.reload(), 3500);
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = window.hopplayT("updateNow");
+      alert(err.message);
+    }
+  });
+
   $("btn-stop").addEventListener("click", async () => {
     if (!confirm(window.hopplayT("stopConfirm"))) return;
     try {

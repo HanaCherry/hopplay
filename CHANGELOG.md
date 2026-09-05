@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.8.0
+
+- In-app updates from GitHub releases
+- Galaxy Bunny player skin
+
 ## 1.7.0
 
 - GalaxyBunny Studio and HopPlay logos

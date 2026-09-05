@@ -2,6 +2,11 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const os = require("os");
+const { spawn } = require("child_process");
+
+const APP_VERSION = require("./package.json").version;
+const GITHUB_REPO = "HanaCherry/hopplay";
 
 const PORT = Number(process.env.PORT) || 3000;
 const HOST = "127.0.0.1";
@@ -317,6 +322,7 @@ app.get("/api/status", (_req, res) => {
     redirectUri: redirectUri(),
     widgetToken: cfg.widgetToken,
     widgetUrl: `http://${HOST}:${PORT}/widget.html?token=${cfg.widgetToken}`,
+    version: APP_VERSION,
   });
 });
 
@@ -598,6 +604,111 @@ function isLocal(req) {
   const ip = req.socket.remoteAddress || "";
   return ip === "127.0.0.1" || ip === "::1" || ip === "::ffff:127.0.0.1";
 }
+
+function parseVer(v) {
+  return String(v || "").replace(/^v/i, "").split(".").map((n) => parseInt(n, 10) || 0);
+}
+function isNewer(remote, local) {
+  const a = parseVer(remote);
+  const b = parseVer(local);
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    if ((a[i] || 0) > (b[i] || 0)) return true;
+    if ((a[i] || 0) < (b[i] || 0)) return false;
+  }
+  return false;
+}
+async function fetchLatestRelease() {
+  const r = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/releases/latest`, {
+    headers: { "User-Agent": "HopPlay", Accept: "application/vnd.github+json" },
+  });
+  if (!r.ok) throw new Error(`GitHub ${r.status}`);
+  const json = await r.json();
+  const tag = json.tag_name || "";
+  return {
+    tag,
+    version: tag.replace(/^v/i, ""),
+    notes: json.body || "",
+    url: json.html_url,
+    zip: `https://github.com/${GITHUB_REPO}/archive/refs/tags/${encodeURIComponent(tag)}.zip`,
+  };
+}
+function copyUpdate(from, to) {
+  const skip = new Set(["data", "node_modules", ".git"]);
+  for (const name of fs.readdirSync(from)) {
+    if (skip.has(name)) continue;
+    const src = path.join(from, name);
+    const dest = path.join(to, name);
+    if (fs.statSync(src).isDirectory()) fs.cpSync(src, dest, { recursive: true, force: true });
+    else fs.copyFileSync(src, dest);
+  }
+}
+function restartApp() {
+  const child = spawn(process.execPath, [path.join(ROOT, "server.js")], {
+    detached: true,
+    stdio: "ignore",
+    cwd: ROOT,
+    windowsHide: true,
+  });
+  child.unref();
+  process.exit(0);
+}
+
+let updating = false;
+
+app.get("/api/update/check", async (_req, res) => {
+  try {
+    const latest = await fetchLatestRelease();
+    res.json({
+      current: APP_VERSION,
+      latest: latest.version,
+      tag: latest.tag,
+      notes: latest.notes,
+      url: latest.url,
+      updateAvailable: isNewer(latest.version, APP_VERSION),
+    });
+  } catch (err) {
+    res.json({ current: APP_VERSION, updateAvailable: false, error: err.message });
+  }
+});
+
+app.post("/api/update/apply", async (req, res) => {
+  if (!isLocal(req)) return res.status(403).json({ error: "Local only." });
+  if (updating) return res.status(409).json({ error: "Update already running." });
+  updating = true;
+  try {
+    const latest = await fetchLatestRelease();
+    if (!isNewer(latest.version, APP_VERSION)) {
+      updating = false;
+      return res.json({ ok: true, updated: false, current: APP_VERSION });
+    }
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "hopplay-"));
+    const zipPath = path.join(tmp, "update.zip");
+    const zipRes = await fetch(latest.zip, { headers: { "User-Agent": "HopPlay" }, redirect: "follow" });
+    if (!zipRes.ok) throw new Error(`Download ${zipRes.status}`);
+    fs.writeFileSync(zipPath, Buffer.from(await zipRes.arrayBuffer()));
+    const extractDir = path.join(tmp, "src");
+    fs.mkdirSync(extractDir);
+    await new Promise((resolve, reject) => {
+      const ps = spawn("powershell.exe", [
+        "-NoProfile",
+        "-Command",
+        `Expand-Archive -LiteralPath '${zipPath.replace(/'/g, "''")}' -DestinationPath '${extractDir.replace(/'/g, "''")}' -Force`,
+      ], { windowsHide: true });
+      ps.on("exit", (c) => (c === 0 ? resolve() : reject(new Error("unzip failed"))));
+      ps.on("error", reject);
+    });
+    const unpacked = fs.readdirSync(extractDir)
+      .map((n) => path.join(extractDir, n))
+      .find((p) => fs.statSync(p).isDirectory());
+    if (!unpacked) throw new Error("Empty archive");
+    copyUpdate(unpacked, ROOT);
+    res.json({ ok: true, updated: true, version: latest.version, restarting: true });
+    setTimeout(() => restartApp(), 900);
+  } catch (err) {
+    updating = false;
+    res.status(500).json({ error: err.message });
+  }
+});
 
 app.post("/api/stop", (req, res) => {
   if (!isLocal(req)) return res.status(403).json({ error: "Local only." });
