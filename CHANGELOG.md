@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.8.1
+
+- Galaxy Bunny playback controls (shuffle, previous, play/pause, next, repeat) on the skin
+- Player size slider and Spotify playback commands
+
 ## 1.8.0
 
 - In-app updates from GitHub releases

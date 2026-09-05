@@ -10,7 +10,7 @@
 | [:sweden: Svenska](README.sv.md) | [:norway: Norsk](README.no.md) | [:denmark: Dansk](README.da.md) | [:finland: Suomi](README.fi.md) | [:czech_republic: Čeština](README.cs.md) |
 | [:romania: Română](README.ro.md) | [:greece: Ελληνικά](README.el.md) | [:hungary: Magyar](README.hu.md) | [:israel: עברית](README.he.md) | [:malaysia: Melayu](README.ms.md) |
 
-**v1.8.0** — OBS, Streamlabs और अन्य ब्राउज़र स्रोतों के लिए नाउ-प्लेइंग ओवरले।
+**v1.8.1** — OBS, Streamlabs और अन्य ब्राउज़र स्रोतों के लिए नाउ-प्लेइंग ओवरले।
 
 **द्वारा [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
