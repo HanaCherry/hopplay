@@ -404,6 +404,117 @@
           <div class="artist">${escapeHtml(artist)}</div>
           <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
         </div>`;
+    } else if (style === "tarot") {
+      inner += `
+        <div class="tarot-orn">✦</div>
+        ${cover}
+        <div class="meta">
+          <div class="tarot-arcana">NOW PLAYING</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>`;
+    } else if (style === "comic") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="comic-pow">NOW!</div>
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "folder") {
+      inner += `
+        <div class="folder-tab">TRACK</div>
+        <div class="folder-body">
+          ${cover}
+          <div class="meta">
+            <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+            <div class="artist">${escapeHtml(artist)}</div>
+            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+          </div>
+        </div>`;
+    } else if (style === "badge") {
+      inner += `
+        ${cover}
+        <div class="badge-ring"></div>
+        <div class="meta">
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>`;
+    } else if (style === "arcade") {
+      inner += `
+        <div class="arcade-marquee">HOPPLAY</div>
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>
+        <div class="arcade-btns"><b></b><b></b><b></b></div>`;
+    } else if (style === "synthwave") {
+      inner += `
+        <div class="sw-sun"></div>
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "chalkboard") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "receipt") {
+      inner += `
+        <div class="rc-shop">HOPPLAY MART</div>
+        <div class="rc-line">************************</div>
+        <div class="meta">
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="times"><span>${cur}</span><span>${dur}</span></div>
+        </div>
+        <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        <div class="rc-line">THANK YOU</div>`;
+    } else if (style === "postcard") {
+      inner += `
+        ${cover}
+        <div class="pc-stamp"></div>
+        <div class="meta">
+          <div class="pc-hello">Greetings from the mix</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>`;
+    } else if (style === "hud") {
+      inner += `
+        <span class="hud-c tl"></span><span class="hud-c tr"></span><span class="hud-c bl"></span><span class="hud-c br"></span>
+        ${cover}
+        <div class="meta">
+          <div class="hud-tag">SYS // AUDIO</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "chat") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="chat-from">Spotify</div>
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>`;
+    } else if (style === "wanted") {
+      inner += `
+        <div class="wanted-head">WANTED</div>
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="wanted-rew">REWARD: ONE LISTEN</div>
+        </div>`;
     }
 
     playerEl.innerHTML = inner;
@@ -543,7 +654,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 4,
+        ui: 5,
       });
       if (signature !== lastSig) {
         lastSig = signature;

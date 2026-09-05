@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0
+
+- 12 extra skins: Tarot, Comic, Folder, Badge, Arcade, Synthwave, Chalkboard, Receipt, Postcard, HUD, Chat, Wanted
+
 ## 1.3.1
 
 - Player glow option (halo around the whole widget)
