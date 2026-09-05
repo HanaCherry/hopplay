@@ -695,13 +695,276 @@ body.preview {
 .player.crt .crt-label { color: var(--accent); font-size: 10px; letter-spacing: 0.2em; margin-bottom: 6px; }
 .player.crt .title { color: #b6ffb0; font-size: 16px; }
 .player.crt .artist { color: #7cbf78; }
-.player.crt-scan {
+.player.crt .crt-scan {
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(transparent 0 2px, rgba(0,0,0,0.18) 2px 4px);
   pointer-events: none;
   z-index: 4;
 }
+
+/* ========== TICKET ========== */
+.player.ticket {
+  display: flex;
+  align-items: stretch;
+  width: 460px;
+  background: #f4efe4;
+  color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.player.ticket .ticket-stub {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  padding: 10px 8px;
+}
+.player.ticket .cover { width: 110px; height: 110px; border-radius: 0; }
+.player.ticket .meta { flex: 1; min-width: 0; padding: 12px 14px; }
+.player.ticket .tix-kicker { font-size: 10px; letter-spacing: 0.16em; color: #888; }
+.player.ticket .title { color: #111; font-size: 18px; }
+.player.ticket .artist { color: #444; }
+.player.ticket .playbar { background: rgba(0,0,0,0.12); margin-top: 8px; }
+
+/* ========== STICKY ========== */
+.player.sticky {
+  width: 240px;
+  padding: 16px;
+  background: #ffe56a;
+  color: #222;
+  box-shadow: 4px 8px 0 rgba(0,0,0,0.15);
+  transform: rotate(-1.5deg);
+}
+.player.sticky .cover { width: 100%; height: 120px; border-radius: 2px; margin-bottom: 10px; }
+.player.sticky .title { font-family: "Comic Sans MS", "Chalkboard SE", cursive; color: #222; font-size: 18px; }
+.player.sticky .artist { color: #5a4a20; }
+.player.sticky .playbar { background: rgba(0,0,0,0.12); }
+
+/* ========== PIXEL ========== */
+.player.pixel {
+  display: flex;
+  gap: 10px;
+  width: 420px;
+  padding: 12px;
+  background: #1b1030;
+  border: 4px solid #f0e6c8;
+  box-shadow: 0 0 0 4px #1b1030, 6px 6px 0 #000;
+  image-rendering: pixelated;
+}
+.player.pixel .cover { width: 72px; height: 72px; border-radius: 0; border: 3px solid #f0e6c8; }
+.player.pixel .meta { flex: 1; min-width: 0; font-family: "JetBrains Mono", monospace; }
+.player.pixel .px-name { color: #ffd76a; font-size: 10px; margin-bottom: 4px; }
+.player.pixel .title { font-size: 13px; }
+
+/* ========== HOLOGRAM ========== */
+.player.hologram {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 420px;
+  padding: 14px;
+  border-radius: 4px;
+  background: rgba(0, 40, 50, 0.55);
+  border: 1px solid #5cffef;
+  box-shadow: 0 0 24px rgba(92, 255, 239, 0.35);
+  backdrop-filter: blur(8px);
+}
+.player.hologram .cover { width: 84px; height: 84px; border-radius: 4px; opacity: 0.9; }
+.player.hologram .title { color: #c8fff8; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ========== STAMP ========== */
+.player.stamp {
+  width: 210px;
+  padding: 10px;
+  background: #f7f1e3;
+  color: #222;
+  border: 3px dashed #c45c4a;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.player.stamp .cover { width: 100%; height: 150px; border-radius: 0; }
+.player.stamp .stamp-mark {
+  position: absolute;
+  right: 14px;
+  top: 120px;
+  border: 2px solid #c45c4a;
+  color: #c45c4a;
+  font-weight: 800;
+  padding: 2px 6px;
+  transform: rotate(-18deg);
+  background: rgba(247,241,227,0.8);
+}
+.player.stamp .title { color: #222; margin-top: 8px; font-size: 14px; }
+
+/* ========== RADIO ========== */
+.player.radio {
+  width: 360px;
+  padding: 14px;
+  border-radius: 18px 18px 10px 10px;
+  background: linear-gradient(#d9b48a, #b88858);
+  box-shadow: var(--shadow);
+}
+.player.radio .radio-grille {
+  height: 36px;
+  border-radius: 8px;
+  background: repeating-linear-gradient(90deg, #2a2118 0 6px, #3d3226 6px 10px);
+  margin-bottom: 10px;
+}
+.player.radio .meta { display: flex; gap: 10px; align-items: center; background: #1e1812; padding: 10px; border-radius: 8px; }
+.player.radio .cover { width: 56px; height: 56px; border-radius: 6px; }
+.player.radio .radio-fm { font-size: 10px; letter-spacing: 0.14em; color: #e8c48a; }
+.player.radio .meta > div { flex: 1; min-width: 0; }
+
+/* ========== VHS ========== */
+.player.vhs {
+  width: 380px;
+  padding: 12px;
+  background: #1a1a1d;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+.player.vhs .vhs-label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #efe6c9;
+  color: #222;
+  padding: 10px;
+  border-radius: 2px;
+}
+.player.vhs .vhs-tab { background: #222; color: #efe6c9; font-size: 10px; font-weight: 800; padding: 4px 6px; }
+.player.vhs .cover { width: 64px; height: 64px; border-radius: 0; }
+.player.vhs .title { color: #111; }
+.player.vhs .artist { color: #444; }
+.player.vhs .vhs-kicker { font-size: 10px; letter-spacing: 0.12em; color: #888; }
+.player.vhs .meta { flex: 1; min-width: 0; }
+.player.vhs .playbar { background: rgba(0,0,0,0.15); }
+
+/* ========== BUBBLE ========== */
+.player.bubble {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 380px;
+  padding: 14px 16px;
+  background: #fff;
+  color: #222;
+  border-radius: 22px;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+.player.bubble .cover { width: 58px; height: 58px; border-radius: 50%; }
+.player.bubble .title { color: #111; }
+.player.bubble .artist { color: #666; }
+.player.bubble .bubble-tail {
+  position: absolute;
+  left: 28px;
+  bottom: -12px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+/* ========== LOWER THIRD ========== */
+.player.lowerthird {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 420px;
+  padding: 0 18px 0 0;
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, #111));
+  border-radius: 0 999px 999px 0;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.player.lowerthird .cover { width: 72px; height: 72px; border-radius: 0; }
+.player.lowerthird .title { font-size: 18px; text-transform: uppercase; }
+.player.lowerthird .meta { flex: 1; min-width: 0; padding: 10px 0; }
+
+/* ========== WATCH ========== */
+.player.watch {
+  width: 196px;
+  height: 196px;
+  border-radius: 42px;
+  padding: 10px;
+  background: #111;
+  box-shadow: 0 0 0 8px #2a2a2e, var(--shadow);
+}
+.player.watch .watch-bezel {
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+}
+.player.watch .cover { width: 100%; height: 100%; border-radius: 32px; }
+.player.watch .watch-info {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 24px 10px 10px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+}
+.player.watch .title { font-size: 12px; }
+
+/* ========== NEWSPAPER ========== */
+.player.newspaper {
+  width: 280px;
+  padding: 12px;
+  background: #f3ecd8;
+  color: #1a1a1a;
+  box-shadow: var(--shadow);
+  font-family: Georgia, "Times New Roman", serif;
+}
+.player.newspaper .news-mast {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  border-bottom: 3px solid #111;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+}
+.player.newspaper .cover { width: 100%; height: 140px; border-radius: 0; filter: grayscale(1); }
+.player.newspaper .title { color: #111; font-size: 20px; margin-top: 8px; }
+.player.newspaper .artist { color: #444; font-style: italic; }
+.player.newspaper .playbar { background: rgba(0,0,0,0.15); }
+
+/* ========== NOTEBOOK ========== */
+.player.notebook {
+  display: flex;
+  width: 360px;
+  min-height: 110px;
+  background:
+    repeating-linear-gradient(#fff 0 27px, #d7e6f5 27px 28px);
+  color: #1a1a1a;
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  padding: 12px 12px 12px 36px;
+  gap: 12px;
+  align-items: center;
+}
+.player.notebook .nb-margin {
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e58;
+}
+.player.notebook .cover { width: 72px; height: 72px; border-radius: 4px; }
+.player.notebook .title { color: #123; font-family: "Segoe Script", "Comic Sans MS", cursive; font-size: 16px; }
+.player.notebook .artist { color: #456; }
+.player.notebook .playbar { background: rgba(0,0,0,0.12); }
+.player.notebook .meta { flex: 1; min-width: 0; }
 
 @keyframes bounce {
   0%, 100% { transform: scaleY(0.35); }

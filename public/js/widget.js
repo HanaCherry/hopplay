@@ -250,7 +250,7 @@
           <div class="artist">${escapeHtml(artist)}</div>
         </div>
         <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>`;
-    } else if (style === "neon" || style === "glass" || style === "toast") {
+    } else if (style === "neon" || style === "glass" || style === "toast" || style === "hologram" || style === "lowerthird") {
       inner += `
         ${cover}
         <div class="meta">
@@ -306,6 +306,102 @@
           <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
           <div class="artist">${escapeHtml(artist)}</div>
           <div class="times"><span>${cur}</span><span>${dur}</span></div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "ticket") {
+      inner += `
+        <div class="ticket-stub">LIVE</div>
+        ${cover}
+        <div class="meta">
+          <div class="tix-kicker">ADMIT ONE</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="times"><span>${cur}</span><span>${dur}</span></div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "sticky") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "pixel") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="px-name">★ NOW PLAYING</div>
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "stamp") {
+      inner += `
+        ${cover}
+        <div class="stamp-mark">NOW</div>
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>`;
+    } else if (style === "radio") {
+      inner += `
+        <div class="radio-grille"></div>
+        <div class="meta">
+          ${cover}
+          <div>
+            <div class="radio-fm">FM 98.7</div>
+            <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+            <div class="artist">${escapeHtml(artist)}</div>
+            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+          </div>
+        </div>`;
+    } else if (style === "vhs") {
+      inner += `
+        <div class="vhs-label">
+          <div class="vhs-tab">SP</div>
+          ${cover}
+          <div class="meta">
+            <div class="vhs-kicker">TRACK 01</div>
+            <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+            <div class="artist">${escapeHtml(artist)}</div>
+            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+          </div>
+        </div>`;
+    } else if (style === "bubble") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>
+        <i class="bubble-tail"></i>`;
+    } else if (style === "watch") {
+      inner += `
+        <div class="watch-bezel">
+          ${cover}
+          <div class="watch-info">
+            <div class="title">${escapeHtml(title)}</div>
+            <div class="artist">${escapeHtml(artist)}</div>
+            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+          </div>
+        </div>`;
+    } else if (style === "newspaper") {
+      inner += `
+        <div class="news-mast">THE DAILY MIX</div>
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "notebook") {
+      inner += `
+        <div class="nb-margin"></div>
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
           <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
         </div>`;
     }
@@ -446,7 +542,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 3,
+        ui: 4,
       });
       if (signature !== lastSig) {
         lastSig = signature;
