@@ -26,6 +26,8 @@ Riproduci un brano su Spotify (opzionale) o usa la modalità demo, scegli uno sk
 - Effetti di comparsa e scomparsa (fade, slide, scale, pop, blur) con tempi
 - Fino a 5 profili, ognuno con il proprio URL OBS
 - Interfaccia in 30 lingue
+- Dimensione e opacità del lettore regolabili e salvate separatamente per ogni profilo
+- Scelta tra Spotify connesso e rilevamento locale di Windows, con titolo, artista, avanzamento e copertina; i limiti Spotify vengono gestiti automaticamente
 - Modalità demo locale (nessun account Spotify)
 - Aggiornamenti da GitHub Releases (`data/` viene conservato)
 

@@ -26,6 +26,8 @@ Phát một bài trên Spotify (tuỳ chọn) hoặc dùng chế độ demo, ch�
 - Hiệu ứng hiện/ẩn (fade, trượt, scale, pop, mờ) kèm thời gian
 - Tối đa 5 hồ sơ, mỗi hồ sơ một URL OBS riêng
 - Giao diện 30 ngôn ngữ
+- Có thể chỉnh kích thước và độ mờ trình phát, lưu riêng cho từng hồ sơ
+- Chọn Spotify đã kết nối hoặc phát hiện cục bộ Windows, gồm tiêu đề, nghệ sĩ, tiến trình và ảnh album; giới hạn Spotify được xử lý tự động
 - Chế độ demo local (không cần tài khoản Spotify)
 - Cập nhật trong ứng dụng từ GitHub Releases (giữ `data/`)
 

@@ -26,6 +26,8 @@ Toista kappale Spotifyssa (valinnainen) tai käytä demotilaa, valitse ulkoasu j
 - Esiin- ja poisefektit (fade, slide, scale, pop, blur) ajoituksella
 - Enintään 5 profiilia, kullakin oma OBS-URL
 - Käyttöliittymä 30 kielellä
+- Säädettävä soittimen koko ja läpinäkyvyys, jotka tallennetaan erikseen jokaiseen profiiliin
+- Valitse yhdistetty Spotify tai Windowsin paikallinen tunnistus, joka näyttää kappaleen, artistin, etenemisen ja kansikuvan; Spotify-rajoitukset käsitellään automaattisesti
 - Paikallinen demotila (Spotify-tiliä ei tarvita)
 - Päivitykset GitHub Releasesistä (`data/` säilytetään)
 
