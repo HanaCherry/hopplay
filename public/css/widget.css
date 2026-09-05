@@ -1620,187 +1620,72 @@ body.preview {
 }
 
 /* ========== GALAXY BUNNY ========== */
+/* Galaxy Bunny: compact glass player, shared playback state. */
 .player.galaxybunny {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 640px;
-  padding: 12px 18px 12px 12px;
-  border-radius: 28px;
-  overflow: visible;
-  position: relative;
-  background: linear-gradient(105deg, rgba(42, 22, 78, 0.82), rgba(28, 18, 72, 0.78) 55%, rgba(48, 24, 90, 0.8));
-  border: 2px solid rgba(255, 160, 230, 0.55);
-  box-shadow:
-    0 0 0 1px rgba(120, 220, 255, 0.35),
-    0 0 22px rgba(180, 80, 255, 0.45),
-    inset 0 0 24px rgba(160, 80, 255, 0.18);
-  backdrop-filter: blur(16px);
+  display: flex; align-items: center; gap: 18px;
+  width: 560px; max-width: 100%; min-width: 0;
+  padding: 20px; position: relative; overflow: visible;
+  border-radius: 24px; color: #f9f5ff;
+  border: 1px solid rgba(225, 185, 255, .24);
+  background: linear-gradient(115deg, rgba(29,22,44,.96), rgba(16,19,34,.93));
+  box-shadow: 0 18px 48px #0005, inset 0 1px 0 #ffffff0d;
+  backdrop-filter: blur(24px);
 }
+.player.galaxybunny.player-glow:not(.hidden) {
+  filter: drop-shadow(0 0 12px #b98cfa24);
+}
+.player.galaxybunny .blur-bg { inset: 0; opacity: .09; overflow: hidden; pointer-events: none; }
 .player.galaxybunny .cover {
-  width: 92px;
-  height: 92px;
-  border-radius: 18px;
-  flex-shrink: 0;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  width: 104px; height: 104px; flex: 0 0 104px; border-radius: 16px;
+  background: linear-gradient(135deg,#b883bd,#555592 60%,#8abcd3);
+  box-shadow: 0 8px 24px #0004; overflow: hidden;
 }
-.player.galaxybunny .meta { flex: 1; min-width: 0; }
-.player.galaxybunny .title { font-size: 18px; font-weight: 800; }
-.player.galaxybunny .artist { font-size: 13px; color: rgba(255,255,255,0.75); margin: 2px 0 8px; }
-.player.galaxybunny .gb-ctrls {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 2px 0 8px;
+.player.galaxybunny .meta { flex: 1; min-width: 0; position: relative; z-index: 1; padding-top: 14px; }
+.player.galaxybunny .title { font-size: 17px; line-height: 1.4; font-weight: 700; letter-spacing: -.025em; }
+.player.galaxybunny .artist { font-size: 12px; color: #b8afc8; margin: 3px 0 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player.galaxybunny .gb-word { position: absolute; right: 20px; top: 12px; font-size: 10px; font-weight: 700; letter-spacing: .08em; color: #ded2ec; }
+.player.galaxybunny .gb-word span { color: #e7a8d8; }
+.player.galaxybunny .gb-ctrls { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 7px 0 9px; }
+.player.galaxybunny .gb-button { display: grid; place-items: center; width: 32px; height: 32px; flex: 0 0 32px; padding: 7px; border: 0; border-radius: 50%; color: #c4bad3; background: transparent; cursor: pointer; transition: background .15s, color .15s, transform .15s; }
+.player.galaxybunny .gb-button svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.player.galaxybunny .gb-button[data-action="toggle"] { width: 38px; height: 38px; flex-basis: 38px; padding: 10px; color: #201a32; background: linear-gradient(135deg,#f0b6da,#c1b6f9 65%,#a9d8ef); box-shadow: 0 3px 14px #c49cef30; }
+.player.galaxybunny .gb-button:hover { background-color: #ffffff13; color: #fff; transform: translateY(-1px); }
+.player.galaxybunny .gb-button[aria-pressed="true"] { color: #f3adda; background: #eab0e215; }
+.player.galaxybunny .gb-button:focus-visible, .player.galaxybunny .gb-seek:focus-visible { outline: 2px solid #b9dfff; outline-offset: 4px; }
+.player.galaxybunny .gb-button:disabled { opacity: .4; cursor: wait; transform: none; }
+.player.galaxybunny .gb-pause-icon, .player.galaxybunny.playing .gb-play-icon, .player.galaxybunny .gb-repeat-one { display: none; }
+.player.galaxybunny.playing .gb-pause-icon, .player.galaxybunny [data-repeat="track"] .gb-repeat-one { display: block; }
+.player.galaxybunny .gb-repeat-one { font-size: 10px; fill: currentColor; stroke: none; }
+.player.galaxybunny .gb-prog { display: flex; align-items: center; gap: 9px; color: #a99eb9; font-size: 10px; font-variant-numeric: tabular-nums; }
+.player.galaxybunny .playbar { flex: 1; position: relative; height: 3px; border-radius: 8px; background: #ffffff18; overflow: visible; }
+.player.galaxybunny #active { height: 100%; border-radius: inherit; background: linear-gradient(90deg,#e7a5cf,#b5a4ec,#97d1ec); }
+.player.galaxybunny .gb-seek { position: absolute; inset: -10px 0; width: 100%; height: 23px; margin: 0; opacity: 0; cursor: pointer; }
+.player.galaxybunny .playbar:focus-within { outline: 2px solid #b9dfff; outline-offset: 5px; }
+.player.galaxybunny .gb-ears { position: absolute; top: -21px; left: 38px; display: flex; gap: 7px; pointer-events: none; }
+.player.galaxybunny .gb-ears b { width: 12px; height: 28px; border-radius: 70% 70% 30% 30%; border: 1px solid #d4b5e670; background: linear-gradient(#40304e,#251e35); box-shadow: inset 0 0 0 3px #211a31; }
+.player.galaxybunny .gb-ears .pink { transform: rotate(-15deg); background: #c88cac; }
+.player.galaxybunny .gb-ears .space { transform: rotate(15deg); background: #8e8dc9; }
+.player.galaxybunny .flower { position: absolute; left: 23px; top: 23px; width: 10px; height: 10px; background: #e9b4d7; clip-path: polygon(50% 0,65% 25%,98% 25%,78% 52%,90% 85%,55% 75%,27% 100%,25% 65%,0 45%,35% 32%); }
+.player.galaxybunny .gb-orbit { position: absolute; right: 18px; top: 11px; width: 12px; height: 5px; border: 1px solid #bfa0df; border-radius: 50%; transform: rotate(-30deg); display: none; }
+.player.galaxybunny .gb-petals { pointer-events: none; }
+.player.galaxybunny .gb-petals i { position: absolute; width: 7px; height: 5px; background: #edb4d6; border-radius: 80% 0 80% 20%; opacity: .3; }
+.player.galaxybunny .gb-petals i:nth-child(1) { right: 110px; top: 12px; transform: rotate(20deg); }
+.player.galaxybunny .gb-petals i:nth-child(2) { right: 12px; bottom: 16px; transform: rotate(-20deg); }
+.player.galaxybunny .gb-petals i:nth-child(3) { left: 10px; bottom: 10px; }
+.player.galaxybunny .gb-status { position: absolute; bottom: 100%; right: 0; max-width: 320px; margin-bottom: 9px; padding: 8px 12px; border-radius: 10px; background: #211b30; color: #f3c5de; font-size: 12px; }
+.player.galaxybunny .gb-status:empty { display: none; }
+#stage:has(.galaxybunny)[data-place^="t"] { padding-top: 48px; }
+@media (max-width: 480px) {
+  #stage:has(.galaxybunny) { padding-left: 14px; padding-right: 14px; }
+  .player.galaxybunny { gap: 12px; padding: 15px 12px; border-radius: 20px; }
+  .player.galaxybunny .cover { width: 66px; height: 80px; flex-basis: 66px; border-radius: 12px; }
+  .player.galaxybunny .title { font-size: 14px; }
+  .player.galaxybunny .gb-ctrls { gap: 5px; }
+  .player.galaxybunny .gb-word { right: 13px; top: 8px; font-size: 9px; }
 }
-.player.galaxybunny .ico { position: relative; opacity: 0.85; }
-.player.galaxybunny .ico.prev,
-.player.galaxybunny .ico.next {
-  width: 0;
-  height: 0;
-  border-style: solid;
+@media (prefers-reduced-motion: reduce) {
+  .player.galaxybunny, .player.galaxybunny * { animation: none !important; transition: none !important; }
 }
-.player.galaxybunny .ico.prev {
-  border-width: 6px 9px 6px 0;
-  border-color: transparent #fff transparent transparent;
-}
-.player.galaxybunny .ico.next {
-  border-width: 6px 0 6px 9px;
-  border-color: transparent transparent transparent #fff;
-}
-.player.galaxybunny .ico.play {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #7ef0ff, #c48cff);
-  box-shadow: 0 0 16px rgba(120, 220, 255, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-}
-.player.galaxybunny .ico.play i {
-  width: 4px;
-  height: 14px;
-  background: #1a1040;
-  border-radius: 2px;
-  animation: none;
-}
-.player.galaxybunny .ico.sh,
-.player.galaxybunny .ico.rp {
-  width: 14px;
-  height: 10px;
-  border: 2px solid #fff;
-  border-radius: 3px;
-  opacity: 0.7;
-}
-.player.galaxybunny .gb-prog {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-variant-numeric: tabular-nums;
-  color: rgba(255,255,255,0.7);
-}
-.player.galaxybunny .playbar {
-  flex: 1;
-  height: 4px;
-  background: rgba(255,255,255,0.18);
-  position: relative;
-}
-.player.galaxybunny #active {
-  position: relative;
-  background: linear-gradient(90deg, #ff8ad4, #c48cff);
-}
-.player.galaxybunny #active::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  margin-top: -6px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 8px #ffb0ea;
-}
-.player.galaxybunny .gb-word {
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: -0.03em;
-  align-self: center;
-  margin-left: 6px;
-  z-index: 2;
-}
-.player.galaxybunny .gb-word span {
-  background: linear-gradient(90deg, #6ec8ff, #d48cff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.player.galaxybunny .gb-ears {
-  position: absolute;
-  right: 54px;
-  top: -46px;
-  display: flex;
-  gap: 10px;
-  z-index: 3;
-  pointer-events: none;
-}
-.player.galaxybunny .gb-ears b {
-  width: 34px;
-  height: 68px;
-  border-radius: 50% 50% 42% 42%;
-  box-shadow: 0 0 12px rgba(180, 140, 255, 0.55);
-}
-.player.galaxybunny .gb-ears b.pink {
-  background: linear-gradient(#fff, #ffd0f0 70%, #ffb0e0);
-  transform: rotate(-12deg);
-}
-.player.galaxybunny .gb-ears b.space {
-  background:
-    radial-gradient(circle at 40% 28%, #fff 1px, transparent 2px),
-    radial-gradient(circle at 62% 48%, #fff 1px, transparent 2px),
-    linear-gradient(#c9b8ff, #6a4dff 40%, #3a2088);
-  transform: rotate(14deg);
-}
-.player.galaxybunny .gb-ears .flower {
-  position: absolute;
-  left: 18px;
-  bottom: 6px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, #ffd0e8, #ff6aaa);
-  box-shadow: 0 0 0 3px #fff, 0 0 10px #ff8ac8;
-}
-.player.galaxybunny .gb-orbit {
-  position: absolute;
-  right: -24px;
-  top: 18px;
-  width: 150px;
-  height: 86px;
-  border: 3px solid transparent;
-  border-radius: 50%;
-  border-top: 3px solid #ff9ad8;
-  border-right: 3px solid #8ad8ff;
-  transform: rotate(-28deg);
-  pointer-events: none;
-  filter: drop-shadow(0 0 6px #e8a);
-}
-.player.galaxybunny .gb-petals i {
-  position: absolute;
-  width: 14px;
-  height: 10px;
-  background: #ff8ab8;
-  border-radius: 50% 0 50% 50%;
-  opacity: 0.8;
-  pointer-events: none;
-}
-.player.galaxybunny .gb-petals i:nth-child(1) { left: -10px; top: 18px; transform: rotate(-30deg); }
-.player.galaxybunny .gb-petals i:nth-child(2) { right: 8px; bottom: -8px; transform: rotate(50deg); }
-.player.galaxybunny .gb-petals i:nth-child(3) { right: 70px; top: -6px; transform: rotate(20deg); opacity: 0.55; }
-
 @keyframes twinkle {
   0%, 100% { opacity: 0.25; transform: scale(0.7); }
   50% { opacity: 1; transform: scale(1.2); }

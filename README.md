@@ -35,6 +35,22 @@ When a new GitHub release is published, the dashboard offers **Update now**. You
 
 ## OBS
 
+### Galaxy Bunny mini-player
+
+Choose **Galaxy Bunny** in the dashboard's player skins. The redesigned compact
+glass card includes accessible playback buttons and a seek slider, with subtle
+bunny ears, sakura petals and pink/purple/blue accents. It also fits narrow previews.
+
+Controls use the existing Spotify session and active device; they do not create
+a second audio player. Reconnect Spotify once after updating to grant
+`user-modify-playback-state`. Spotify playback commands require Premium and an
+active device. Errors appear above the card. In OBS, use **Interact** to operate
+the browser source, or use the dashboard preview.
+
+Without Spotify, the existing demo simulates playback silently, including pause,
+seek, previous/next, shuffle and repeat (off → all → track). No audio is streamed
+in demo mode. Run `npm test` for playback regression tests.
+
 1. Source → Browser
 2. Name: `HopPlay`
 3. URL from the dashboard

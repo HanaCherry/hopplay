@@ -696,11 +696,11 @@
           <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
           <div class="artist">${escapeHtml(artist)}</div>
           <div class="gb-ctrls">
-            <span class="ico sh"></span>
-            <span class="ico prev"></span>
-            <span class="ico play"><i></i><i></i></span>
-            <span class="ico next"></span>
-            <span class="ico rp"></span>
+            ${controlButton("shuffle", "Lecture aléatoire", "<path d='m3 4 4 0 10 12h4m-4-4 4 4-4 4M3 16h4l3-4m4-4 3-4h4m-4-4 4 4-4 4'/>")}
+            ${controlButton("previous", "Titre précédent", "<path d='M5 4v16M19 4 7 12l12 8Z'/>")}
+            ${controlButton("toggle", "Lecture", "<path class='gb-play-icon' d='m8 4 12 8-12 8Z'/><path class='gb-pause-icon' d='M8 4v16M16 4v16'/>")}
+            ${controlButton("next", "Titre suivant", "<path d='M19 4v16M5 4l12 8-12 8Z'/>")}
+            ${controlButton("repeat", "Répétition désactivée", "<path d='M3 10V7a3 3 0 0 1 3-3h14m-4-3 4 3-4 3M21 14v3a3 3 0 0 1-3 3H4m4-3-4 3 4 3'/><text class='gb-repeat-one' x='9' y='16'>1</text>")}
           </div>
           <div class="gb-prog">
             <span>${cur}</span>
@@ -708,15 +708,84 @@
             <span>${dur}</span>
           </div>
         </div>
-        <div class="gb-word">Hop<span>Play</span></div>`;
+        <div class="gb-word">Hop<span>Play</span></div>
+        <div class="gb-status" role="status" aria-live="polite"></div>`;
     }
 
     playerEl.innerHTML = inner;
+    if (style === "galaxybunny") {
+      $("#playbar", playerEl).insertAdjacentHTML("beforeend", '<input class="gb-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Position de lecture" />');
+      syncControls();
+    }
     const titleEl = $(".title", playerEl);
     if (titleEl && titleEl.scrollWidth > titleEl.parentElement.clientWidth + 4) {
       titleEl.classList.add("animated-title");
     }
   }
+
+  let controlBusy = false;
+  function controlButton(action, label, drawing) {
+    return `<button type="button" class="gb-button" data-action="${action}" aria-label="${label}" title="${label}"><svg viewBox="0 0 24 24" aria-hidden="true">${drawing}</svg></button>`;
+  }
+
+  function syncControls() {
+    if (!now) return;
+    playerEl.querySelectorAll(".gb-button").forEach((button) => {
+      const action = button.dataset.action;
+      button.disabled = !now.title;
+      button.setAttribute("aria-disabled", String(controlBusy || !now.title));
+      if (action === "toggle") button.setAttribute("aria-label", now.is_playing ? "Pause" : "Lecture");
+      if (action === "shuffle") button.setAttribute("aria-pressed", String(!!now.shuffle_state));
+      if (action === "repeat") {
+        button.setAttribute("aria-pressed", String(now.repeat_state !== "off"));
+        button.dataset.repeat = now.repeat_state;
+        button.setAttribute("aria-label", `Répétition : ${now.repeat_state === "track" ? "ce titre" : now.repeat_state === "context" ? "tous les titres" : "désactivée"}`);
+      }
+      button.title = button.getAttribute("aria-label");
+    });
+    const seek = $(".gb-seek", playerEl);
+    if (seek) {
+      seek.disabled = !now.duration_ms;
+      if (document.activeElement !== seek) seek.value = now.duration_ms ? localProgress / now.duration_ms * 100 : 0;
+      seek.setAttribute("aria-valuetext", `${fmt(localProgress)} / ${fmt(now.duration_ms || 0)}`);
+    }
+  }
+
+  async function command(action, value) {
+    if (controlBusy) return;
+    controlBusy = true;
+    syncControls();
+    const status = $(".gb-status", playerEl);
+    if (status) status.textContent = "";
+    try {
+      const response = await fetch(`/api/player/${action}`, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ value }), signal: AbortSignal.timeout(12000),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Commande impossible.");
+      await poll();
+    } catch (error) {
+      const message = $(".gb-status", playerEl);
+      if (message) message.textContent = error.message;
+    } finally {
+      controlBusy = false;
+      syncControls();
+    }
+  }
+  playerEl.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-action]");
+    if (!button || !now) return;
+    let action = button.dataset.action;
+    let value;
+    if (action === "toggle") action = now.is_playing ? "pause" : "play";
+    if (action === "shuffle") value = !now.shuffle_state;
+    if (action === "repeat") value = { off: "context", context: "track", track: "off" }[now.repeat_state || "off"];
+    command(action, value);
+  });
+  playerEl.addEventListener("change", (event) => {
+    if (event.target.matches(".gb-seek") && now?.duration_ms) command("seek", Math.round(Number(event.target.value) / 100 * now.duration_ms));
+  });
 
   function escapeHtml(str) {
     return String(str)
@@ -789,12 +858,13 @@
         (now.progress_ms || 0) + (Date.now() - lastPoll)
       );
     } else {
-      localProgress = now.progress_ms || localProgress;
+      localProgress = now.progress_ms ?? localProgress;
     }
     const bar = document.getElementById("active");
     if (bar && now.duration_ms) {
       bar.style.width = `${Math.min(100, (localProgress / now.duration_ms) * 100)}%`;
     }
+    syncControls();
     const style = settings.player;
     if (style === "shell") {
       const hash = $(".hash", playerEl);
@@ -815,7 +885,10 @@
     }
   }
 
+  let polling = false;
   async function poll() {
+    if (polling) return;
+    polling = true;
     try {
       const qs = profileId ? `?profile=${encodeURIComponent(profileId)}` : "";
       const [sRes, nRes] = await Promise.all([
@@ -879,6 +952,7 @@
         render(settings, now);
       }
       playerEl.classList.toggle("playing", !!now.is_playing);
+      syncControls();
       if (isPreview && (now.needsAuth || now.message) && !now.title) {
         playerEl.className = "player compact";
         playerEl.classList.remove("hidden");
@@ -893,6 +967,8 @@
       lastPlaying = !!now.is_playing;
     } catch (err) {
       console.warn(err);
+    } finally {
+      polling = false;
     }
   }
 
