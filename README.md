@@ -1,6 +1,6 @@
 # Hopplay
 
-Now-playing overlay for OBS, Streamlabs, and other browser sources.
+**v1.2.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
 **By [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
