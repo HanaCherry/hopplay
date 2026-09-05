@@ -120,6 +120,7 @@ function defaultProfile(id, name) {
     appearDuration: 0.7,
     hideDuration: 0.45,
     appearDelay: 0.05,
+    playerScale: 100,
   };
 }
 

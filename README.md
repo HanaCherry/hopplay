@@ -8,7 +8,7 @@ Click a language to read the presentation here, without leaving this page.
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ec-1f1e7.png?v8" width="20" height="20" alt=":gb:"> <strong>English</strong></summary>
 
-**v1.8.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
+**v1.8.1** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
 **By [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -91,7 +91,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1eb-1f1f7.png?v8" width="20" height="20" alt=":fr:"> <strong>Français</strong></summary>
 
-**v1.8.0** — overlay now playing pour OBS, Streamlabs et les autres sources navigateur.
+**v1.8.1** — overlay now playing pour OBS, Streamlabs et les autres sources navigateur.
 
 **Par [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -158,7 +158,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ea-1f1f8.png?v8" width="20" height="20" alt=":es:"> <strong>Español</strong></summary>
 
-**v1.8.0** — overlay now playing para OBS, Streamlabs y otras fuentes de navegador.
+**v1.8.1** — overlay now playing para OBS, Streamlabs y otras fuentes de navegador.
 
 **Por [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -225,7 +225,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f5-1f1f9.png?v8" width="20" height="20" alt=":portugal:"> <strong>Português</strong></summary>
 
-**v1.8.0** — overlay now playing para OBS, Streamlabs e outras fontes de navegador.
+**v1.8.1** — overlay now playing para OBS, Streamlabs e outras fontes de navegador.
 
 **Por [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -292,7 +292,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1ea.png?v8" width="20" height="20" alt=":de:"> <strong>Deutsch</strong></summary>
 
-**v1.8.0** — Now-Playing-Overlay für OBS, Streamlabs und andere Browserquellen.
+**v1.8.1** — Now-Playing-Overlay für OBS, Streamlabs und andere Browserquellen.
 
 **Von [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -359,7 +359,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ee-1f1f9.png?v8" width="20" height="20" alt=":it:"> <strong>Italiano</strong></summary>
 
-**v1.8.0** — overlay now playing per OBS, Streamlabs e altre sorgenti browser.
+**v1.8.1** — overlay now playing per OBS, Streamlabs e altre sorgenti browser.
 
 **Di [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -426,7 +426,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f3-1f1f1.png?v8" width="20" height="20" alt=":netherlands:"> <strong>Nederlands</strong></summary>
 
-**v1.8.0** — now-playing overlay voor OBS, Streamlabs en andere bronnen in de browser.
+**v1.8.1** — now-playing overlay voor OBS, Streamlabs en andere bronnen in de browser.
 
 **Door [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -493,7 +493,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f5-1f1f1.png?v8" width="20" height="20" alt=":poland:"> <strong>Polski</strong></summary>
 
-**v1.8.0** — nakładka now playing dla OBS, Streamlabs i innych źródeł przeglądarki.
+**v1.8.1** — nakładka now playing dla OBS, Streamlabs i innych źródeł przeglądarki.
 
 **Od [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -560,7 +560,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f7-1f1fa.png?v8" width="20" height="20" alt=":ru:"> <strong>Русский</strong></summary>
 
-**v1.8.0** — оверлей now playing для OBS, Streamlabs и других браузерных источников.
+**v1.8.1** — оверлей now playing для OBS, Streamlabs и других браузерных источников.
 
 **От [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -627,7 +627,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1e6.png?v8" width="20" height="20" alt=":ukraine:"> <strong>Українська</strong></summary>
 
-**v1.8.0** — оверлей now playing для OBS, Streamlabs та інших браузерних джерел.
+**v1.8.1** — оверлей now playing для OBS, Streamlabs та інших браузерних джерел.
 
 **Від [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -694,7 +694,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ef-1f1f5.png?v8" width="20" height="20" alt=":jp:"> <strong>日本語</strong></summary>
 
-**v1.8.0** — OBS、Streamlabs、その他のブラウザソース向けナウプレイングオーバーレイ。
+**v1.8.1** — OBS、Streamlabs、その他のブラウザソース向けナウプレイングオーバーレイ。
 
 **制作 [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -761,7 +761,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f0-1f1f7.png?v8" width="20" height="20" alt=":kr:"> <strong>한국어</strong></summary>
 
-**v1.8.0** — OBS, Streamlabs 및 기타 브라우저 소스용 나우 플레잉 오버레이.
+**v1.8.1** — OBS, Streamlabs 및 기타 브라우저 소스용 나우 플레잉 오버레이.
 
 **제작 [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -828,7 +828,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png?v8" width="20" height="20" alt=":cn:"> <strong>中文</strong></summary>
 
-**v1.8.0** — 适用于 OBS、Streamlabs 及其他浏览器源的正在播放叠加层。
+**v1.8.1** — 适用于 OBS、Streamlabs 及其他浏览器源的正在播放叠加层。
 
 **出品 [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -895,7 +895,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f8-1f1e6.png?v8" width="20" height="20" alt=":saudi_arabia:"> <strong>العربية</strong></summary>
 
-**v1.8.0** — طبقة now playing لـ OBS وStreamlabs ومصادر المتصفح الأخرى.
+**v1.8.1** — طبقة now playing لـ OBS وStreamlabs ومصادر المتصفح الأخرى.
 
 **من [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -962,7 +962,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1f7.png?v8" width="20" height="20" alt=":tr:"> <strong>Türkçe</strong></summary>
 
-**v1.8.0** — OBS, Streamlabs ve diğer tarayıcı kaynakları için now playing katmanı.
+**v1.8.1** — OBS, Streamlabs ve diğer tarayıcı kaynakları için now playing katmanı.
 
 **Yapan [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1029,7 +1029,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ee-1f1f3.png?v8" width="20" height="20" alt=":india:"> <strong>हिन्दी</strong></summary>
 
-**v1.8.0** — OBS, Streamlabs और अन्य ब्राउज़र स्रोतों के लिए नाउ-प्लेइंग ओवरले।
+**v1.8.1** — OBS, Streamlabs और अन्य ब्राउज़र स्रोतों के लिए नाउ-प्लेइंग ओवरले।
 
 **द्वारा [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1096,7 +1096,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1e9.png?v8" width="20" height="20" alt=":bangladesh:"> <strong>বাংলা</strong></summary>
 
-**v1.8.0** — OBS, Streamlabs ও অন্যান্য ব্রাউজার সোর্সের জন্য নাউ-প্লেইং ওভারলে।
+**v1.8.1** — OBS, Streamlabs ও অন্যান্য ব্রাউজার সোর্সের জন্য নাউ-প্লেইং ওভারলে।
 
 **তৈরি [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1163,7 +1163,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ee-1f1e9.png?v8" width="20" height="20" alt=":indonesia:"> <strong>Bahasa Indonesia</strong></summary>
 
-**v1.8.0** — overlay now playing untuk OBS, Streamlabs, dan sumber browser lain.
+**v1.8.1** — overlay now playing untuk OBS, Streamlabs, dan sumber browser lain.
 
 **Oleh [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1230,7 +1230,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fb-1f1f3.png?v8" width="20" height="20" alt=":vietnam:"> <strong>Tiếng Việt</strong></summary>
 
-**v1.8.0** — lớp phủ đang phát cho OBS, Streamlabs và các nguồn trình duyệt khác.
+**v1.8.1** — lớp phủ đang phát cho OBS, Streamlabs và các nguồn trình duyệt khác.
 
 **Bởi [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1297,7 +1297,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1ed.png?v8" width="20" height="20" alt=":thailand:"> <strong>ไทย</strong></summary>
 
-**v1.8.0** — โอเวอร์เลย์กำลังเล่นสำหรับ OBS, Streamlabs และแหล่งเบราว์เซอร์อื่น
+**v1.8.1** — โอเวอร์เลย์กำลังเล่นสำหรับ OBS, Streamlabs และแหล่งเบราว์เซอร์อื่น
 
 **โดย [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1364,7 +1364,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f8-1f1ea.png?v8" width="20" height="20" alt=":sweden:"> <strong>Svenska</strong></summary>
 
-**v1.8.0** — now playing-overlay för OBS, Streamlabs och andra webbläsarkällor.
+**v1.8.1** — now playing-overlay för OBS, Streamlabs och andra webbläsarkällor.
 
 **Av [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1431,7 +1431,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f3-1f1f4.png?v8" width="20" height="20" alt=":norway:"> <strong>Norsk</strong></summary>
 
-**v1.8.0** — now playing-overlay for OBS, Streamlabs og andre nettleserkilder.
+**v1.8.1** — now playing-overlay for OBS, Streamlabs og andre nettleserkilder.
 
 **Av [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1498,7 +1498,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1f0.png?v8" width="20" height="20" alt=":denmark:"> <strong>Dansk</strong></summary>
 
-**v1.8.0** — now playing-overlay til OBS, Streamlabs og andre browserkilder.
+**v1.8.1** — now playing-overlay til OBS, Streamlabs og andre browserkilder.
 
 **Af [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1565,7 +1565,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1eb-1f1ee.png?v8" width="20" height="20" alt=":finland:"> <strong>Suomi</strong></summary>
 
-**v1.8.0** — now playing -overlay OBS:lle, Streamlabsille ja muille selainlähteille.
+**v1.8.1** — now playing -overlay OBS:lle, Streamlabsille ja muille selainlähteille.
 
 **Tekijä [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1632,7 +1632,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1ff.png?v8" width="20" height="20" alt=":czech_republic:"> <strong>Čeština</strong></summary>
 
-**v1.8.0** — now playing overlay pro OBS, Streamlabs a další prohlížečové zdroje.
+**v1.8.1** — now playing overlay pro OBS, Streamlabs a další prohlížečové zdroje.
 
 **Od [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1699,7 +1699,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f7-1f1f4.png?v8" width="20" height="20" alt=":romania:"> <strong>Română</strong></summary>
 
-**v1.8.0** — overlay now playing pentru OBS, Streamlabs și alte surse din browser.
+**v1.8.1** — overlay now playing pentru OBS, Streamlabs și alte surse din browser.
 
 **De [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1766,7 +1766,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ec-1f1f7.png?v8" width="20" height="20" alt=":greece:"> <strong>Ελληνικά</strong></summary>
 
-**v1.8.0** — overlay now playing για OBS, Streamlabs και άλλες πηγές προγράμματος περιήγησης.
+**v1.8.1** — overlay now playing για OBS, Streamlabs και άλλες πηγές προγράμματος περιήγησης.
 
 **Από [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1833,7 +1833,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ed-1f1fa.png?v8" width="20" height="20" alt=":hungary:"> <strong>Magyar</strong></summary>
 
-**v1.8.0** — now playing overlay OBS-hez, Streamlabshoz és más böngészőforrásokhoz.
+**v1.8.1** — now playing overlay OBS-hez, Streamlabshoz és más böngészőforrásokhoz.
 
 **Készítette [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1900,7 +1900,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ee-1f1f1.png?v8" width="20" height="20" alt=":israel:"> <strong>עברית</strong></summary>
 
-**v1.8.0** — שכבת now playing ל-OBS, Streamlabs ומקורות דפדפן אחרים.
+**v1.8.1** — שכבת now playing ל-OBS, Streamlabs ומקורות דפדפן אחרים.
 
 **מאת [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -1967,7 +1967,7 @@ MIT © GalaxyBunny Studio
 <details>
 <summary><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f2-1f1fe.png?v8" width="20" height="20" alt=":malaysia:"> <strong>Melayu</strong></summary>
 
-**v1.8.0** — overlay now playing untuk OBS, Streamlabs dan sumber pelayar lain.
+**v1.8.1** — overlay now playing untuk OBS, Streamlabs dan sumber pelayar lain.
 
 **Oleh [GalaxyBunny Studio](https://github.com/HanaCherry)**
 

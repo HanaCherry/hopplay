@@ -2,7 +2,7 @@
 
 [🌐 Languages / Langues](../../README.md)
 
-**v1.8.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
+**v1.8.1** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
 **By [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
