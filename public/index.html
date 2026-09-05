@@ -231,7 +231,16 @@
         </section>
 
         <section class="panel" id="spotify">
-          <h2 data-i18n="spotify">Spotify connection</h2>
+          <h2 data-i18n="musicSource">Source musicale</h2>
+          <label class="field source-select"><span data-i18n="musicSource">Source musicale</span>
+            <select id="playbackSource">
+              <option value="spotify" data-i18n="sourceSpotify">Spotify connecté</option>
+              <option value="local" data-i18n="sourceLocal">Détection locale Windows</option>
+            </select>
+          </label>
+          <p id="local-source-note" class="hint" data-i18n="localSourceHint">Détecte la musique jouée par les applications compatibles sur ce PC, sans utiliser l’API Spotify.</p>
+          <div id="spotify-settings">
+          <h3 data-i18n="spotify">Spotify connection</h3>
           <p class="hint" data-i18n="spotifyHint">Redirect URI must match exactly. Do not use localhost.</p>
           <ol class="steps">
             <li data-i18n="spotifyStep1">Open the Spotify Developer Dashboard → your app → Settings</li>
@@ -252,6 +261,7 @@
             <button id="btn-disconnect" class="ghost" data-i18n="disconnect">Disconnect</button>
           </div>
           <p id="spotify-msg" class="msg"></p>
+          </div>
         </section>
 
         <section class="panel" id="obs">

@@ -120,6 +120,10 @@
     });
     $("theme").value = p.theme;
     $("accentColor").value = p.accentColor || "#1db954";
+    $("playbackSource").value = p.playbackSource || "spotify";
+    const usingLocal = $("playbackSource").value === "local";
+    $("spotify-settings").hidden = usingLocal;
+    $("local-source-note").hidden = !usingLocal;
     $("color-row").style.opacity = p.magicColors ? "0.4" : "1";
 
     $("redirect-uri").textContent = status.redirectUri;
@@ -133,7 +137,11 @@
 
     const badge = $("conn-badge");
     const banner = $("auth-banner");
-    if (status.connected) {
+    if (usingLocal) {
+      badge.textContent = window.hopplayT("localActive");
+      badge.classList.remove("off");
+      banner.classList.add("hidden");
+    } else if (status.connected) {
       badge.textContent = window.hopplayT("connected");
       badge.classList.remove("off");
       banner.classList.add("hidden");
@@ -230,6 +238,7 @@
   });
   $("theme").addEventListener("change", () => saveProfile({ theme: $("theme").value }));
   $("accentColor").addEventListener("input", () => saveProfile({ accentColor: $("accentColor").value }));
+  $("playbackSource").addEventListener("change", () => saveProfile({ playbackSource: $("playbackSource").value }));
 
   $("btn-save-creds").addEventListener("click", async () => {
     const msg = $("spotify-msg");

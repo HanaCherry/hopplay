@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const os = require("os");
-const { spawn } = require("child_process");
+const { spawn, execFile } = require("child_process");
 
 const APP_VERSION = require("./package.json").version;
 const GITHUB_REPO = "HanaCherry/hopplay";
@@ -101,6 +101,7 @@ function defaultProfile(id, name) {
     id,
     name,
     player: "compact",
+    playbackSource: "spotify",
     playerOpacity: 100,
     cover: "square",
     coverGlow: true,
@@ -284,7 +285,18 @@ function demoNowPlaying() {
 
 function publicNowPlaying(raw) {
   if (!raw || !raw.item) {
-    return { is_playing: false, item: null, progress_ms: 0, demo: !!raw?.demo };
+    return {
+      is_playing: false,
+      item: null,
+      progress_ms: 0,
+      duration_ms: 0,
+      title: "",
+      artist: "",
+      album: "",
+      image: "",
+      trackId: "",
+      demo: !!raw?.demo,
+    };
   }
   const item = raw.item;
   const images = item.album?.images || [];
@@ -526,12 +538,69 @@ app.post("/api/player/:action", async (req, res) => {
   }
 });
 
-app.get("/api/now-playing", async (req, res) => {
-  const wantDemo = String(req.query.demo || "") === "1";
-  const token = await getValidToken();
-  if (!token) {
-    return res.json(publicNowPlaying(demoNowPlaying()));
+let nowPlayingCache = null;
+let nowPlayingCacheUntil = 0;
+let spotifyRetryAt = 0;
+let nowPlayingRequest = null;
+let localMediaCache = null;
+let localMediaCacheUntil = 0;
+let localMediaRequest = null;
+const localArtworkCache = new Map();
+let localArtwork = null;
+
+async function resolveLocalArtwork(media) {
+  const key = `${media.title || ""}\n${media.artist || ""}`.toLowerCase();
+  const saved = localArtworkCache.get(key);
+  if (saved && saved.expiresAt > Date.now()) return saved.url;
+
+  let url = "";
+  try {
+    if (String(media.source || "").toLowerCase().includes("spotify")) {
+      const token = await getValidToken();
+      if (token) {
+        const response = await fetch(SPOTIFY_NOW, {
+          headers: { Authorization: `Bearer ${token}` },
+          signal: AbortSignal.timeout(5000),
+        });
+        if (response.ok) {
+          const current = await response.json();
+          url = current.item?.album?.images?.[0]?.url || "";
+        }
+      }
+    }
+    if (!url) {
+      const term = encodeURIComponent(`${media.title || ""} ${media.artist || ""}`.trim());
+      const response = await fetch(`https://itunes.apple.com/search?term=${term}&entity=song&limit=1`, {
+        signal: AbortSignal.timeout(5000),
+      });
+      if (response.ok) {
+        const result = await response.json();
+        url = result.results?.[0]?.artworkUrl100?.replace(/100x100bb/, "600x600bb") || "";
+      }
+    }
+  } catch {}
+  localArtworkCache.set(key, { url, expiresAt: Date.now() + (url ? 3600000 : 60000) });
+  return url;
+}
+
+function rememberNowPlaying(payload, duration = 3000) {
+  nowPlayingCache = payload;
+  nowPlayingCacheUntil = Date.now() + duration;
+  return payload;
+}
+
+async function fetchNowPlaying() {
+  if (nowPlayingCache && Date.now() < nowPlayingCacheUntil) return nowPlayingCache;
+  if (Date.now() < spotifyRetryAt) {
+    return nowPlayingCache || {
+      ...publicNowPlaying(null),
+      message: "Spotify limite temporairement les demandes. Nouvelle tentative automatique.",
+    };
   }
+
+  const token = await getValidToken();
+  if (!token) return rememberNowPlaying(publicNowPlaying(demoNowPlaying()));
+
   try {
     const headers = { Authorization: `Bearer ${token}` };
     let r = await fetch("https://api.spotify.com/v1/me/player", { headers });
@@ -539,59 +608,128 @@ app.get("/api/now-playing", async (req, res) => {
       r = await fetch(SPOTIFY_NOW, { headers });
     }
     if (r.status === 204) {
-      return res.json({
-        is_playing: false,
-        item: null,
-        progress_ms: 0,
-        demo: false,
+      return rememberNowPlaying({
+        ...publicNowPlaying(null),
         message: "Rien en lecture. Lance une musique dans l'app Spotify (PC, tel ou web).",
       });
     }
     if (r.status === 401) {
-      return res.json({
-        is_playing: false,
-        item: null,
-        progress_ms: 0,
-        demo: false,
+      return rememberNowPlaying({
+        ...publicNowPlaying(null),
         needsAuth: true,
         message: "Session Spotify expirée. Reconnecte-toi.",
-      });
+      }, 10000);
     }
     if (r.status === 403) {
-      return res.json({
-        is_playing: false,
-        item: null,
-        progress_ms: 0,
-        demo: false,
+      return rememberNowPlaying({
+        ...publicNowPlaying(null),
         message: "Spotify a refusé l'accès (403). Dans le Dashboard Spotify, active Web API et ajoute ton compte dans Users.",
-      });
+      }, 10000);
+    }
+    if (r.status === 429) {
+      const retrySeconds = Number(r.headers?.get?.("retry-after"));
+      const retryDelay = Number.isFinite(retrySeconds)
+        ? Math.min(120, Math.max(5, retrySeconds)) * 1000
+        : 30000;
+      spotifyRetryAt = Date.now() + retryDelay;
+      nowPlayingCacheUntil = spotifyRetryAt;
+      return nowPlayingCache || {
+        ...publicNowPlaying(null),
+        message: "Spotify limite temporairement les demandes. Nouvelle tentative automatique.",
+      };
     }
     if (!r.ok) {
       const text = await r.text();
       console.log("Spotify now-playing error", r.status, text.slice(0, 200));
-      return res.json({
-        is_playing: false,
-        item: null,
-        progress_ms: 0,
-        demo: false,
+      return rememberNowPlaying({
+        ...publicNowPlaying(null),
         message: `Erreur Spotify ${r.status}`,
-      });
+      }, 10000);
     }
     const json = await r.json();
     const payload = publicNowPlaying(json);
     if (!payload.title && json.item) {
-      return res.json(publicNowPlaying({ ...json, item: json.item }));
+      return rememberNowPlaying(publicNowPlaying({ ...json, item: json.item }));
     }
-    res.json(payload);
+    return rememberNowPlaying(payload);
   } catch (err) {
-    res.json({
-      is_playing: false,
-      item: null,
-      progress_ms: 0,
-      demo: false,
+    return rememberNowPlaying({
+      ...publicNowPlaying(null),
       message: err.message,
-    });
+    }, 10000);
   }
+}
+
+function readLocalMedia() {
+  if (localMediaCache && Date.now() < localMediaCacheUntil) return Promise.resolve(localMediaCache);
+  if (localMediaRequest) return localMediaRequest;
+  const script = path.join(ROOT, "scripts", "read-local-media.ps1");
+  localMediaRequest = new Promise((resolve) => {
+    execFile("powershell.exe", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", script], {
+      windowsHide: true,
+      timeout: 5000,
+    }, async (error, stdout) => {
+      let payload;
+      try {
+        const media = JSON.parse(String(stdout || "").trim());
+        if (media.thumbnailBase64) {
+          const buffer = Buffer.from(media.thumbnailBase64, "base64");
+          const key = crypto.createHash("sha1").update(buffer).digest("hex").slice(0, 12);
+          const type = buffer[0] === 0x89 && buffer[1] === 0x50 ? "image/png" : "image/jpeg";
+          localArtwork = { buffer, key, type };
+        }
+        const artwork = localArtwork
+          ? `/api/local-artwork?v=${localArtwork.key}`
+          : (media.available && media.title ? await resolveLocalArtwork(media) : "");
+        payload = media.available && media.title ? {
+          is_playing: !!media.isPlaying,
+          item: null,
+          progress_ms: Number(media.progressMs) || 0,
+          duration_ms: Number(media.durationMs) || 0,
+          title: String(media.title || ""),
+          artist: String(media.artist || ""),
+          album: String(media.album || ""),
+          image: artwork,
+          trackId: `local:${media.source || "player"}:${media.title || ""}:${media.artist || ""}`,
+          local: true,
+        } : {
+          ...publicNowPlaying(null),
+          local: true,
+          message: "Aucun média local détecté.",
+        };
+      } catch {
+        payload = {
+          ...publicNowPlaying(null),
+          local: true,
+          message: error ? "La détection locale est indisponible." : "Aucun média local détecté.",
+        };
+      }
+      localMediaCache = payload;
+      localMediaCacheUntil = Date.now() + 2000;
+      resolve(payload);
+    });
+  }).finally(() => { localMediaRequest = null; });
+  return localMediaRequest;
+}
+
+app.get("/api/local-artwork", (req, res) => {
+  if (!localArtwork) return res.status(404).end();
+  res.setHeader("Content-Type", localArtwork.type);
+  res.setHeader("Cache-Control", "public, max-age=3600");
+  res.send(localArtwork.buffer);
+});
+
+app.get("/api/now-playing", async (req, res) => {
+  if (String(req.query.demo || "") === "1") {
+    return res.json(publicNowPlaying(demoNowPlaying()));
+  }
+  const saved = getSettings();
+  const profile = saved.profiles.find((entry) => entry.id === String(req.query.profile || saved.activeProfile)) || saved.profiles[0];
+  if (profile?.playbackSource === "local") return res.json(await readLocalMedia());
+  if (!nowPlayingRequest) {
+    nowPlayingRequest = fetchNowPlaying().finally(() => { nowPlayingRequest = null; });
+  }
+  res.json(await nowPlayingRequest);
 });
 
 app.get("/api/canvas/:id", async (req, res) => {
@@ -615,7 +753,7 @@ app.get("/api/image", async (req, res) => {
     "image-cdn-fa.spotifycdn.com",
     "images.unsplash.com",
   ];
-  if (!allowed.includes(parsed.hostname)) return res.status(400).end();
+  if (!allowed.includes(parsed.hostname) && !parsed.hostname.endsWith(".mzstatic.com")) return res.status(400).end();
   try {
     const r = await fetch(url);
     if (!r.ok) return res.status(r.status).end();
