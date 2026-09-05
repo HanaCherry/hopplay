@@ -26,6 +26,8 @@ Spotify’da bir parça çal (isteğe bağlı) veya demo modunu kullan, bir skin
 - Belirme ve gizlenme efektleri (fade, kaydır, ölçek, pop, bulanık) ve süreler
 - En fazla 5 profil, her birinin ayrı OBS URL’si
 - 30 dilde arayüz
+- Her profil için ayrı kaydedilen ayarlanabilir oynatıcı boyutu ve opaklığı
+- Başlık, sanatçı, ilerleme ve albüm kapağıyla bağlı Spotify veya Windows yerel algılama seçeneği; Spotify sınırları otomatik yönetilir
 - Yerel demo modu (Spotify hesabı gerekmez)
 - GitHub Releases’ten uygulama içi güncelleme (`data/` korunur)
 

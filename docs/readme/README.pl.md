@@ -26,6 +26,8 @@ Odtwórz utwór na Spotify (opcjonalnie) albo użyj trybu demo, wybierz skórkę
 - Efekty pojawiania i znikania (fade, slide, scale, pop, blur) z czasem
 - Do 5 profili, każdy z własnym URL OBS
 - Interfejs w 30 językach
+- Regulowany rozmiar i przezroczystość odtwarzacza, zapisywane osobno dla każdego profilu
+- Wybór między połączonym Spotify a lokalnym wykrywaniem Windows, z tytułem, wykonawcą, postępem i okładką; limity Spotify są obsługiwane automatycznie
 - Lokalny tryb demo (konto Spotify nie jest wymagane)
 - Aktualizacje z GitHub Releases (`data/` zostaje)
 

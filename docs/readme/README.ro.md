@@ -26,6 +26,8 @@ Redă o piesă pe Spotify (opțional) sau folosește modul demo, alege un skin �
 - Efecte de apariție și dispariție (fade, slide, scale, pop, blur) cu durate
 - Până la 5 profiluri, fiecare cu propriul URL OBS
 - Interfață în 30 de limbi
+- Dimensiune și opacitate reglabile ale playerului, salvate separat pentru fiecare profil
+- Alegere între Spotify conectat și detectarea locală Windows, cu titlu, artist, progres și copertă; limitele Spotify sunt gestionate automat
 - Mod demo local (nu e nevoie de cont Spotify)
 - Actualizări din GitHub Releases (`data/` este păstrat)
 
