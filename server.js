@@ -98,6 +98,7 @@ function defaultProfile(id, name) {
     player: "compact",
     cover: "square",
     coverGlow: true,
+    playerGlow: true,
     magicColors: true,
     accentColor: "#1db954",
     theme: "dark",

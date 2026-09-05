@@ -52,6 +52,10 @@ body.preview {
   transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease;
 }
 
+.player.player-glow {
+  filter: drop-shadow(0 0 12px var(--accent)) drop-shadow(0 0 26px var(--accent));
+}
+
 .player.hidden {
   opacity: 0;
   transform: translateY(18px);

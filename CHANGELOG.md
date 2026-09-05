@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1
+
+- Player glow option (halo around the whole widget)
+
 ## 1.3.0
 
 - 12 extra player skins: Ticket, Sticky, Pixel, Hologram, Stamp, Radio, VHS, Bubble, Lower third, Watch, Newspaper, Notebook

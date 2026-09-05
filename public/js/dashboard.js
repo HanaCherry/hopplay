@@ -5,6 +5,7 @@
 
   const fields = [
     "coverGlow",
+    "playerGlow",
     "magicColors",
     "coverBlur",
     "hideVisualizer",

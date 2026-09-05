@@ -1,6 +1,6 @@
 # Hopplay
 
-**v1.3.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
+**v1.3.1** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
 **By [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -10,7 +10,7 @@ Play a track on Spotify (optional) or use demo mode, pick a player skin, copy th
 
 - 29 player skins: Compact, Boxy, Gallery, macOS, Shell, Discord, Minimal, Island, Neon, Glass, Ticker, Polaroid, Cassette, Toast, Poster, Game Boy, CRT, Ticket, Sticky, Pixel, Hologram, Stamp, Radio, VHS, Bubble, Lower third, Watch, Newspaper, Notebook
 - Cover modes: Square, Canvas, Vinyl, None
-- Magic colors, cover glow, cover blur, visualizer
+- Magic colors, cover glow, player glow, cover blur, visualizer
 - Hide on pause / show only on song change
 - Up to 5 profiles with separate OBS URLs
 - UI in 30 languages

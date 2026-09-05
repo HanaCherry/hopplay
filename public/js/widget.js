@@ -154,7 +154,7 @@
     const place = profile.placement || "bl";
     const stage = document.getElementById("stage");
     if (stage) stage.dataset.place = place;
-    playerEl.className = `player ${style}${np.is_playing ? " playing" : ""}${profile.coverBlur ? " blur-on" : ""}${profile.hideVisualizer ? " hide-viz" : ""}`;
+    playerEl.className = `player ${style}${np.is_playing ? " playing" : ""}${profile.coverBlur ? " blur-on" : ""}${profile.hideVisualizer ? " hide-viz" : ""}${profile.playerGlow ? " player-glow" : ""}`;
 
     let inner = `<div class="blur-bg" ${blur}></div>`;
 
@@ -531,6 +531,7 @@
         player: settings.player,
         cover: settings.cover,
         coverGlow: settings.coverGlow,
+        playerGlow: settings.playerGlow,
         magicColors: settings.magicColors,
         accentColor: settings.accentColor,
         theme: settings.theme,
