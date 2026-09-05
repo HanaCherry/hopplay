@@ -164,6 +164,11 @@
           </div>
 
           <div class="toggles">
+            <label for="playerScale" data-i18n="playerSize">Taille du lecteur</label>
+            <div style="display:flex;align-items:center;gap:12px;margin:10px 0 20px">
+              <input id="playerScale" type="range" min="30" max="150" step="5" style="flex:1" aria-describedby="playerScaleValue" />
+              <output id="playerScaleValue" for="playerScale">100 %</output>
+            </div>
             <label class="switch"><input type="checkbox" id="coverGlow" /><span></span> <em data-i18n="coverGlow">Cover glow</em></label>
             <label class="switch"><input type="checkbox" id="playerGlow" /><span></span> <em data-i18n="playerGlow">Player glow</em></label>
             <label class="switch"><input type="checkbox" id="magicColors" /><span></span> <em data-i18n="magicColors">Magic colors</em></label>
