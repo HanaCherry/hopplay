@@ -628,7 +628,6 @@
     } else if (style === "orb") {
       inner += `
         ${cover}
-        <div class="orb-play"></div>
         <div class="meta">
           <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
           <div class="artist">${escapeHtml(artist)}</div>
@@ -863,7 +862,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 8,
+        ui: 9,
       });
       if (signature !== lastSig) {
         lastSig = signature;

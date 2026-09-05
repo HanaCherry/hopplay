@@ -1454,27 +1454,6 @@ body.preview {
   overflow: hidden;
 }
 .player.orb .cover.vinyl { width: 108px; height: 108px; }
-.player.orb .orb-play {
-  position: absolute;
-  left: 38px;
-  top: 50%;
-  width: 32px;
-  height: 32px;
-  margin-top: -16px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.45);
-  z-index: 4;
-  pointer-events: none;
-}
-.player.orb .orb-play::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 9px;
-  border-style: solid;
-  border-width: 7px 0 7px 12px;
-  border-color: transparent transparent transparent #fff;
-}
 .player.orb .meta {
   flex: 1;
   min-width: 0;
