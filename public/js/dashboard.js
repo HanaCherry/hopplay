@@ -90,6 +90,8 @@
       b.classList.toggle("active", b.dataset.place === (p.placement || "bl"));
     });
 
+    $("playerScale").value = p.playerScale ?? (p.player === "galaxybunny" ? 65 : 100);
+    $("playerScaleValue").textContent = $("playerScale").value + " %";
     fields.forEach((k) => {
       const el = $(k);
       if (el) el.checked = !!p[k];
@@ -196,6 +198,10 @@
   fields.forEach((k) => {
     $(k).addEventListener("change", () => saveProfile({ [k]: $(k).checked }));
   });
+  $("playerScale").addEventListener("input", () => {
+    $("playerScaleValue").textContent = $("playerScale").value + " %";
+  });
+  $("playerScale").addEventListener("change", () => saveProfile({ playerScale: Number($("playerScale").value) }));
   $("hideOnPauseDelay").addEventListener("change", () => saveProfile({ hideOnPauseDelay: Number($("hideOnPauseDelay").value) }));
   $("songChangeDuration").addEventListener("change", () => saveProfile({ songChangeDuration: Number($("songChangeDuration").value) }));
   $("appearDuration").addEventListener("change", () => saveProfile({ appearDuration: Number($("appearDuration").value) }));
