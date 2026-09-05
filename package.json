@@ -1,0 +1,19 @@
+{
+  "name": "hopplay",
+  "version": "1.0.0",
+  "description": "Hopplay — now-playing overlay for OBS by GalaxyBunny Studio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HanaCherry/hopplay"
+  },
+  "keywords": ["obs", "spotify", "now-playing", "overlay", "stream", "widget"],
+  "author": "GalaxyBunny Studio",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hopplay — GalaxyBunny Studio</title>
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <style>
+    body { display: block; max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+    .logo { font-size: 34px; }
+    h1 { margin: 8px 0; }
+    .step { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin: 16px 0; }
+    .primary.big { width: 100%; padding: 14px; font-size: 16px; margin-top: 12px; display: inline-flex; justify-content: center; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="brand">
+    <span class="logo">hopplay</span>
+    <small>GalaxyBunny Studio</small>
+  </div>
+  <h1>Spotify</h1>
+  <p class="sub" data-i18n="spotifyHint">Redirect URI must match exactly. Do not use localhost.</p>
+  <p id="flash" class="msg"></p>
+  <section class="step">
+    <code id="uri">http://127.0.0.1:3000/callback</code>
+    <button id="copy" class="primary" data-i18n="copy">Copy</button>
+  </section>
+  <a class="primary big" href="/api/spotify/login" data-i18n="authorize">Authorize Spotify</a>
+  <a class="primary big" href="/index.html" data-i18n="setupSkip">Skip and open the widget</a>
+  <script src="/js/i18n.js"></script>
+  <script>
+    window.hopplayApplyI18n();
+    document.getElementById("copy").onclick = () => navigator.clipboard.writeText("http://127.0.0.1:3000/callback");
+    const params = new URLSearchParams(location.search);
+    if (params.get("spotify") === "error") {
+      const flash = document.getElementById("flash");
+      flash.textContent = params.get("message") || window.hopplayT("spotifyError");
+      flash.classList.add("err");
+    }
+  </script>
+</body>
+</html>
