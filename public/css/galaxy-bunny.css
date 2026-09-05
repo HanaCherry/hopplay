@@ -1,0 +1,33 @@
+.player.galaxybunny { position:relative; display:block; width:800px; height:313px; max-width:calc(100vw - 56px); aspect-ratio:1380/540; margin:0; padding:0; border:0; background:none; box-shadow:none; overflow:visible; color:#f7ecff; filter:none!important; }
+.player.galaxybunny .gb-skin { position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.player.galaxybunny .gb-body { position:absolute; inset:0; }
+.player.galaxybunny .cover { position:absolute; left:4.8%; top:44.1%; width:19.4%; height:49.1%; margin:0; border:0; border-radius:22px; box-shadow:none; overflow:hidden; }
+.player.galaxybunny .cover img { width:100%; height:100%; object-fit:cover; }
+.player.galaxybunny .cover.vinyl { border-radius:50%; }
+.player.galaxybunny .meta { position:absolute; left:27.1%; top:45.8%; width:41.3%; height:46%; display:flex; flex-direction:column; min-width:0; }
+.player.galaxybunny .title { font-size:22px; line-height:1.3; font-weight:700; letter-spacing:0; }
+.player.galaxybunny .artist { font-size:18px; line-height:1.4; color:#bea8e4; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.player.galaxybunny .gb-prog { display:grid; grid-template-columns:1fr 1fr; row-gap:5px; margin-top:auto; font-size:14px; color:#c8b2e4; font-variant-numeric:tabular-nums; }
+.player.galaxybunny .gb-prog > span:first-child { grid-row:2; grid-column:1; }
+.player.galaxybunny .gb-prog > span:last-child { grid-row:2; grid-column:2; text-align:right; }
+.player.galaxybunny .playbar { position:relative; grid-column:1 / -1; grid-row:1; width:100%; height:5px; border-radius:4px; background:#65558d; overflow:visible; }
+.player.galaxybunny #active { position:relative; height:100%; border-radius:inherit; background:linear-gradient(90deg,#f190ef,#e8c7ff); box-shadow:0 0 8px #ff9ded66; }
+.player.galaxybunny #active::after { content:''; position:absolute; right:-7.5px; top:50%; width:15px; height:15px; transform:translateY(-50%); border-radius:50%; background:#fff; box-shadow:0 0 8px #f3baff; }
+.player.galaxybunny .gb-seek { position:absolute; left:0; top:-9px; width:100%; height:23px; margin:0; opacity:0; cursor:pointer; }
+.player.galaxybunny .playbar:focus-within { outline:2px solid #c9eaff; outline-offset:5px; }
+.player.galaxybunny .gb-status { position:absolute; z-index:6; bottom:0; left:27%; max-width:65%; padding:5px 9px; border-radius:8px; color:#ffd8ed; background:#251836; font-size:12px; }
+.player.galaxybunny .gb-status:empty { display:none; }
+@media(max-width:855px) {
+ .player.galaxybunny { height:auto; }
+ .player.galaxybunny .title { font-size:2.6vw; }
+ .player.galaxybunny .artist { font-size:2.2vw; margin-top:.5vw; }
+ .player.galaxybunny .gb-prog { font-size:1.7vw; row-gap:.6vw; }
+ .player.galaxybunny .cover { border-radius:2.5vw; }
+ .player.galaxybunny .playbar { height:.6vw; }
+ .player.galaxybunny #active::after { width:1.8vw; height:1.8vw; right:-.9vw; }
+}
+@media(prefers-reduced-motion:reduce) { .player.galaxybunny, .player.galaxybunny * { animation:none!important; transition:none!important; } }
+/* User-supplied transparent skin, used unchanged. */
+.player.galaxybunny { height:auto; aspect-ratio:2 / 1; }
+.player.galaxybunny .cover { left:4.8%; top:46.6%; width:20.25%; height:40.5%; border:1px solid #ecc0ff; box-shadow:0 0 10px #e7a3ff55; background:linear-gradient(135deg,#2c184b,#12112b); }
+.player.galaxybunny .meta { left:27.1%; top:48%; width:36.5%; height:43.5%; }
