@@ -17,7 +17,15 @@ function Await-WinRT($operation, [Type]$resultType) {
 $managerType = [Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager, Windows.Media.Control, ContentType = WindowsRuntime]
 $propertiesType = [Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties, Windows.Media.Control, ContentType = WindowsRuntime]
 $manager = Await-WinRT ($managerType::RequestAsync()) $managerType
-$session = $manager.GetCurrentSession()
+$spotifySessions = @(
+  $manager.GetSessions() |
+    Where-Object { [string]$_.SourceAppUserModelId -match "(?i)spotify" }
+)
+$session = $spotifySessions |
+  Sort-Object -Property @{ Expression = {
+    try { [string]$_.GetPlaybackInfo().PlaybackStatus -eq "Playing" } catch { $false }
+  }; Descending = $true } |
+  Select-Object -First 1
 
 if ($null -eq $session) {
   @{ available = $false } | ConvertTo-Json -Compress
