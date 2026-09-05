@@ -26,6 +26,8 @@ Reproduce un tema en Spotify (opcional) o usa el modo demo, elige un estilo y co
 - Efectos de aparición y desaparición (fundido, desliz, escala, pop, desenfoque) con tiempos
 - Hasta 5 perfiles, cada uno con su URL de OBS
 - Interfaz en 30 idiomas
+- Tamaño y opacidad del reproductor ajustables, guardados por separado para cada perfil
+- Elección entre Spotify conectado y detección local de Windows, con título, artista, progreso y portada; los límites de Spotify se gestionan automáticamente
 - Modo demo local (no hace falta cuenta de Spotify)
 - Actualizaciones desde GitHub Releases (se conserva `data/`)
 

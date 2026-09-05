@@ -26,6 +26,8 @@ Spill et spor på Spotify (valgfritt) eller bruk demomodus, velg et skall og kop
 - Vis- og skjuileffekter (fade, slide, scale, pop, blur) med timing
 - Opptil 5 profiler, hver med egen OBS-URL
 - Grensesnitt på 30 språk
+- Justerbar spillerstørrelse og gjennomsiktighet som lagres separat for hver profil
+- Velg tilkoblet Spotify eller lokal Windows-gjenkjenning med tittel, artist, fremdrift og albumomslag; Spotify-begrensninger håndteres automatisk
 - Lokal demomodus (ingen Spotify-konto nødvendig)
 - Oppdateringer fra GitHub Releases (`data/` beholdes)
 

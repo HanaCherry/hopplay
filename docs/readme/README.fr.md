@@ -26,6 +26,8 @@ Lance un titre sur Spotify (optionnel) ou utilise le mode démo, choisis un skin
 - Effets d’apparition et de disparition (fondu, glissement, zoom, pop, flou) avec durées
 - Jusqu’à 5 profils, chacun avec son URL OBS
 - Interface en 30 langues
+- Taille et opacité du lecteur réglables, enregistrées séparément pour chaque profil
+- Choix entre Spotify connecté et la détection locale Windows, avec titre, artiste, progression et pochette d’album ; les limitations Spotify sont gérées automatiquement
 - Mode démo local (pas besoin de compte Spotify)
 - Mises à jour depuis GitHub Releases (`data/` est conservé)
 

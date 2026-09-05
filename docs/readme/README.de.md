@@ -26,6 +26,8 @@ Spiele einen Titel auf Spotify (optional) oder nutze den Demo-Modus, wähle ein 
 - Ein- und Ausblendeffekte (Fade, Slide, Scale, Pop, Blur) mit Timing
 - Bis zu 5 Profile mit eigenen OBS-URLs
 - Oberfläche in 30 Sprachen
+- Einstellbare Playergröße und Deckkraft, separat für jedes Profil gespeichert
+- Wahl zwischen verbundenem Spotify und lokaler Windows-Erkennung mit Titel, Künstler, Fortschritt und Albumcover; Spotify-Limits werden automatisch behandelt
 - Lokaler Demo-Modus (kein Spotify-Konto nötig)
 - Updates aus GitHub Releases (`data/` bleibt erhalten)
 
