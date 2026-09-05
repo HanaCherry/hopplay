@@ -155,6 +155,8 @@
     const place = profile.placement || "bl";
     const stage = document.getElementById("stage");
     if (stage) stage.dataset.place = place;
+    const scale = Number(profile.playerScale ?? (style === "galaxybunny" ? 65 : 100));
+    playerEl.style.zoom = Math.min(150, Math.max(30, Number.isFinite(scale) ? scale : 100)) / 100;
     applyMotion(profile);
     playerEl.className = `player ${style}${np.is_playing ? " playing" : ""}${profile.coverBlur ? " blur-on" : ""}${profile.hideVisualizer ? " hide-viz" : ""}${profile.playerGlow ? " player-glow" : ""}`;
 
@@ -687,36 +689,94 @@
           </div>
         </div>`;
     } else if (style === "galaxybunny") {
-      inner += `
-        <div class="gb-ears"><b class="pink"></b><b class="space"></b><i class="flower"></i></div>
-        <div class="gb-orbit"></div>
-        <div class="gb-petals"><i></i><i></i><i></i></div>
-        ${cover}
-        <div class="meta">
-          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
-          <div class="artist">${escapeHtml(artist)}</div>
-          <div class="gb-ctrls">
-            <span class="ico sh"></span>
-            <span class="ico prev"></span>
-            <span class="ico play"><i></i><i></i></span>
-            <span class="ico next"></span>
-            <span class="ico rp"></span>
-          </div>
-          <div class="gb-prog">
-            <span>${cur}</span>
-            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
-            <span>${dur}</span>
-          </div>
-        </div>
-        <div class="gb-word">Hop<span>Play</span></div>`;
+      inner = `
+        <svg class="gb-skin" viewBox="80 60 1630 815" aria-hidden="true">
+          <image href="/brand/galaxy-bunny-clean.png" width="1728" height="1152"/>
+        </svg>
+        <div class="gb-body">
+          ${cover}
+          <div class="meta"><div class="marquee"><div class="title">${escapeHtml(title)}</div></div><div class="artist">${escapeHtml(artist)}</div>
+          <div class="gb-prog"><span>${cur}</span><div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div><span>${dur}</span></div></div>
+        </div><div class="gb-status" role="status" aria-live="polite"></div>`;
+
     }
 
     playerEl.innerHTML = inner;
+    if (style === "galaxybunny") {
+      $("#playbar", playerEl).insertAdjacentHTML("beforeend", '<input class="gb-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Position de lecture" />');
+      const artwork = playerEl.querySelector('.cover img');
+      if (artwork) artwork.addEventListener('error', () => { artwork.src = '/brand/hopplay-logo.png'; artwork.style.objectFit = 'contain'; }, { once: true });
+      syncControls();
+    }
     const titleEl = $(".title", playerEl);
     if (titleEl && titleEl.scrollWidth > titleEl.parentElement.clientWidth + 4) {
       titleEl.classList.add("animated-title");
     }
   }
+
+  let controlBusy = false;
+  function controlButton(action, label, drawing) {
+    return `<button type="button" class="gb-button" data-action="${action}" aria-label="${label}" title="${label}"><svg viewBox="0 0 24 24" aria-hidden="true">${drawing}</svg></button>`;
+  }
+
+  function syncControls() {
+    if (!now) return;
+    playerEl.querySelectorAll(".gb-button").forEach((button) => {
+      const action = button.dataset.action;
+      button.disabled = !now.title;
+      button.setAttribute("aria-disabled", String(controlBusy || !now.title));
+      if (action === "toggle") button.setAttribute("aria-label", now.is_playing ? "Pause" : "Lecture");
+      if (action === "shuffle") button.setAttribute("aria-pressed", String(!!now.shuffle_state));
+      if (action === "repeat") {
+        button.setAttribute("aria-pressed", String(now.repeat_state !== "off"));
+        button.dataset.repeat = now.repeat_state;
+        button.setAttribute("aria-label", `Répétition : ${now.repeat_state === "track" ? "ce titre" : now.repeat_state === "context" ? "tous les titres" : "désactivée"}`);
+      }
+      button.title = button.getAttribute("aria-label");
+    });
+    const seek = $(".gb-seek", playerEl);
+    if (seek) {
+      seek.disabled = !now.duration_ms;
+      if (document.activeElement !== seek) seek.value = now.duration_ms ? localProgress / now.duration_ms * 100 : 0;
+      seek.setAttribute("aria-valuetext", `${fmt(localProgress)} / ${fmt(now.duration_ms || 0)}`);
+    }
+  }
+
+  async function command(action, value) {
+    if (controlBusy) return;
+    controlBusy = true;
+    syncControls();
+    const status = $(".gb-status", playerEl);
+    if (status) status.textContent = "";
+    try {
+      const response = await fetch(`/api/player/${action}`, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ value }), signal: AbortSignal.timeout(12000),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Commande impossible.");
+      await poll();
+    } catch (error) {
+      const message = $(".gb-status", playerEl);
+      if (message) message.textContent = error.message;
+    } finally {
+      controlBusy = false;
+      syncControls();
+    }
+  }
+  playerEl.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-action]");
+    if (!button || !now) return;
+    let action = button.dataset.action;
+    let value;
+    if (action === "toggle") action = now.is_playing ? "pause" : "play";
+    if (action === "shuffle") value = !now.shuffle_state;
+    if (action === "repeat") value = { off: "context", context: "track", track: "off" }[now.repeat_state || "off"];
+    command(action, value);
+  });
+  playerEl.addEventListener("change", (event) => {
+    if (event.target.matches(".gb-seek") && now?.duration_ms) command("seek", Math.round(Number(event.target.value) / 100 * now.duration_ms));
+  });
 
   function escapeHtml(str) {
     return String(str)
@@ -789,12 +849,13 @@
         (now.progress_ms || 0) + (Date.now() - lastPoll)
       );
     } else {
-      localProgress = now.progress_ms || localProgress;
+      localProgress = now.progress_ms ?? localProgress;
     }
     const bar = document.getElementById("active");
     if (bar && now.duration_ms) {
       bar.style.width = `${Math.min(100, (localProgress / now.duration_ms) * 100)}%`;
     }
+    syncControls();
     const style = settings.player;
     if (style === "shell") {
       const hash = $(".hash", playerEl);
@@ -854,6 +915,7 @@
 
       const signature = JSON.stringify({
         player: settings.player,
+        playerScale: settings.playerScale,
         cover: settings.cover,
         coverGlow: settings.coverGlow,
         playerGlow: settings.playerGlow,
@@ -872,13 +934,14 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 10,
+        ui: 12,
       });
       if (signature !== lastSig) {
         lastSig = signature;
         render(settings, now);
       }
       playerEl.classList.toggle("playing", !!now.is_playing);
+      syncControls();
       if (isPreview && (now.needsAuth || now.message) && !now.title) {
         playerEl.className = "player compact";
         playerEl.classList.remove("hidden");

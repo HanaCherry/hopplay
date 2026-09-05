@@ -367,3 +367,6 @@ window.hopplayApplyI18n = function () {
   const title = document.querySelector("title");
   if (title) title.textContent = "HopPlay — GalaxyBunny Studio";
 };
+
+window.HOPPLAY_I18N.en.playerSize = "Player size";
+window.HOPPLAY_I18N.fr.playerSize = "Taille du lecteur";
