@@ -26,6 +26,8 @@ Mainkan lagu di Spotify (pilihan) atau guna mod demo, pilih kulit, kemudian sali
 - Kesan muncul dan hilang (fade, slaid, skala, pop, kabur) dengan masa
 - Sehingga 5 profil, setiap satu ada URL OBS sendiri
 - Antara muka dalam 30 bahasa
+- Saiz dan kelegapan pemain boleh dilaraskan serta disimpan berasingan untuk setiap profil
+- Pilihan Spotify disambungkan atau pengesanan setempat Windows dengan tajuk, artis, kemajuan dan kulit album; had Spotify dikendalikan secara automatik
 - Mod demo setempat (tidak perlu akaun Spotify)
 - Kemas kini dalam apl daripada GitHub Releases (`data/` dikekalkan)
 

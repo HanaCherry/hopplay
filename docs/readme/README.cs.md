@@ -26,6 +26,8 @@ Pusťte skladbu na Spotify (volitelné) nebo použijte demo režim, vyberte vzhl
 - Efekty zobrazení a skrytí (fade, slide, scale, pop, blur) s časováním
 - Až 5 profilů, každý s vlastní URL pro OBS
 - Rozhraní ve 30 jazycích
+- Nastavitelná velikost a průhlednost přehrávače, ukládané zvlášť pro každý profil
+- Volba mezi připojeným Spotify a místní detekcí Windows s názvem, interpretem, průběhem a obalem alba; limity Spotify se řeší automaticky
 - Místní demo režim (účet Spotify není potřeba)
 - Aktualizace z GitHub Releases (`data/` zůstane)
 

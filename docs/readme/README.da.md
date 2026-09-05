@@ -26,6 +26,8 @@ Afspil et nummer på Spotify (valgfrit) eller brug demotilstand, vælg et skin, 
 - Vis- og skjul-effekter (fade, slide, scale, pop, blur) med timing
 - Op til 5 profiler, hver med sin egen OBS-URL
 - Brugerflade på 30 sprog
+- Justerbar afspillerstørrelse og gennemsigtighed, gemt separat for hver profil
+- Vælg tilsluttet Spotify eller lokal Windows-registrering med titel, kunstner, forløb og albumcover; Spotify-begrænsninger håndteres automatisk
 - Lokal demotilstand (ingen Spotify-konto påkrævet)
 - Opdateringer fra GitHub Releases (`data/` bevares)
 

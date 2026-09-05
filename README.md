@@ -24,6 +24,8 @@ Play a track on Spotify (optional) or use demo mode, pick a player skin, copy th
 - Appear and hide effects (fade, slide, scale, pop, blur) with timing
 - Up to 5 profiles with separate OBS URLs
 - UI in 30 languages
+- Adjustable player size and opacity, saved separately for each profile
+- Choice of connected Spotify or Windows local detection, including title, artist, progress and album artwork; Spotify rate limits are handled automatically
 - Local demo mode (no Spotify account required)
 - In-app updates from GitHub Releases (`data/` is kept)
 
@@ -107,6 +109,8 @@ Lance un titre sur Spotify (optionnel) ou utilise le mode démo, choisis un skin
 - Effets d’apparition et de disparition (fondu, glissement, zoom, pop, flou) avec durées
 - Jusqu’à 5 profils, chacun avec son URL OBS
 - Interface en 30 langues
+- Taille et opacité du lecteur réglables, enregistrées séparément pour chaque profil
+- Choix entre Spotify connecté et la détection locale Windows, avec titre, artiste, progression et pochette d’album ; les limitations Spotify sont gérées automatiquement
 - Mode démo local (pas besoin de compte Spotify)
 - Mises à jour depuis GitHub Releases (`data/` est conservé)
 
@@ -174,6 +178,8 @@ Reproduce un tema en Spotify (opcional) o usa el modo demo, elige un estilo y co
 - Efectos de aparición y desaparición (fundido, desliz, escala, pop, desenfoque) con tiempos
 - Hasta 5 perfiles, cada uno con su URL de OBS
 - Interfaz en 30 idiomas
+- Tamaño y opacidad del reproductor ajustables, guardados por separado para cada perfil
+- Elección entre Spotify conectado y detección local de Windows, con título, artista, progreso y portada; los límites de Spotify se gestionan automáticamente
 - Modo demo local (no hace falta cuenta de Spotify)
 - Actualizaciones desde GitHub Releases (se conserva `data/`)
 
@@ -241,6 +247,8 @@ Toca uma faixa no Spotify (opcional) ou usa o modo demo, escolhe um visual e cop
 - Efeitos de aparecer e esconder (fade, slide, escala, pop, desfoque) com tempos
 - Até 5 perfis, cada um com o seu URL do OBS
 - Interface em 30 idiomas
+- Tamanho e opacidade do leitor ajustáveis, guardados separadamente em cada perfil
+- Escolha entre Spotify ligado e deteção local do Windows, com título, artista, progresso e capa do álbum; os limites do Spotify são geridos automaticamente
 - Modo demo local (sem conta Spotify)
 - Atualizações a partir de GitHub Releases (`data/` é mantido)
 
@@ -308,6 +316,8 @@ Spiele einen Titel auf Spotify (optional) oder nutze den Demo-Modus, wähle ein 
 - Ein- und Ausblendeffekte (Fade, Slide, Scale, Pop, Blur) mit Timing
 - Bis zu 5 Profile mit eigenen OBS-URLs
 - Oberfläche in 30 Sprachen
+- Einstellbare Playergröße und Deckkraft, separat für jedes Profil gespeichert
+- Wahl zwischen verbundenem Spotify und lokaler Windows-Erkennung mit Titel, Künstler, Fortschritt und Albumcover; Spotify-Limits werden automatisch behandelt
 - Lokaler Demo-Modus (kein Spotify-Konto nötig)
 - Updates aus GitHub Releases (`data/` bleibt erhalten)
 
@@ -375,6 +385,8 @@ Riproduci un brano su Spotify (opzionale) o usa la modalità demo, scegli uno sk
 - Effetti di comparsa e scomparsa (fade, slide, scale, pop, blur) con tempi
 - Fino a 5 profili, ognuno con il proprio URL OBS
 - Interfaccia in 30 lingue
+- Dimensione e opacità del lettore regolabili e salvate separatamente per ogni profilo
+- Scelta tra Spotify connesso e rilevamento locale di Windows, con titolo, artista, avanzamento e copertina; i limiti Spotify vengono gestiti automaticamente
 - Modalità demo locale (nessun account Spotify)
 - Aggiornamenti da GitHub Releases (`data/` viene conservato)
 
@@ -442,6 +454,8 @@ Speel een nummer op Spotify (optioneel) of gebruik de demomodus, kies een skin e
 - In- en uitfadeneffecten (fade, slide, scale, pop, blur) met timing
 - Tot 5 profielen, elk met een eigen OBS-URL
 - Interface in 30 talen
+- Instelbare spelergrootte en dekking, afzonderlijk opgeslagen per profiel
+- Keuze tussen verbonden Spotify en lokale Windows-detectie, met titel, artiest, voortgang en albumhoes; Spotify-limieten worden automatisch afgehandeld
 - Lokale demomodus (geen Spotify-account nodig)
 - Updates via GitHub Releases (`data/` blijft bewaard)
 
@@ -509,6 +523,8 @@ Odtwórz utwór na Spotify (opcjonalnie) albo użyj trybu demo, wybierz skórkę
 - Efekty pojawiania i znikania (fade, slide, scale, pop, blur) z czasem
 - Do 5 profili, każdy z własnym URL OBS
 - Interfejs w 30 językach
+- Regulowany rozmiar i przezroczystość odtwarzacza, zapisywane osobno dla każdego profilu
+- Wybór między połączonym Spotify a lokalnym wykrywaniem Windows, z tytułem, wykonawcą, postępem i okładką; limity Spotify są obsługiwane automatycznie
 - Lokalny tryb demo (konto Spotify nie jest wymagane)
 - Aktualizacje z GitHub Releases (`data/` zostaje)
 
@@ -576,6 +592,8 @@ MIT © GalaxyBunny Studio
 - Эффекты появления и скрытия (fade, slide, scale, pop, blur) с таймингом
 - До 5 профилей, у каждого свой URL для OBS
 - Интерфейс на 30 языках
+- Настраиваемые размер и прозрачность плеера, сохраняемые отдельно для каждого профиля
+- Выбор между подключённым Spotify и локальным обнаружением Windows с названием, исполнителем, прогрессом и обложкой; ограничения Spotify обрабатываются автоматически
 - Локальный демо-режим (аккаунт Spotify не нужен)
 - Обновления из GitHub Releases (папка `data/` сохраняется)
 
@@ -643,6 +661,8 @@ MIT © GalaxyBunny Studio
 - Ефекти появи та зникнення (fade, slide, scale, pop, blur) з таймінгом
 - До 5 профілів, кожен зі своїм URL для OBS
 - Інтерфейс 30 мовами
+- Регульовані розмір і прозорість програвача, що зберігаються окремо для кожного профілю
+- Вибір між підключеним Spotify і локальним виявленням Windows із назвою, виконавцем, прогресом та обкладинкою; обмеження Spotify обробляються автоматично
 - Локальний демо-режим (акаунт Spotify не потрібен)
 - Оновлення з GitHub Releases (папка `data/` зберігається)
 
@@ -710,6 +730,8 @@ Spotify で曲を再生する（任意）かデモモードを使い、スキン
 - 表示・非表示エフェクト（フェード、スライド、スケール、ポップ、ブラー）と時間設定
 - 最大 5 プロファイル、それぞれ別の OBS URL
 - UI は 30 言語
+- プレーヤーのサイズと不透明度を調整でき、プロファイルごとに個別保存
+- 接続済みSpotifyまたはWindowsローカル検出を選択可能。タイトル、アーティスト、進行状況、アルバム画像に対応し、Spotifyの制限も自動処理
 - ローカルデモモード（Spotify アカウント不要）
 - GitHub Releases からのアプリ内更新（`data/` は保持）
 
@@ -777,6 +799,8 @@ Spotify에서 곡을 재생하거나(선택) 데모 모드를 쓰고, 스킨을 
 - 나타남·숨김 효과(페이드, 슬라이드, 스케일, 팝, 블러)와 시간 설정
 - 프로필 최대 5개, 각각 다른 OBS URL
 - UI 30개 언어
+- 플레이어 크기와 불투명도를 조절하고 프로필별로 개별 저장
+- 연결된 Spotify 또는 Windows 로컬 감지를 선택하고 제목, 아티스트, 진행률, 앨범 이미지를 표시하며 Spotify 제한을 자동 처리
 - 로컬 데모 모드 (Spotify 계정 불필요)
 - GitHub Releases로 앱 내 업데이트 (`data/` 유지)
 
@@ -844,6 +868,8 @@ MIT © GalaxyBunny Studio
 - 出现与消失动画（淡入、滑动、缩放、弹出、模糊）及时长
 - 最多 5 个配置，各自独立的 OBS URL
 - 界面支持 30 种语言
+- 可调节播放器大小和不透明度，并按配置文件分别保存
+- 可选择已连接的 Spotify 或 Windows 本地检测，显示标题、艺术家、进度和专辑封面，并自动处理 Spotify 限制
 - 本地演示模式（无需 Spotify 账号）
 - 通过 GitHub Releases 应用内更新（保留 `data/`）
 
@@ -911,6 +937,8 @@ MIT © GalaxyBunny Studio
 - تأثيرات ظهور واختفاء (تلاشٍ، انزلاق، تكبير، pop، ضباب) مع التوقيت
 - حتى 5 ملفات، لكل منها رابط OBS خاص
 - واجهة بـ 30 لغة
+- حجم وشفافية قابلان للتعديل مع حفظهما بشكل منفصل لكل ملف شخصي
+- اختيار Spotify المتصل أو اكتشاف Windows المحلي مع العنوان والفنان والتقدم وغلاف الألبوم؛ وتُدار قيود Spotify تلقائيًا
 - وضع تجريبي محلي (لا حاجة لحساب Spotify)
 - تحديثات من GitHub Releases (يُحتفظ بـ `data/`)
 
@@ -978,6 +1006,8 @@ Spotify’da bir parça çal (isteğe bağlı) veya demo modunu kullan, bir skin
 - Belirme ve gizlenme efektleri (fade, kaydır, ölçek, pop, bulanık) ve süreler
 - En fazla 5 profil, her birinin ayrı OBS URL’si
 - 30 dilde arayüz
+- Her profil için ayrı kaydedilen ayarlanabilir oynatıcı boyutu ve opaklığı
+- Başlık, sanatçı, ilerleme ve albüm kapağıyla bağlı Spotify veya Windows yerel algılama seçeneği; Spotify sınırları otomatik yönetilir
 - Yerel demo modu (Spotify hesabı gerekmez)
 - GitHub Releases’ten uygulama içi güncelleme (`data/` korunur)
 
@@ -1045,6 +1075,8 @@ Spotify पर गाना चलाएँ (वैकल्पिक) या �
 - दिखने और छिपने के इफ़ेक्ट (फे़ड, स्लाइड, स्केल, पॉप, ब्लर) और समय
 - अधिकतम 5 प्रोफ़ाइल, हर एक का अलग OBS URL
 - 30 भाषाओं में इंटरफ़ेस
+- प्लेयर का आकार और अपारदर्शिता समायोज्य हैं और हर प्रोफ़ाइल के लिए अलग सहेजे जाते हैं
+- शीर्षक, कलाकार, प्रगति और एल्बम कवर के साथ कनेक्टेड Spotify या Windows लोकल पहचान का विकल्प; Spotify सीमाएँ अपने आप संभाली जाती हैं
 - लोकल डेमो मोड (Spotify खाता ज़रूरी नहीं)
 - GitHub Releases से इन-ऐप अपडेट (`data/` सुरक्षित रहता है)
 
@@ -1112,6 +1144,8 @@ Spotify-তে গান চালান (ঐচ্ছিক) বা ডেম�
 - আসা-যাওয়ার ইফেক্ট (ফেড, স্লাইড, স্কেল, পপ, ব্লার) ও সময়
 - সর্বোচ্চ ৫টি প্রোফাইল, প্রতিটির আলাদা OBS URL
 - ৩০টি ভাষায় ইন্টারফেস
+- প্লেয়ারের আকার ও অস্বচ্ছতা নিয়ন্ত্রণযোগ্য এবং প্রতিটি প্রোফাইলে আলাদাভাবে সংরক্ষিত
+- শিরোনাম, শিল্পী, অগ্রগতি ও অ্যালবাম কভারসহ সংযুক্ত Spotify বা Windows লোকাল শনাক্তকরণ; Spotify সীমা স্বয়ংক্রিয়ভাবে সামলানো হয়
 - লোকাল ডেমো মোড (Spotify অ্যাকাউন্ট লাগে না)
 - GitHub Releases থেকে ইন-অ্যাপ আপডেট (`data/` রাখা হয়)
 
@@ -1179,6 +1213,8 @@ Putar lagu di Spotify (opsional) atau pakai mode demo, pilih skin, lalu salin UR
 - Efek muncul dan hilang (fade, geser, skala, pop, blur) plus durasi
 - Hingga 5 profil, masing-masing URL OBS sendiri
 - Antarmuka dalam 30 bahasa
+- Ukuran dan opasitas pemutar dapat diatur dan disimpan terpisah untuk setiap profil
+- Pilihan Spotify terhubung atau deteksi lokal Windows dengan judul, artis, progres, dan sampul album; batas Spotify ditangani otomatis
 - Mode demo lokal (tidak perlu akun Spotify)
 - Pembaruan dari GitHub Releases (`data/` tetap ada)
 
@@ -1246,6 +1282,8 @@ Phát một bài trên Spotify (tuỳ chọn) hoặc dùng chế độ demo, ch�
 - Hiệu ứng hiện/ẩn (fade, trượt, scale, pop, mờ) kèm thời gian
 - Tối đa 5 hồ sơ, mỗi hồ sơ một URL OBS riêng
 - Giao diện 30 ngôn ngữ
+- Có thể chỉnh kích thước và độ mờ trình phát, lưu riêng cho từng hồ sơ
+- Chọn Spotify đã kết nối hoặc phát hiện cục bộ Windows, gồm tiêu đề, nghệ sĩ, tiến trình và ảnh album; giới hạn Spotify được xử lý tự động
 - Chế độ demo local (không cần tài khoản Spotify)
 - Cập nhật trong ứng dụng từ GitHub Releases (giữ `data/`)
 
@@ -1313,6 +1351,8 @@ MIT © GalaxyBunny Studio
 - เอฟเฟกต์ปรากฏและหาย (เฟด, สไลด์, สเกล, ป็อป, เบลอ) พร้อมเวลา
 - สูงสุด 5 โปรไฟล์ แต่ละอันมี URL OBS ของตัวเอง
 - อินเทอร์เฟซ 30 ภาษา
+- ปรับขนาดและความทึบของเครื่องเล่นได้ โดยบันทึกแยกสำหรับแต่ละโปรไฟล์
+- เลือก Spotify ที่เชื่อมต่อหรือการตรวจจับในเครื่องของ Windows พร้อมชื่อเพลง ศิลปิน ความคืบหน้า และปกอัลบั้ม; จัดการข้อจำกัด Spotify อัตโนมัติ
 - โหมดเดโมในเครื่อง (ไม่ต้องมีบัญชี Spotify)
 - อัปเดตในแอปจาก GitHub Releases (เก็บ `data/` ไว้)
 
@@ -1380,6 +1420,8 @@ Spela en låt på Spotify (valfritt) eller använd demoläge, välj ett skal och
 - Visa- och döljeffekter (fade, slide, scale, pop, blur) med timing
 - Upp till 5 profiler, var och en med egen OBS-URL
 - Gränssnitt på 30 språk
+- Justerbar spelarstorlek och opacitet som sparas separat för varje profil
+- Välj ansluten Spotify eller lokal Windows-detektering med titel, artist, förlopp och albumomslag; Spotify-begränsningar hanteras automatiskt
 - Lokalt demoläge (inget Spotify-konto krävs)
 - Uppdateringar från GitHub Releases (`data/` behålls)
 
@@ -1447,6 +1489,8 @@ Spill et spor på Spotify (valgfritt) eller bruk demomodus, velg et skall og kop
 - Vis- og skjuileffekter (fade, slide, scale, pop, blur) med timing
 - Opptil 5 profiler, hver med egen OBS-URL
 - Grensesnitt på 30 språk
+- Justerbar spillerstørrelse og gjennomsiktighet som lagres separat for hver profil
+- Velg tilkoblet Spotify eller lokal Windows-gjenkjenning med tittel, artist, fremdrift og albumomslag; Spotify-begrensninger håndteres automatisk
 - Lokal demomodus (ingen Spotify-konto nødvendig)
 - Oppdateringer fra GitHub Releases (`data/` beholdes)
 
@@ -1514,6 +1558,8 @@ Afspil et nummer på Spotify (valgfrit) eller brug demotilstand, vælg et skin, 
 - Vis- og skjul-effekter (fade, slide, scale, pop, blur) med timing
 - Op til 5 profiler, hver med sin egen OBS-URL
 - Brugerflade på 30 sprog
+- Justerbar afspillerstørrelse og gennemsigtighed, gemt separat for hver profil
+- Vælg tilsluttet Spotify eller lokal Windows-registrering med titel, kunstner, forløb og albumcover; Spotify-begrænsninger håndteres automatisk
 - Lokal demotilstand (ingen Spotify-konto påkrævet)
 - Opdateringer fra GitHub Releases (`data/` bevares)
 
@@ -1581,6 +1627,8 @@ Toista kappale Spotifyssa (valinnainen) tai käytä demotilaa, valitse ulkoasu j
 - Esiin- ja poisefektit (fade, slide, scale, pop, blur) ajoituksella
 - Enintään 5 profiilia, kullakin oma OBS-URL
 - Käyttöliittymä 30 kielellä
+- Säädettävä soittimen koko ja läpinäkyvyys, jotka tallennetaan erikseen jokaiseen profiiliin
+- Valitse yhdistetty Spotify tai Windowsin paikallinen tunnistus, joka näyttää kappaleen, artistin, etenemisen ja kansikuvan; Spotify-rajoitukset käsitellään automaattisesti
 - Paikallinen demotila (Spotify-tiliä ei tarvita)
 - Päivitykset GitHub Releasesistä (`data/` säilytetään)
 
@@ -1648,6 +1696,8 @@ Pusťte skladbu na Spotify (volitelné) nebo použijte demo režim, vyberte vzhl
 - Efekty zobrazení a skrytí (fade, slide, scale, pop, blur) s časováním
 - Až 5 profilů, každý s vlastní URL pro OBS
 - Rozhraní ve 30 jazycích
+- Nastavitelná velikost a průhlednost přehrávače, ukládané zvlášť pro každý profil
+- Volba mezi připojeným Spotify a místní detekcí Windows s názvem, interpretem, průběhem a obalem alba; limity Spotify se řeší automaticky
 - Místní demo režim (účet Spotify není potřeba)
 - Aktualizace z GitHub Releases (`data/` zůstane)
 
@@ -1715,6 +1765,8 @@ Redă o piesă pe Spotify (opțional) sau folosește modul demo, alege un skin �
 - Efecte de apariție și dispariție (fade, slide, scale, pop, blur) cu durate
 - Până la 5 profiluri, fiecare cu propriul URL OBS
 - Interfață în 30 de limbi
+- Dimensiune și opacitate reglabile ale playerului, salvate separat pentru fiecare profil
+- Alegere între Spotify conectat și detectarea locală Windows, cu titlu, artist, progres și copertă; limitele Spotify sunt gestionate automat
 - Mod demo local (nu e nevoie de cont Spotify)
 - Actualizări din GitHub Releases (`data/` este păstrat)
 
@@ -1782,6 +1834,8 @@ MIT © GalaxyBunny Studio
 - Εφέ εμφάνισης και απόκρυψης (fade, slide, scale, pop, blur) με χρονισμό
 - Έως 5 προφίλ, το καθένα με δικό του URL OBS
 - Διεπαφή σε 30 γλώσσες
+- Ρυθμιζόμενο μέγεθος και αδιαφάνεια αναπαραγωγής, αποθηκευμένα ξεχωριστά για κάθε προφίλ
+- Επιλογή συνδεδεμένου Spotify ή τοπικής ανίχνευσης Windows με τίτλο, καλλιτέχνη, πρόοδο και εξώφυλλο· τα όρια του Spotify διαχειρίζονται αυτόματα
 - Τοπική λειτουργία επίδειξης (δεν χρειάζεται λογαριασμός Spotify)
 - Ενημερώσεις από GitHub Releases (το `data/` διατηρείται)
 
@@ -1849,6 +1903,8 @@ Játssz le egy számot Spotifyon (opcionális) vagy használd a demó módot, v�
 - Megjelenés- és eltűnéseffektek (fade, slide, scale, pop, blur) időzítéssel
 - Legfeljebb 5 profil, mindegyik saját OBS URL-lel
 - Felület 30 nyelven
+- Állítható lejátszóméret és átlátszatlanság, profilonként külön mentve
+- Választható csatlakoztatott Spotify vagy helyi Windows-észlelés címmel, előadóval, folyamattal és albumborítóval; a Spotify korlátozásait automatikusan kezeli
 - Helyi demó mód (nem kell Spotify-fiók)
 - Frissítés GitHub Releases-ből (`data/` megmarad)
 
@@ -1916,6 +1972,8 @@ MIT © GalaxyBunny Studio
 - אפקטי הופעה והיעלמות (פייד, החלקה, קנה מידה, פופ, טשטוש) עם תזמון
 - עד 5 פרופילים, לכל אחד כתובת OBS משלו
 - ממשק ב-30 שפות
+- גודל ואטימות נגן ניתנים להתאמה ונשמרים בנפרד לכל פרופיל
+- בחירה בין Spotify מחובר לזיהוי מקומי של Windows, כולל כותרת, אמן, התקדמות ועטיפת אלבום; מגבלות Spotify מטופלות אוטומטית
 - מצב הדגמה מקומי (אין צורך בחשבון Spotify)
 - עדכונים מ-GitHub Releases (`data/` נשמר)
 
@@ -1983,6 +2041,8 @@ Mainkan lagu di Spotify (pilihan) atau guna mod demo, pilih kulit, kemudian sali
 - Kesan muncul dan hilang (fade, slaid, skala, pop, kabur) dengan masa
 - Sehingga 5 profil, setiap satu ada URL OBS sendiri
 - Antara muka dalam 30 bahasa
+- Saiz dan kelegapan pemain boleh dilaraskan serta disimpan berasingan untuk setiap profil
+- Pilihan Spotify disambungkan atau pengesanan setempat Windows dengan tajuk, artis, kemajuan dan kulit album; had Spotify dikendalikan secara automatik
 - Mod demo setempat (tidak perlu akaun Spotify)
 - Kemas kini dalam apl daripada GitHub Releases (`data/` dikekalkan)
 

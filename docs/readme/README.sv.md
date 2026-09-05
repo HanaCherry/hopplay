@@ -26,6 +26,8 @@ Spela en låt på Spotify (valfritt) eller använd demoläge, välj ett skal och
 - Visa- och döljeffekter (fade, slide, scale, pop, blur) med timing
 - Upp till 5 profiler, var och en med egen OBS-URL
 - Gränssnitt på 30 språk
+- Justerbar spelarstorlek och opacitet som sparas separat för varje profil
+- Välj ansluten Spotify eller lokal Windows-detektering med titel, artist, förlopp och albumomslag; Spotify-begränsningar hanteras automatiskt
 - Lokalt demoläge (inget Spotify-konto krävs)
 - Uppdateringar från GitHub Releases (`data/` behålls)
 

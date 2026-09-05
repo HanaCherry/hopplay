@@ -18,6 +18,8 @@ Play a track on Spotify (optional) or use demo mode, pick a player skin, copy th
 - Appear and hide effects (fade, slide, scale, pop, blur) with timing
 - Up to 5 profiles with separate OBS URLs
 - UI in 30 languages
+- Adjustable player size and opacity, saved separately for each profile
+- Choice of connected Spotify or Windows local detection, including title, artist, progress and album artwork; Spotify rate limits are handled automatically
 - Local demo mode (no Spotify account required)
 - In-app updates from GitHub Releases (`data/` is kept)
 

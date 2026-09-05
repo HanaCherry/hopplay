@@ -26,6 +26,8 @@ Játssz le egy számot Spotifyon (opcionális) vagy használd a demó módot, v�
 - Megjelenés- és eltűnéseffektek (fade, slide, scale, pop, blur) időzítéssel
 - Legfeljebb 5 profil, mindegyik saját OBS URL-lel
 - Felület 30 nyelven
+- Állítható lejátszóméret és átlátszatlanság, profilonként külön mentve
+- Választható csatlakoztatott Spotify vagy helyi Windows-észlelés címmel, előadóval, folyamattal és albumborítóval; a Spotify korlátozásait automatikusan kezeli
 - Helyi demó mód (nem kell Spotify-fiók)
 - Frissítés GitHub Releases-ből (`data/` megmarad)
 

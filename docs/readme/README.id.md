@@ -26,6 +26,8 @@ Putar lagu di Spotify (opsional) atau pakai mode demo, pilih skin, lalu salin UR
 - Efek muncul dan hilang (fade, geser, skala, pop, blur) plus durasi
 - Hingga 5 profil, masing-masing URL OBS sendiri
 - Antarmuka dalam 30 bahasa
+- Ukuran dan opasitas pemutar dapat diatur dan disimpan terpisah untuk setiap profil
+- Pilihan Spotify terhubung atau deteksi lokal Windows dengan judul, artis, progres, dan sampul album; batas Spotify ditangani otomatis
 - Mode demo lokal (tidak perlu akun Spotify)
 - Pembaruan dari GitHub Releases (`data/` tetap ada)
 

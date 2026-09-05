@@ -26,6 +26,8 @@ Toca uma faixa no Spotify (opcional) ou usa o modo demo, escolhe um visual e cop
 - Efeitos de aparecer e esconder (fade, slide, escala, pop, desfoque) com tempos
 - Até 5 perfis, cada um com o seu URL do OBS
 - Interface em 30 idiomas
+- Tamanho e opacidade do leitor ajustáveis, guardados separadamente em cada perfil
+- Escolha entre Spotify ligado e deteção local do Windows, com título, artista, progresso e capa do álbum; os limites do Spotify são geridos automaticamente
 - Modo demo local (sem conta Spotify)
 - Atualizações a partir de GitHub Releases (`data/` é mantido)
 

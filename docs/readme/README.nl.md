@@ -26,6 +26,8 @@ Speel een nummer op Spotify (optioneel) of gebruik de demomodus, kies een skin e
 - In- en uitfadeneffecten (fade, slide, scale, pop, blur) met timing
 - Tot 5 profielen, elk met een eigen OBS-URL
 - Interface in 30 talen
+- Instelbare spelergrootte en dekking, afzonderlijk opgeslagen per profiel
+- Keuze tussen verbonden Spotify en lokale Windows-detectie, met titel, artiest, voortgang en albumhoes; Spotify-limieten worden automatisch afgehandeld
 - Lokale demomodus (geen Spotify-account nodig)
 - Updates via GitHub Releases (`data/` blijft bewaard)
 
