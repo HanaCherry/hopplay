@@ -1,6 +1,6 @@
 # Hopplay
 
-**v1.4.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
+**v1.5.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
 **By [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -8,7 +8,7 @@ Play a track on Spotify (optional) or use demo mode, pick a player skin, copy th
 
 ## Features
 
-- 41 player skins, including Ticket, Pixel, Radio, Tarot, Comic, Arcade, Synthwave, HUD, Wanted, and more
+- 53 player skins (kawaii, chrome, walkman, film, sakura, tarot, arcade, and more)
 - Cover modes: Square, Canvas, Vinyl, None
 - Magic colors, cover glow, player glow, cover blur, visualizer
 - Hide on pause / show only on song change

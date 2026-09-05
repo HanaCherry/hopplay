@@ -515,6 +515,114 @@
           <div class="artist">${escapeHtml(artist)}</div>
           <div class="wanted-rew">REWARD: ONE LISTEN</div>
         </div>`;
+    } else if (style === "kawaii") {
+      inner += `
+        <div class="kw-ears"><i></i><i></i></div>
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">♡ ${escapeHtml(title)} ♡</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "brutalist") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="br-kicker">NOW</div>
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "chrome") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "origami") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>`;
+    } else if (style === "frost") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "wood") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "jukebox") {
+      inner += `
+        <div class="jb-top"></div>
+        ${cover}
+        <div class="meta">
+          <div class="jb-sel">A7</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "walkman") {
+      inner += `
+        <div class="wm-deck">
+          ${cover}
+          <div class="wm-window"></div>
+        </div>
+        <div class="meta">
+          <div class="wm-brand">HOPPLAY</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "floppy") {
+      inner += `
+        <div class="fl-shutter"></div>
+        ${cover}
+        <div class="meta">
+          <div class="fl-label">TRACK.DAT</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>`;
+    } else if (style === "filmstrip") {
+      inner += `
+        <div class="film-holes"><i></i><i></i><i></i><i></i><i></i></div>
+        ${cover}
+        <div class="meta">
+          <div class="film-code">24 FPS</div>
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>
+        <div class="film-holes"><i></i><i></i><i></i><i></i><i></i></div>`;
+    } else if (style === "subway") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="sub-line">● NOW PLAYING</div>
+          <div class="title">${escapeHtml(title)}</div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "sakura") {
+      inner += `
+        <div class="sk-petals"><i></i><i></i><i></i></div>
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
     }
 
     playerEl.innerHTML = inner;
@@ -654,7 +762,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 5,
+        ui: 6,
       });
       if (signature !== lastSig) {
         lastSig = signature;

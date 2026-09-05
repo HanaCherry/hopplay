@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0
+
+- 12 extra skins: Kawaii, Brutalist, Chrome, Origami, Frost, Wood, Jukebox, Walkman, Floppy, Film, Subway, Sakura
+
 ## 1.4.0
 
 - 12 extra skins: Tarot, Comic, Folder, Badge, Arcade, Synthwave, Chalkboard, Receipt, Postcard, HUD, Chat, Wanted
