@@ -252,7 +252,9 @@ body.preview {
   transform-origin: bottom;
 }
 
-.player.hide-viz .visualizer { display: none; }
+.player.hide-viz .visualizer,
+.player.hide-viz .eq { display: none; }
+.player:not(.playing) .eq i { animation-play-state: paused; height: 4px !important; }
 .player:not(.playing) .visualizer i { animation-play-state: paused; height: 4px !important; }
 
 .times {
@@ -1434,6 +1436,209 @@ body.preview {
 .player.sakura .sk-petals i:nth-child(3) { bottom: 18px; left: 14px; transform: rotate(-20deg); }
 .player.sakura .cover { width: 100%; height: 150px; border-radius: 12px; }
 .player.sakura .title { color: #a83a62; }
+
+/* ========== ORB (circle overlapping bar) ========== */
+.player.orb {
+  display: flex;
+  align-items: center;
+  min-width: 420px;
+  position: relative;
+}
+.player.orb .cover {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  z-index: 3;
+  margin-right: -36px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+.player.orb .cover.vinyl { width: 108px; height: 108px; }
+.player.orb .orb-play {
+  position: absolute;
+  left: 38px;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  z-index: 4;
+  pointer-events: none;
+}
+.player.orb .orb-play::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 9px;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent #fff;
+}
+.player.orb .meta {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 20px 12px 48px;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.player.orb .title { font-size: 18px; }
+.player.orb .times { justify-content: space-between; font-size: 12px; margin-top: 6px; }
+.player.orb .playbar { height: 4px; margin-top: 4px; }
+
+/* ========== ORB MINI ========== */
+.player.orbmini {
+  display: flex;
+  align-items: center;
+  min-width: 320px;
+}
+.player.orbmini .cover {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  z-index: 2;
+  margin-right: -24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+.player.orbmini .meta {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 16px 10px 36px;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.player.orbmini .title { font-size: 14px; }
+.player.orbmini .playbar { margin-top: 6px; height: 3px; }
+
+/* ========== COVER CARD (large square) ========== */
+.player.covercard {
+  width: 280px;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+.player.covercard .cover { width: 280px; height: 280px; border-radius: 22px; }
+.player.covercard .cc-cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 36px 16px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.78));
+}
+.player.covercard .title { font-size: 22px; }
+.player.covercard .playbar { margin-top: 8px; background: rgba(255,255,255,0.25); }
+
+/* ========== STACK (two overlapping pills) ========== */
+.player.stackrow {
+  display: flex;
+  align-items: center;
+  min-width: 360px;
+  position: relative;
+}
+.player.stackrow .cover {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  z-index: 3;
+  margin-right: -40px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.4);
+}
+.player.stackrow .stack-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.player.stackrow .stack-now,
+.player.stackrow .stack-sub {
+  background: #141414;
+  border-radius: 999px;
+  padding: 10px 16px 10px 52px;
+  min-width: 0;
+  box-shadow: var(--shadow);
+}
+.player.stackrow .stack-now .title { font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.player.stackrow .stack-sub { opacity: 0.92; }
+.player.stackrow .playbar { margin-top: 6px; height: 3px; }
+
+/* ========== EQ BAR ========== */
+.player.eqbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 340px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #121212;
+  box-shadow: var(--shadow);
+}
+.player.eqbar .cover { display: none; }
+.player.eqbar .eq { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
+.player.eqbar .eq i { width: 3px; border-radius: 99px; background: var(--accent); animation: bounce 0.9s ease-in-out infinite; }
+.player.eqbar .title { font-size: 13px; font-weight: 800; }
+.player.eqbar .artist { font-size: 12px; }
+.player.eqbar .playbar { width: 72px; height: 4px; flex-shrink: 0; }
+
+/* ========== MINI PILL ========== */
+.player.minipill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  border-radius: 999px;
+  background: #141414;
+  min-width: 240px;
+  box-shadow: var(--shadow);
+}
+.player.minipill .cover { width: 44px; height: 44px; border-radius: 50%; }
+.player.minipill .meta { flex: 1; min-width: 0; }
+.player.minipill .title { font-size: 13px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; }
+.player.minipill .artist { font-size: 11px; }
+.player.minipill .eq { display: flex; align-items: flex-end; gap: 2px; height: 16px; }
+.player.minipill .eq i { width: 3px; background: var(--accent); border-radius: 99px; animation: bounce 0.9s ease-in-out infinite; }
+
+/* ========== SLEEVE (vinyl coming out of jacket) ========== */
+.player.sleeve {
+  position: relative;
+  width: 260px;
+  height: 180px;
+}
+.player.sleeve .sleeve-jacket {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 160px;
+  height: 160px;
+  z-index: 3;
+  box-shadow: 8px 12px 28px rgba(0,0,0,0.35);
+}
+.player.sleeve .sleeve-jacket .cover {
+  width: 160px;
+  height: 160px;
+  border-radius: 4px;
+}
+.player.sleeve .sleeve-disc {
+  position: absolute;
+  left: 92px;
+  top: 14px;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  z-index: 1;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+.player.sleeve .vinyl-spin,
+.player.sleeve .vinyl-grooves { inset: 0; border-radius: 50%; }
+.player.sleeve .vinyl-spindle {
+  width: 14%;
+  height: 14%;
+  background: #f4f4f4;
+  box-shadow: 0 0 0 3px #222;
+}
 
 @keyframes bounce {
   0%, 100% { transform: scaleY(0.35); }

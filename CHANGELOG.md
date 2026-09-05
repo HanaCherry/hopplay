@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0
+
+- New skins from reference widgets: Orb, Orb mini, Cover card, Stack, EQ bar, Pill, Sleeve (vinyl jacket)
+
 ## 1.5.1
 
 - Fade options: fade, slide, scale, pop, blur

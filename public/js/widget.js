@@ -625,6 +625,68 @@
           <div class="artist">${escapeHtml(artist)}</div>
           <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
         </div>`;
+    } else if (style === "orb") {
+      inner += `
+        ${cover}
+        <div class="orb-play"></div>
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="times"><span>${cur}</span><span>${dur}</span></div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "orbmini") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "covercard") {
+      inner += `
+        ${cover}
+        <div class="cc-cap">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+        </div>`;
+    } else if (style === "stackrow") {
+      inner += `
+        ${cover}
+        <div class="stack-rows">
+          <div class="stack-now">
+            <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+            <div class="artist">${escapeHtml(artist)}</div>
+          </div>
+          <div class="stack-sub">
+            <div class="artist">${escapeHtml(np.album || artist)}</div>
+            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+          </div>
+        </div>`;
+    } else if (style === "eqbar") {
+      inner += `
+        <div class="eq">${viz}</div>
+        <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+        <div class="artist">${escapeHtml(artist)}</div>
+        <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>`;
+    } else if (style === "minipill") {
+      inner += `
+        ${cover}
+        <div class="meta">
+          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
+          <div class="artist">${escapeHtml(artist)}</div>
+        </div>
+        <div class="eq">${viz}</div>`;
+    } else if (style === "sleeve") {
+      inner += `
+        <div class="sleeve-jacket">${cover}</div>
+        <div class="sleeve-disc">
+          <div class="vinyl-spin">
+            <div class="vinyl-grooves"></div>
+            <div class="vinyl-spindle"></div>
+          </div>
+        </div>`;
     }
 
     playerEl.innerHTML = inner;
@@ -788,7 +850,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 6,
+        ui: 7,
       });
       if (signature !== lastSig) {
         lastSig = signature;
