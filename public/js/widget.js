@@ -687,34 +687,23 @@
           </div>
         </div>`;
     } else if (style === "galaxybunny") {
-      inner += `
-        <div class="gb-ears"><b class="pink"></b><b class="space"></b><i class="flower"></i></div>
-        <div class="gb-orbit"></div>
-        <div class="gb-petals"><i></i><i></i><i></i></div>
-        ${cover}
-        <div class="meta">
-          <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
-          <div class="artist">${escapeHtml(artist)}</div>
-          <div class="gb-ctrls">
-            ${controlButton("shuffle", "Lecture aléatoire", "<path d='m3 4 4 0 10 12h4m-4-4 4 4-4 4M3 16h4l3-4m4-4 3-4h4m-4-4 4 4-4 4'/>")}
-            ${controlButton("previous", "Titre précédent", "<path d='M5 4v16M19 4 7 12l12 8Z'/>")}
-            ${controlButton("toggle", "Lecture", "<path class='gb-play-icon' d='m8 4 12 8-12 8Z'/><path class='gb-pause-icon' d='M8 4v16M16 4v16'/>")}
-            ${controlButton("next", "Titre suivant", "<path d='M19 4v16M5 4l12 8-12 8Z'/>")}
-            ${controlButton("repeat", "Répétition désactivée", "<path d='M3 10V7a3 3 0 0 1 3-3h14m-4-3 4 3-4 3M21 14v3a3 3 0 0 1-3 3H4m4-3-4 3 4 3'/><text class='gb-repeat-one' x='9' y='16'>1</text>")}
-          </div>
-          <div class="gb-prog">
-            <span>${cur}</span>
-            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
-            <span>${dur}</span>
-          </div>
-        </div>
-        <div class="gb-word">Hop<span>Play</span></div>
-        <div class="gb-status" role="status" aria-live="polite"></div>`;
+      inner = `
+        <svg class="gb-skin" viewBox="80 60 1630 815" aria-hidden="true">
+          <image href="/brand/galaxy-bunny-clean.png" width="1728" height="1152"/>
+        </svg>
+        <div class="gb-body">
+          ${cover}
+          <div class="meta"><div class="marquee"><div class="title">${escapeHtml(title)}</div></div><div class="artist">${escapeHtml(artist)}</div>
+          <div class="gb-prog"><span>${cur}</span><div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div><span>${dur}</span></div></div>
+        </div><div class="gb-status" role="status" aria-live="polite"></div>`;
+
     }
 
     playerEl.innerHTML = inner;
     if (style === "galaxybunny") {
       $("#playbar", playerEl).insertAdjacentHTML("beforeend", '<input class="gb-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Position de lecture" />');
+      const artwork = playerEl.querySelector('.cover img');
+      if (artwork) artwork.addEventListener('error', () => { artwork.src = '/brand/hopplay-logo.png'; artwork.style.objectFit = 'contain'; }, { once: true });
       syncControls();
     }
     const titleEl = $(".title", playerEl);
@@ -885,10 +874,7 @@
     }
   }
 
-  let polling = false;
   async function poll() {
-    if (polling) return;
-    polling = true;
     try {
       const qs = profileId ? `?profile=${encodeURIComponent(profileId)}` : "";
       const [sRes, nRes] = await Promise.all([
@@ -945,7 +931,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 10,
+        ui: 12,
       });
       if (signature !== lastSig) {
         lastSig = signature;
@@ -967,8 +953,6 @@
       lastPlaying = !!now.is_playing;
     } catch (err) {
       console.warn(err);
-    } finally {
-      polling = false;
     }
   }
 
