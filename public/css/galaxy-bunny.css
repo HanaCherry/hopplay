@@ -30,4 +30,7 @@
 /* User-supplied transparent skin, used unchanged. */
 .player.galaxybunny { height:auto; aspect-ratio:2 / 1; }
 .player.galaxybunny .cover { left:4.8%; top:46.6%; width:20.25%; height:40.5%; border:1px solid #ecc0ff; box-shadow:0 0 10px #e7a3ff55; background:linear-gradient(135deg,#2c184b,#12112b); }
-.player.galaxybunny .meta { left:27.1%; top:48%; width:36.5%; height:43.5%; }
+.player.galaxybunny .meta { left:29%; top:48%; width:34.6%; height:43.5%; }
+
+/* Keep the first letters fully visible beside the artwork. */
+.player.galaxybunny .marquee { mask-image:none; -webkit-mask-image:none; }
