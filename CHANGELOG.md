@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.7.0
+
+- GalaxyBunny Studio and HopPlay logos
+- Animated galaxy starfield background on the dashboard
+
 ## 1.6.1
 
 - Official spelling: HopPlay

@@ -32,7 +32,24 @@
     });
   }
 
+  function makeStars() {
+    const el = document.getElementById("stars");
+    if (!el || el.childElementCount) return;
+    for (let i = 0; i < 90; i++) {
+      const s = document.createElement("i");
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 100 + "%";
+      const size = 1 + Math.random() * 2.2;
+      s.style.width = size + "px";
+      s.style.height = size + "px";
+      s.style.animationDelay = Math.random() * 4 + "s";
+      s.style.animationDuration = 2 + Math.random() * 3 + "s";
+      el.appendChild(s);
+    }
+  }
+
   async function load() {
+    makeStars();
     fillLangSelect();
     window.hopplayApplyI18n();
     const [s, st] = await Promise.all([

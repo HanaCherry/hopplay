@@ -14,9 +14,18 @@
   </style>
 </head>
 <body>
+  <div class="galaxy" aria-hidden="true">
+    <div class="nebula n1"></div>
+    <div class="nebula n2"></div>
+    <div class="nebula n3"></div>
+    <div class="stars" id="stars"></div>
+  </div>
   <div class="brand">
-    <span class="logo">HopPlay</span>
-    <small>GalaxyBunny Studio</small>
+    <img class="header-logo knock-black" src="/brand/hopplay-logo.png" alt="HopPlay" />
+    <div class="studio-row">
+      <img class="studio-logo knock-black" src="/brand/studio-logo.png" alt="GalaxyBunny Studio" />
+      <small>GalaxyBunny Studio</small>
+    </div>
   </div>
   <h1>Spotify</h1>
   <p class="sub" data-i18n="spotifyHint">Redirect URI must match exactly. Do not use localhost.</p>
@@ -29,6 +38,19 @@
   <a class="primary big" href="/index.html" data-i18n="setupSkip">Skip and open the widget</a>
   <script src="/js/i18n.js"></script>
   <script>
+    const stars = document.getElementById("stars");
+    if (stars) {
+      for (let i = 0; i < 70; i++) {
+        const s = document.createElement("i");
+        s.style.left = Math.random() * 100 + "%";
+        s.style.top = Math.random() * 100 + "%";
+        const size = 1 + Math.random() * 2;
+        s.style.width = size + "px";
+        s.style.height = size + "px";
+        s.style.animationDelay = Math.random() * 4 + "s";
+        stars.appendChild(s);
+      }
+    }
     window.hopplayApplyI18n();
     document.getElementById("copy").onclick = () => navigator.clipboard.writeText("http://127.0.0.1:3000/callback");
     const params = new URLSearchParams(location.search);

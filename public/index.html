@@ -7,10 +7,19 @@
   <link rel="stylesheet" href="/css/dashboard.css" />
 </head>
 <body>
+  <div class="galaxy" aria-hidden="true">
+    <div class="nebula n1"></div>
+    <div class="nebula n2"></div>
+    <div class="nebula n3"></div>
+    <div class="stars" id="stars"></div>
+  </div>
   <aside class="sidebar">
     <div class="brand">
-      <span class="logo">HopPlay</span>
-      <small>GalaxyBunny Studio</small>
+      <img class="brand-logo knock-black" src="/brand/hopplay-logo.png" alt="HopPlay" />
+      <div class="studio-row">
+        <img class="studio-logo knock-black" src="/brand/studio-logo.png" alt="GalaxyBunny Studio" />
+        <small>GalaxyBunny Studio</small>
+      </div>
     </div>
     <label class="lang-wrap">
       <select id="lang-select"></select>
@@ -29,8 +38,8 @@
 
   <main>
     <header class="top">
-      <div>
-        <h1>HopPlay</h1>
+      <div class="title-block">
+        <img class="header-logo knock-black" src="/brand/hopplay-logo.png" alt="HopPlay" />
         <p class="sub" data-i18n="tagline">Now-playing overlay for OBS.</p>
       </div>
       <div class="top-actions">
