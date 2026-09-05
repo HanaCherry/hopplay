@@ -82,7 +82,7 @@ code {
 }
 
 .brand { display: flex; flex-direction: column; gap: 10px; }
-.brand-logo { width: 100%; height: auto; display: block; }
+.brand-logo { width: 100%; max-width: 210px; height: auto; display: block; }
 .studio-row { display: flex; align-items: center; gap: 10px; }
 .studio-logo { width: 48px; height: 48px; object-fit: contain; }
 .brand small { color: var(--muted); }
