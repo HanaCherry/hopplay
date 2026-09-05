@@ -25,7 +25,8 @@
   }
 
   function fmt(ms) {
-    const s = Math.max(0, Math.floor(ms / 1000));
+    const value = Number(ms);
+    const s = Number.isFinite(value) ? Math.max(0, Math.floor(value / 1000)) : 0;
     const m = Math.floor(s / 60);
     const r = s % 60;
     return `${String(m).padStart(2, "0")}:${String(r).padStart(2, "0")}`;
@@ -41,6 +42,7 @@
 
   function proxied(url) {
     if (!url) return "";
+    if (String(url).startsWith("/")) return url;
     return `/api/image?url=${encodeURIComponent(url)}`;
   }
 
@@ -114,6 +116,7 @@
     const type = profile.cover || "square";
     if (type === "none") return "";
     const img = proxied(np.image);
+    const fallback = "/brand/hopplay-logo.png";
     const glow = profile.coverGlow ? "glow" : "";
     const video = type === "canvas" && canvasUrl
       ? `<video autoplay muted loop playsinline src="${canvasUrl}"></video>`
@@ -124,14 +127,14 @@
       <div class="cover vinyl ${glow}">
         <div class="vinyl-spin">
           <div class="vinyl-grooves"></div>
-          <div class="vinyl-label">${img ? `<img src="${img}" alt="" />` : ""}</div>
+          <div class="vinyl-label"><img src="${img || fallback}" alt="" /></div>
           <div class="vinyl-spindle"></div>
         </div>
       </div>`;
     }
     return `
       <div class="cover ${type} ${glow}">
-        ${img ? `<img class="${ken}" src="${img}" alt="" />` : ""}
+        <img class="${img ? ken : "cover-placeholder"}" src="${img || fallback}" alt="" />
         ${video}
       </div>`;
   }
@@ -704,15 +707,20 @@
     }
 
     playerEl.innerHTML = inner;
+    playerEl.querySelectorAll(".cover img").forEach((artwork) => {
+      artwork.addEventListener("error", () => {
+        artwork.src = "/brand/hopplay-logo.png";
+        artwork.classList.add("cover-placeholder");
+      }, { once: true });
+    });
     if (style === "galaxybunny") {
       $("#playbar", playerEl).insertAdjacentHTML("beforeend", '<input class="gb-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Position de lecture" />');
-      const artwork = playerEl.querySelector('.cover img');
-      if (artwork) artwork.addEventListener('error', () => { artwork.src = '/brand/hopplay-logo.png'; artwork.style.objectFit = 'contain'; }, { once: true });
       syncControls();
     }
     const titleEl = $(".title", playerEl);
     if (titleEl && titleEl.scrollWidth > titleEl.parentElement.clientWidth + 4) {
       titleEl.classList.add("animated-title");
+      titleEl.parentElement.classList.add("is-scrolling");
     }
   }
 
@@ -883,12 +891,13 @@
       const qs = profileId ? `?profile=${encodeURIComponent(profileId)}` : "";
       const [sRes, nRes] = await Promise.all([
         fetch(`/api/settings${qs}`),
-        fetch("/api/now-playing"),
+        fetch(`/api/now-playing${qs}`),
       ]);
       const sJson = await sRes.json();
       const nJson = await nRes.json();
       settings = sJson.profile || sJson.profiles?.[0];
       now = nJson;
+      if (!now.title || !now.image) canvasUrl = null;
       lastPoll = Date.now();
       localProgress = now.progress_ms || 0;
 
@@ -963,6 +972,6 @@
   }
 
   poll();
-  setInterval(poll, 1000);
+  setInterval(poll, 2000);
   setInterval(tick, 200);
 })();

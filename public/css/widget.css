@@ -233,7 +233,16 @@ body.preview {
 
 .marquee {
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee.is-scrolling {
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.cover img.cover-placeholder {
+  object-fit: contain;
+  padding: 18%;
+  background: radial-gradient(circle at 50% 45%, #39205c, #111 72%);
 }
 
 .visualizer {

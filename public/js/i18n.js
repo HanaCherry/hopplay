@@ -368,7 +368,41 @@ window.hopplayApplyI18n = function () {
   if (title) title.textContent = "HopPlay — GalaxyBunny Studio";
 };
 
-window.HOPPLAY_I18N.en.playerSize = "Player size";
-window.HOPPLAY_I18N.fr.playerSize = "Taille du lecteur";
-window.HOPPLAY_I18N.en.playerOpacity = "Player opacity";
-window.HOPPLAY_I18N.fr.playerOpacity = "Opacité du lecteur";
+(() => {
+  const additions = {
+    en: ["Player size", "Player opacity", "Music source", "Connected Spotify", "Windows local detection", "Detects music played by compatible apps on this PC without using the Spotify API.", "Local detection"],
+    fr: ["Taille du lecteur", "Opacité du lecteur", "Source musicale", "Spotify connecté", "Détection locale Windows", "Détecte la musique jouée par les applications compatibles sur ce PC, sans utiliser l’API Spotify.", "Détection locale"],
+    es: ["Tamaño del reproductor", "Opacidad del reproductor", "Fuente de música", "Spotify conectado", "Detección local de Windows", "Detecta la música reproducida por aplicaciones compatibles en este PC sin usar la API de Spotify.", "Detección local"],
+    pt: ["Tamanho do leitor", "Opacidade do leitor", "Fonte de música", "Spotify ligado", "Deteção local do Windows", "Deteta a música reproduzida por aplicações compatíveis neste PC sem utilizar a API do Spotify.", "Deteção local"],
+    de: ["Playergröße", "Player-Deckkraft", "Musikquelle", "Spotify verbunden", "Lokale Windows-Erkennung", "Erkennt Musik aus kompatiblen Apps auf diesem PC, ohne die Spotify-API zu verwenden.", "Lokale Erkennung"],
+    it: ["Dimensione del lettore", "Opacità del lettore", "Sorgente musicale", "Spotify connesso", "Rilevamento locale di Windows", "Rileva la musica riprodotta dalle app compatibili su questo PC senza usare l’API di Spotify.", "Rilevamento locale"],
+    nl: ["Spelergrootte", "Dekking van speler", "Muziekbron", "Spotify verbonden", "Lokale Windows-detectie", "Detecteert muziek van compatibele apps op deze pc zonder de Spotify-API te gebruiken.", "Lokale detectie"],
+    pl: ["Rozmiar odtwarzacza", "Przezroczystość odtwarzacza", "Źródło muzyki", "Spotify połączony", "Lokalne wykrywanie Windows", "Wykrywa muzykę odtwarzaną przez zgodne aplikacje na tym komputerze bez użycia API Spotify.", "Wykrywanie lokalne"],
+    ru: ["Размер плеера", "Прозрачность плеера", "Источник музыки", "Spotify подключён", "Локальное обнаружение Windows", "Определяет музыку из совместимых приложений на этом компьютере без использования API Spotify.", "Локальное обнаружение"],
+    uk: ["Розмір програвача", "Прозорість програвача", "Джерело музики", "Spotify підключено", "Локальне виявлення Windows", "Виявляє музику із сумісних програм на цьому ПК без використання API Spotify.", "Локальне виявлення"],
+    ja: ["プレーヤーのサイズ", "プレーヤーの不透明度", "音楽ソース", "Spotify 接続", "Windows ローカル検出", "Spotify APIを使わず、このPCの対応アプリで再生中の音楽を検出します。", "ローカル検出"],
+    ko: ["플레이어 크기", "플레이어 불투명도", "음악 소스", "Spotify 연결됨", "Windows 로컬 감지", "Spotify API를 사용하지 않고 이 PC의 호환 앱에서 재생되는 음악을 감지합니다.", "로컬 감지"],
+    zh: ["播放器大小", "播放器不透明度", "音乐来源", "Spotify 已连接", "Windows 本地检测", "无需使用 Spotify API，即可检测此电脑上兼容应用正在播放的音乐。", "本地检测"],
+    ar: ["حجم المشغل", "شفافية المشغل", "مصدر الموسيقى", "Spotify متصل", "اكتشاف Windows المحلي", "يكتشف الموسيقى التي تشغّلها التطبيقات المتوافقة على هذا الكمبيوتر دون استخدام Spotify API.", "الاكتشاف المحلي"],
+    tr: ["Oynatıcı boyutu", "Oynatıcı opaklığı", "Müzik kaynağı", "Spotify bağlı", "Windows yerel algılama", "Spotify API kullanmadan bu bilgisayardaki uyumlu uygulamalarda çalan müziği algılar.", "Yerel algılama"],
+    hi: ["प्लेयर का आकार", "प्लेयर की अपारदर्शिता", "संगीत स्रोत", "Spotify कनेक्टेड", "Windows लोकल पहचान", "Spotify API के बिना इस पीसी के संगत ऐप्स में चल रहे संगीत का पता लगाता है।", "लोकल पहचान"],
+    bn: ["প্লেয়ারের আকার", "প্লেয়ারের অস্বচ্ছতা", "সঙ্গীতের উৎস", "Spotify সংযুক্ত", "Windows লোকাল শনাক্তকরণ", "Spotify API ব্যবহার না করে এই পিসির সামঞ্জস্যপূর্ণ অ্যাপে চলা সঙ্গীত শনাক্ত করে।", "লোকাল শনাক্তকরণ"],
+    id: ["Ukuran pemutar", "Opasitas pemutar", "Sumber musik", "Spotify terhubung", "Deteksi lokal Windows", "Mendeteksi musik dari aplikasi yang kompatibel di PC ini tanpa menggunakan API Spotify.", "Deteksi lokal"],
+    vi: ["Kích thước trình phát", "Độ mờ trình phát", "Nguồn nhạc", "Spotify đã kết nối", "Phát hiện cục bộ Windows", "Phát hiện nhạc đang phát trong ứng dụng tương thích trên PC này mà không dùng API Spotify.", "Phát hiện cục bộ"],
+    th: ["ขนาดเครื่องเล่น", "ความทึบของเครื่องเล่น", "แหล่งเพลง", "เชื่อมต่อ Spotify แล้ว", "การตรวจจับในเครื่องของ Windows", "ตรวจจับเพลงจากแอปที่รองรับบนพีซีนี้โดยไม่ใช้ Spotify API", "การตรวจจับในเครื่อง"],
+    sv: ["Spelarstorlek", "Spelarens opacitet", "Musikkälla", "Spotify ansluten", "Lokal Windows-detektering", "Upptäcker musik från kompatibla appar på den här datorn utan Spotify API.", "Lokal detektering"],
+    no: ["Spillerstørrelse", "Spillerens gjennomsiktighet", "Musikkilde", "Spotify tilkoblet", "Lokal Windows-gjenkjenning", "Oppdager musikk fra kompatible apper på denne PC-en uten å bruke Spotify-API-et.", "Lokal gjenkjenning"],
+    da: ["Afspillerstørrelse", "Afspillerens gennemsigtighed", "Musikkilde", "Spotify tilsluttet", "Lokal Windows-registrering", "Registrerer musik fra kompatible apps på denne pc uden at bruge Spotify API.", "Lokal registrering"],
+    fi: ["Soittimen koko", "Soittimen läpinäkyvyys", "Musiikkilähde", "Spotify yhdistetty", "Windowsin paikallinen tunnistus", "Tunnistaa tämän tietokoneen yhteensopivissa sovelluksissa soivan musiikin ilman Spotify API:a.", "Paikallinen tunnistus"],
+    cs: ["Velikost přehrávače", "Průhlednost přehrávače", "Zdroj hudby", "Spotify připojeno", "Místní detekce Windows", "Rozpozná hudbu z kompatibilních aplikací v tomto počítači bez použití Spotify API.", "Místní detekce"],
+    ro: ["Dimensiunea playerului", "Opacitatea playerului", "Sursă muzicală", "Spotify conectat", "Detectare locală Windows", "Detectează muzica redată de aplicațiile compatibile de pe acest PC fără API-ul Spotify.", "Detectare locală"],
+    el: ["Μέγεθος προγράμματος αναπαραγωγής", "Αδιαφάνεια προγράμματος αναπαραγωγής", "Πηγή μουσικής", "Το Spotify συνδέθηκε", "Τοπική ανίχνευση Windows", "Ανιχνεύει μουσική από συμβατές εφαρμογές σε αυτόν τον υπολογιστή χωρίς το Spotify API.", "Τοπική ανίχνευση"],
+    hu: ["Lejátszó mérete", "Lejátszó átlátszatlansága", "Zeneforrás", "Spotify csatlakoztatva", "Helyi Windows-észlelés", "Észleli a kompatibilis alkalmazásokban lejátszott zenét ezen a számítógépen a Spotify API nélkül.", "Helyi észlelés"],
+    he: ["גודל הנגן", "אטימות הנגן", "מקור מוזיקה", "Spotify מחובר", "זיהוי מקומי של Windows", "מזהה מוזיקה שמתנגנת באפליקציות תואמות במחשב זה ללא שימוש ב-Spotify API.", "זיהוי מקומי"],
+    ms: ["Saiz pemain", "Kelegapan pemain", "Sumber muzik", "Spotify disambungkan", "Pengesanan setempat Windows", "Mengesan muzik daripada aplikasi serasi pada PC ini tanpa menggunakan API Spotify.", "Pengesanan setempat"]
+  };
+  Object.entries(additions).forEach(([code, values]) => Object.assign(window.HOPPLAY_I18N[code], {
+    playerSize: values[0], playerOpacity: values[1], musicSource: values[2], sourceSpotify: values[3],
+    sourceLocal: values[4], localSourceHint: values[5], localActive: values[6]
+  }));
+})();
