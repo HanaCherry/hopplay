@@ -688,17 +688,27 @@
         </div>`;
     } else if (style === "galaxybunny") {
       inner += `
-        <div class="gb-moon"></div>
-        <div class="gb-stars"><i></i><i></i><i></i><i></i></div>
-        <div class="gb-ears"><b></b><b></b></div>
+        <div class="gb-ears"><b class="pink"></b><b class="space"></b><i class="flower"></i></div>
+        <div class="gb-orbit"></div>
+        <div class="gb-petals"><i></i><i></i><i></i></div>
         ${cover}
-        <div class="gb-flower"></div>
         <div class="meta">
-          <div class="gb-tag">GALAXY BUNNY</div>
           <div class="marquee"><div class="title">${escapeHtml(title)}</div></div>
           <div class="artist">${escapeHtml(artist)}</div>
-          <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
-        </div>`;
+          <div class="gb-ctrls">
+            <span class="ico sh"></span>
+            <span class="ico prev"></span>
+            <span class="ico play"><i></i><i></i></span>
+            <span class="ico next"></span>
+            <span class="ico rp"></span>
+          </div>
+          <div class="gb-prog">
+            <span>${cur}</span>
+            <div class="playbar" id="playbar"><div id="active" style="width:${pct}%"></div></div>
+            <span>${dur}</span>
+          </div>
+        </div>
+        <div class="gb-word">Hop<span>Play</span></div>`;
     }
 
     playerEl.innerHTML = inner;
@@ -790,7 +800,7 @@
       const hash = $(".hash", playerEl);
       if (hash) hash.textContent = `[${hashProgress(localProgress, now.duration_ms)}]`;
     }
-    playerEl.querySelectorAll(".times span, .songtime > span").forEach((el, i, arr) => {
+    playerEl.querySelectorAll(".times span, .songtime > span, .gb-prog > span").forEach((el, i, arr) => {
       if (arr.length === 2) el.textContent = i === 0 ? fmt(localProgress) : fmt(now.duration_ms);
     });
     if (style === "compact" || style === "boxy") {
@@ -862,7 +872,7 @@
         canvasUrl,
         title: now.title,
         artist: now.artist,
-        ui: 9,
+        ui: 10,
       });
       if (signature !== lastSig) {
         lastSig = signature;
