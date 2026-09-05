@@ -1,6 +1,6 @@
-# Hopplay
+# HopPlay
 
-**v1.5.0** — now-playing overlay for OBS, Streamlabs, and other browser sources.
+**v1.6.1** — now-playing overlay for OBS, Streamlabs, and other browser sources.
 
 **By [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
@@ -34,7 +34,7 @@ Stop the server from the dashboard (**Stop server** in the sidebar) or with `sto
 ## OBS
 
 1. Source → Browser
-2. Name: `Hopplay`
+2. Name: `HopPlay`
 3. URL from the dashboard
 4. Size `1920 × 1080`
 5. Background is transparent

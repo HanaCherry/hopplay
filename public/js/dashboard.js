@@ -230,7 +230,7 @@
     try {
       await fetch("/api/stop", { method: "POST" });
     } catch {}
-    document.body.innerHTML = `<main style="padding:48px;max-width:520px"><h1>Hopplay</h1><p>${window.hopplayT("serverStopped")}</p><p class="sub">${window.hopplayT("startAgain")}</p></main>`;
+    document.body.innerHTML = `<main style="padding:48px;max-width:520px"><h1>HopPlay</h1><p>${window.hopplayT("serverStopped")}</p><p class="sub">${window.hopplayT("startAgain")}</p></main>`;
   });
 
 

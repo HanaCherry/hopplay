@@ -11,7 +11,7 @@ if not exist node_modules (
   call npm.cmd install
 )
 echo.
-echo Hopplay  -  GalaxyBunny Studio
+echo HopPlay  -  GalaxyBunny Studio
 echo Dashboard: http://127.0.0.1:3000
 echo.
 start "" http://127.0.0.1:3000

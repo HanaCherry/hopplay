@@ -618,7 +618,7 @@ fs.writeFileSync(path.join(DATA_DIR, "hopplay.pid"), String(process.pid));
 
 app.listen(PORT, HOST, () => {
   console.log("");
-  console.log("  Hopplay  ·  GalaxyBunny Studio");
+  console.log("  HopPlay  ·  GalaxyBunny Studio");
   console.log(`  Dashboard : http://${HOST}:${PORT}`);
   console.log(`  Overlay   : http://${HOST}:${PORT}/widget.html`);
   console.log(`  Redirect  : ${redirectUri()}`);

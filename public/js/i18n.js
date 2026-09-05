@@ -1,6 +1,6 @@
 window.HOPPLAY_I18N = {
   en: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio",
     tagline: "Now-playing overlay for OBS.",
     navAppearance: "Appearance", navVisibility: "Visibility", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "Player appearance", visibility: "Visibility",
@@ -17,7 +17,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs: paste this, then Save:",
     spotifyWebApi: "Enable Web API. In Development mode, add your Spotify account under User management.",
     copy: "Copy", saveConnect: "Save and authorize Spotify", authorize: "Authorize Spotify", disconnect: "Disconnect",
-    obs: "Add to OBS", obs1: "In OBS: Source → Browser", obs2: "Name it Hopplay",
+    obs: "Add to OBS", obs1: "In OBS: Source → Browser", obs2: "Name it HopPlay",
     obs3: "Paste the URL, width 1920 × height 1080", obs4: "The overlay background is transparent",
     regenToken: "Generate a new secret token", livePreview: "Live preview", live: "LIVE",
     liveNote: "Changes apply instantly. The OBS overlay has a transparent background.",
@@ -31,12 +31,12 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify connected. Play a track in Spotify to see it here.",
     spotifyError: "Spotify error",
     stopServer: "Stop server",
-    stopConfirm: "Stop Hopplay? The overlay will stop until you launch it again.",
+    stopConfirm: "Stop HopPlay? The overlay will stop until you launch it again.",
     serverStopped: "Server stopped.",
     startAgain: "To start again, run start.bat or npm start."
   },
   fr: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio",
     tagline: "Overlay now playing pour OBS.",
     navAppearance: "Apparence", navVisibility: "Visibilité", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "Apparence du lecteur", visibility: "Visibilité",
@@ -53,7 +53,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs : colle ceci, puis Save :",
     spotifyWebApi: "Active Web API. En mode Development, ajoute ton compte dans User management.",
     copy: "Copier", saveConnect: "Enregistrer et autoriser Spotify", authorize: "Autoriser Spotify", disconnect: "Déconnecter",
-    obs: "Ajouter à OBS", obs1: "Dans OBS : Source → Navigateur", obs2: "Nomme-la Hopplay",
+    obs: "Ajouter à OBS", obs1: "Dans OBS : Source → Navigateur", obs2: "Nomme-la HopPlay",
     obs3: "Colle l'URL, largeur 1920 × hauteur 1080", obs4: "Le fond de l'overlay est transparent",
     regenToken: "Générer un nouveau token secret", livePreview: "Aperçu en direct", live: "LIVE",
     liveNote: "Les changements s'appliquent tout de suite. L'overlay OBS a un fond transparent.",
@@ -67,12 +67,12 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify connecté. Lance une musique pour la voir ici.",
     spotifyError: "Erreur Spotify",
     stopServer: "Arrêter le serveur",
-    stopConfirm: "Arrêter Hopplay ? L'overlay s'arrêtera jusqu'à ce que tu le relances.",
+    stopConfirm: "Arrêter HopPlay ? L'overlay s'arrêtera jusqu'à ce que tu le relances.",
     serverStopped: "Serveur arrêté.",
     startAgain: "Pour relancer, double-clique start.bat ou lance npm start."
   },
   es: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "Overlay de reproducción para OBS.",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "Overlay de reproducción para OBS.",
     navAppearance: "Apariencia", navVisibility: "Visibilidad", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "Apariencia del reproductor", visibility: "Visibilidad",
     playerStyle: "Estilo del player", coverStyle: "Portada", placement: "Posición del reproductor",
@@ -85,7 +85,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs: pega esto y pulsa Save:",
     spotifyWebApi: "Activa Web API. En Development, añade tu cuenta en User management.",
     copy: "Copiar", saveConnect: "Guardar y autorizar Spotify", authorize: "Autorizar Spotify", disconnect: "Desconectar",
-    obs: "Añadir a OBS", obs1: "En OBS: Fuente → Navegador", obs2: "Nómbrala Hopplay",
+    obs: "Añadir a OBS", obs1: "En OBS: Fuente → Navegador", obs2: "Nómbrala HopPlay",
     obs3: "Pega la URL, 1920 × 1080", obs4: "El fondo del overlay es transparente",
     regenToken: "Generar un nuevo token secreto", livePreview: "Vista previa", live: "LIVE",
     liveNote: "Los cambios se aplican al instante. El overlay de OBS es transparente.",
@@ -97,7 +97,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify conectado. Reproduce una canción para verla aquí.", spotifyError: "Error de Spotify"
   },
   pt: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "Overlay now playing para OBS.",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "Overlay now playing para OBS.",
     navAppearance: "Aparência", navVisibility: "Visibilidade", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "Aparência do player", visibility: "Visibilidade",
     playerStyle: "Estilo do player", coverStyle: "Capa", placement: "Posição do leitor",
@@ -110,7 +110,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs: cola isto e Save:",
     spotifyWebApi: "Ativa Web API. Em Development, adiciona a tua conta em User management.",
     copy: "Copiar", saveConnect: "Guardar e autorizar Spotify", authorize: "Autorizar Spotify", disconnect: "Desligar",
-    obs: "Adicionar ao OBS", obs1: "No OBS: Fonte → Navegador", obs2: "Nomeia Hopplay",
+    obs: "Adicionar ao OBS", obs1: "No OBS: Fonte → Navegador", obs2: "Nomeia HopPlay",
     obs3: "Cola o URL, 1920 × 1080", obs4: "O fundo do overlay é transparente",
     regenToken: "Gerar novo token secreto", livePreview: "Pré-visualização", live: "LIVE",
     liveNote: "As alterações aplicam-se de imediato. O overlay do OBS é transparente.",
@@ -122,7 +122,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify ligado. Toca uma música para a veres aqui.", spotifyError: "Erro Spotify"
   },
   de: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "Now-Playing-Overlay für OBS.",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "Now-Playing-Overlay für OBS.",
     navAppearance: "Aussehen", navVisibility: "Sichtbarkeit", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "Player-Aussehen", visibility: "Sichtbarkeit",
     playerStyle: "Player-Stil", coverStyle: "Cover", placement: "Player-Position",
@@ -135,7 +135,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs: einfügen, dann Save:",
     spotifyWebApi: "Web API aktivieren. Im Development-Modus Konto unter User management hinzufügen.",
     copy: "Kopieren", saveConnect: "Speichern und Spotify autorisieren", authorize: "Spotify autorisieren", disconnect: "Trennen",
-    obs: "Zu OBS hinzufügen", obs1: "In OBS: Quelle → Browser", obs2: "Name: Hopplay",
+    obs: "Zu OBS hinzufügen", obs1: "In OBS: Quelle → Browser", obs2: "Name: HopPlay",
     obs3: "URL einfügen, 1920 × 1080", obs4: "Der Overlay-Hintergrund ist transparent",
     regenToken: "Neues Geheimtoken erzeugen", livePreview: "Live-Vorschau", live: "LIVE",
     liveNote: "Änderungen gelten sofort. Das OBS-Overlay ist transparent.",
@@ -147,7 +147,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify verbunden. Spiele einen Titel, um ihn hier zu sehen.", spotifyError: "Spotify-Fehler"
   },
   it: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "Overlay now playing per OBS.",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "Overlay now playing per OBS.",
     navAppearance: "Aspetto", navVisibility: "Visibilità", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "Aspetto del player", visibility: "Visibilità",
     playerStyle: "Stile del player", coverStyle: "Copertina", placement: "Posizione del player",
@@ -160,7 +160,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs: incolla e Save:",
     spotifyWebApi: "Attiva Web API. In Development, aggiungi l'account in User management.",
     copy: "Copia", saveConnect: "Salva e autorizza Spotify", authorize: "Autorizza Spotify", disconnect: "Disconnetti",
-    obs: "Aggiungi a OBS", obs1: "In OBS: Sorgente → Browser", obs2: "Chiamalo Hopplay",
+    obs: "Aggiungi a OBS", obs1: "In OBS: Sorgente → Browser", obs2: "Chiamalo HopPlay",
     obs3: "Incolla l'URL, 1920 × 1080", obs4: "Lo sfondo overlay è trasparente",
     regenToken: "Genera un nuovo token segreto", livePreview: "Anteprima live", live: "LIVE",
     liveNote: "Le modifiche si applicano subito. L'overlay OBS è trasparente.",
@@ -172,7 +172,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify connesso. Avvia un brano per vederlo qui.", spotifyError: "Errore Spotify"
   },
   ja: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "OBS用ナウプレイングオーバーレイ。",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "OBS用ナウプレイングオーバーレイ。",
     navAppearance: "外観", navVisibility: "表示", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "プレーヤー外観", visibility: "表示",
     playerStyle: "プレイヤースタイル", coverStyle: "ジャケット", placement: "プレーヤー位置",
@@ -185,7 +185,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs に貼り付けて Save:",
     spotifyWebApi: "Web API を有効化。Development では User management に自分のアカウントを追加。",
     copy: "コピー", saveConnect: "保存してSpotifyを許可", authorize: "Spotifyを許可", disconnect: "切断",
-    obs: "OBSに追加", obs1: "OBS：ソース → ブラウザ", obs2: "名前は Hopplay",
+    obs: "OBSに追加", obs1: "OBS：ソース → ブラウザ", obs2: "名前は HopPlay",
     obs3: "URLを貼り付け、1920 × 1080", obs4: "オーバーレイ背景は透明です",
     regenToken: "新しいシークレットトークンを生成", livePreview: "ライブプレビュー", live: "LIVE",
     liveNote: "変更はすぐ反映されます。OBSオーバーレイは透明です。",
@@ -197,7 +197,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify接続済み。曲を再生するとここに表示されます。", spotifyError: "Spotifyエラー"
   },
   ko: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "OBS용 지금 재생 중 오버레이.",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "OBS용 지금 재생 중 오버레이.",
     navAppearance: "모양", navVisibility: "표시", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "플레이어 모양", visibility: "표시",
     playerStyle: "플레이어 스타일", coverStyle: "커버", placement: "플레이어 위치",
@@ -210,7 +210,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs에 붙여넣고 Save:",
     spotifyWebApi: "Web API를 켜세요. Development 모드에서는 User management에 계정을 추가하세요.",
     copy: "복사", saveConnect: "저장하고 Spotify 승인", authorize: "Spotify 승인", disconnect: "연결 해제",
-    obs: "OBS에 추가", obs1: "OBS: 소스 → 브라우저", obs2: "이름은 Hopplay",
+    obs: "OBS에 추가", obs1: "OBS: 소스 → 브라우저", obs2: "이름은 HopPlay",
     obs3: "URL 붙여넣기, 1920 × 1080", obs4: "오버레이 배경은 투명합니다",
     regenToken: "새 비밀 토큰 생성", livePreview: "실시간 미리보기", live: "LIVE",
     liveNote: "변경이 바로 적용됩니다. OBS 오버레이는 투명합니다.",
@@ -222,7 +222,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify 연결됨. 곡을 재생하면 여기에 표시됩니다.", spotifyError: "Spotify 오류"
   },
   zh: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "用于 OBS 的正在播放浮层。",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "用于 OBS 的正在播放浮层。",
     navAppearance: "外观", navVisibility: "可见性", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "播放器外观", visibility: "可见性",
     playerStyle: "播放器样式", coverStyle: "封面", placement: "播放器位置",
@@ -235,7 +235,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs：粘贴后 Save：",
     spotifyWebApi: "启用 Web API。开发模式下请在 User management 添加你的账号。",
     copy: "复制", saveConnect: "保存并授权 Spotify", authorize: "授权 Spotify", disconnect: "断开",
-    obs: "添加到 OBS", obs1: "OBS：来源 → 浏览器", obs2: "命名为 Hopplay",
+    obs: "添加到 OBS", obs1: "OBS：来源 → 浏览器", obs2: "命名为 HopPlay",
     obs3: "粘贴 URL，1920 × 1080", obs4: "浮层背景透明",
     regenToken: "生成新的密钥令牌", livePreview: "实时预览", live: "LIVE",
     liveNote: "更改立即生效。OBS 浮层背景透明。",
@@ -247,7 +247,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "已连接 Spotify。播放歌曲后会显示在这里。", spotifyError: "Spotify 错误"
   },
   ru: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "Оверлей now playing для OBS.",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "Оверлей now playing для OBS.",
     navAppearance: "Вид", navVisibility: "Видимость", navSpotify: "Spotify", navObs: "OBS / URL",
     appearance: "Вид плеера", visibility: "Видимость",
     playerStyle: "Стиль плеера", coverStyle: "Обложка", placement: "Положение плеера",
@@ -260,7 +260,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs: вставьте и Save:",
     spotifyWebApi: "Включите Web API. В Development добавьте аккаунт в User management.",
     copy: "Копировать", saveConnect: "Сохранить и авторизовать Spotify", authorize: "Авторизовать Spotify", disconnect: "Отключить",
-    obs: "Добавить в OBS", obs1: "В OBS: Источник → Браузер", obs2: "Имя: Hopplay",
+    obs: "Добавить в OBS", obs1: "В OBS: Источник → Браузер", obs2: "Имя: HopPlay",
     obs3: "Вставьте URL, 1920 × 1080", obs4: "Фон оверлея прозрачный",
     regenToken: "Создать новый секретный токен", livePreview: "Предпросмотр", live: "LIVE",
     liveNote: "Изменения применяются сразу. Оверлей OBS прозрачный.",
@@ -272,7 +272,7 @@ window.HOPPLAY_I18N = {
     spotifyConnected: "Spotify подключён. Включите трек, чтобы увидеть его здесь.", spotifyError: "Ошибка Spotify"
   },
   ar: {
-    appTitle: "Hopplay", studio: "GalaxyBunny Studio", tagline: "طبقة الآن يُشغَّل لـ OBS.",
+    appTitle: "HopPlay", studio: "GalaxyBunny Studio", tagline: "طبقة الآن يُشغَّل لـ OBS.",
     navAppearance: "المظهر", navVisibility: "الظهور", navSpotify: "Spotify", navObs: "OBS / الرابط",
     appearance: "مظهر المشغّل", visibility: "الظهور",
     playerStyle: "نمط المشغّل", coverStyle: "الغلاف", placement: "موضع المشغّل",
@@ -285,7 +285,7 @@ window.HOPPLAY_I18N = {
     spotifyStep2: "Redirect URIs: الصق ثم Save:",
     spotifyWebApi: "فعّل Web API. في وضع التطوير أضف حسابك في User management.",
     copy: "نسخ", saveConnect: "حفظ وتفويض Spotify", authorize: "تفويض Spotify", disconnect: "قطع",
-    obs: "إضافة إلى OBS", obs1: "في OBS: مصدر → متصفح", obs2: "الاسم Hopplay",
+    obs: "إضافة إلى OBS", obs1: "في OBS: مصدر → متصفح", obs2: "الاسم HopPlay",
     obs3: "الصق الرابط، 1920 × 1080", obs4: "خلفية الطبقة شفافة",
     regenToken: "إنشاء رمز سري جديد", livePreview: "معاينة مباشرة", live: "LIVE",
     liveNote: "تُطبَّق التغييرات فورًا. طبقة OBS شفافة.",
@@ -322,7 +322,7 @@ window.HOPPLAY_I18N = {
     bn: { tagline: "OBS-এর জন্য নাউ প্লেইং ওভারলে।", navAppearance: "চেহারা", copy: "কপি", connected: "Spotify সংযুক্ত", demoMode: "ডেমো মোড", footer: "লাইভের জন্য now playing উইজেট।" }
   };
   Object.keys(map).forEach((code) => {
-    window.HOPPLAY_I18N[code] = Object.assign({}, en, map[code], { appTitle: "Hopplay", studio: "GalaxyBunny Studio" });
+    window.HOPPLAY_I18N[code] = Object.assign({}, en, map[code], { appTitle: "HopPlay", studio: "GalaxyBunny Studio" });
   });
 })();
 
@@ -355,5 +355,5 @@ window.hopplayApplyI18n = function () {
     el.setAttribute("placeholder", pack[k] || window.HOPPLAY_I18N.en[k] || "");
   });
   const title = document.querySelector("title");
-  if (title) title.textContent = "Hopplay — GalaxyBunny Studio";
+  if (title) title.textContent = "HopPlay — GalaxyBunny Studio";
 };

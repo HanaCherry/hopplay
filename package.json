@@ -1,7 +1,7 @@
 {
   "name": "hopplay",
-  "version": "1.6.0",
-  "description": "Hopplay — now-playing overlay for OBS by GalaxyBunny Studio",
+  "version": "1.6.1",
+  "description": "HopPlay — now-playing overlay for OBS by GalaxyBunny Studio",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

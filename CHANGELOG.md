@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.1
+
+- Official spelling: HopPlay
+
 ## 1.6.0
 
 - New skins from reference widgets: Orb, Orb mini, Cover card, Stack, EQ bar, Pill, Sleeve (vinyl jacket)
@@ -31,7 +35,7 @@
 - 9-position placement grid for the player
 - 17 player skins
 - UI in 30 languages
-- Branding: Hopplay by GalaxyBunny Studio
+- Branding: HopPlay by GalaxyBunny Studio
 
 ## 1.0.0
 
