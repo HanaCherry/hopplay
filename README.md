@@ -46,6 +46,22 @@ When a new GitHub release is published, the dashboard offers **Update now**. You
 
 ## OBS
 
+### Galaxy Bunny mini-player
+
+Choose **Galaxy Bunny** in the dashboard's player skins. The supplied transparent
+Galaxy Bunny artwork is used unchanged, with a live cover, title, artist and
+seekable progress bar overlaid on the empty area. The skin has no central transport
+buttons, matching the selected reference. Missing cover images fall back to the
+HopPlay logo.
+
+Seeking uses the existing Spotify session and active device, without creating
+another audio player. Reconnect Spotify after updating to grant
+`user-modify-playback-state`. Spotify commands require Premium and an active
+device. In OBS, use **Interact** to operate the seek slider.
+Without Spotify, the existing demo simulates playback silently, including pause,
+seek, previous/next, shuffle and repeat (off → all → track). No audio is streamed
+in demo mode. Run `npm test` for playback regression tests.
+
 1. Source → Browser
 2. Name: `HopPlay`
 3. URL from the dashboard
