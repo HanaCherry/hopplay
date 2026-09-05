@@ -10,7 +10,7 @@
 | [:sweden: Svenska](README.sv.md) | [:norway: Norsk](README.no.md) | [:denmark: Dansk](README.da.md) | [:finland: Suomi](README.fi.md) | [:czech_republic: Čeština](README.cs.md) |
 | [:romania: Română](README.ro.md) | [:greece: Ελληνικά](README.el.md) | [:hungary: Magyar](README.hu.md) | [:israel: עברית](README.he.md) | [:malaysia: Melayu](README.ms.md) |
 
-**v1.8.0** — now playing-overlay for OBS, Streamlabs og andre nettleserkilder.
+**v1.8.1** — now playing-overlay for OBS, Streamlabs og andre nettleserkilder.
 
 **Av [GalaxyBunny Studio](https://github.com/HanaCherry)**
 
