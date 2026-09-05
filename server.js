@@ -19,7 +19,7 @@ const SETTINGS_FILE = path.join(DATA_DIR, "settings.json");
 const SPOTIFY_AUTH = "https://accounts.spotify.com/authorize";
 const SPOTIFY_TOKEN = "https://accounts.spotify.com/api/token";
 const SPOTIFY_NOW = "https://api.spotify.com/v1/me/player/currently-playing";
-const SCOPES = ["user-read-currently-playing", "user-read-playback-state"].join(" ");
+const SCOPES = ["user-read-currently-playing", "user-read-playback-state", "user-modify-playback-state"].join(" ");
 
 const DEMO_TRACKS = [
   {
@@ -239,14 +239,40 @@ async function getValidToken() {
   return cfg.accessToken;
 }
 
+let demoClock = { track: -1, playing: false, position: 0, at: Date.now() };
 function demoNowPlaying() {
   const s = getSettings();
+  if (demoClock.track !== s.demoTrack) {
+    demoClock = { track: s.demoTrack, playing: s.demoPlaying, position: 0, at: Date.now() };
+  }
+  if (demoClock.playing !== s.demoPlaying) {
+    demoClock.position += demoClock.playing ? Date.now() - demoClock.at : 0;
+    demoClock.at = Date.now();
+    demoClock.playing = s.demoPlaying;
+  }
   const track = DEMO_TRACKS[s.demoTrack % DEMO_TRACKS.length];
   const duration = track.duration_ms;
-  const cycle = duration;
-  const progress = s.demoPlaying ? Date.now() % cycle : Math.floor(cycle * 0.35);
+  let progress = demoClock.position + (s.demoPlaying ? Date.now() - demoClock.at : 0);
+  if (progress >= duration) {
+    if (s.demoRepeat === "track") {
+      demoClock.position = progress % duration;
+      demoClock.at = Date.now();
+      progress = demoClock.position;
+    } else if (s.demoTrack < DEMO_TRACKS.length - 1 || s.demoRepeat === "context" || s.demoShuffle) {
+      s.demoTrack = s.demoShuffle ? (s.demoTrack + 1 + Math.floor(Math.random() * (DEMO_TRACKS.length - 1))) % DEMO_TRACKS.length : (s.demoTrack + 1) % DEMO_TRACKS.length;
+      saveSettings(s);
+      return demoNowPlaying();
+    } else {
+      s.demoPlaying = false;
+      saveSettings(s);
+      demoClock = { track: s.demoTrack, playing: false, position: duration, at: Date.now() };
+      progress = duration;
+    }
+  }
   return {
     is_playing: !!s.demoPlaying,
+    shuffle_state: !!s.demoShuffle,
+    repeat_state: s.demoRepeat || "off",
     progress_ms: progress,
     item: track,
     currently_playing_type: "track",
@@ -263,6 +289,8 @@ function publicNowPlaying(raw) {
   const image = images[0]?.url || images[1]?.url || "";
   return {
     is_playing: !!raw.is_playing,
+    shuffle_state: !!raw.shuffle_state,
+    repeat_state: raw.repeat_state || "off",
     progress_ms: raw.progress_ms || 0,
     duration_ms: item.duration_ms || 0,
     title: item.name || "",
@@ -436,6 +464,64 @@ app.post("/api/token/regenerate", (_req, res) => {
     widgetToken: cfg.widgetToken,
     widgetUrl: `http://${HOST}:${PORT}/widget.html?token=${cfg.widgetToken}`,
   });
+});
+
+app.post("/api/player/:action", async (req, res) => {
+  // Commands originate from the local dashboard/widget, never a cross-site form.
+  if (!isLocal(req) || (req.headers.origin && req.headers.origin !== `http://${req.headers.host}`)) {
+    return res.status(403).json({ error: "Origine non autorisée." });
+  }
+  const action = req.params.action;
+  const value = req.body?.value;
+  if (!["play", "pause", "previous", "next", "shuffle", "repeat", "seek"].includes(action) ||
+      (action === "shuffle" && typeof value !== "boolean") ||
+      (action === "repeat" && !["off", "context", "track"].includes(value)) ||
+      (action === "seek" && (!Number.isSafeInteger(value) || value < 0))) {
+    return res.status(400).json({ error: "Commande invalide." });
+  }
+  try {
+    const token = await getValidToken();
+    if (!token) {
+      if (getConfig().accessToken) return res.status(401).json({ error: "Session Spotify expirée. Reconnecte Spotify." });
+      const current = demoNowPlaying();
+      const s = getSettings();
+      demoClock.position = current.progress_ms;
+      demoClock.at = Date.now();
+      if (action === "play" || action === "pause") {
+        s.demoPlaying = action === "play";
+        demoClock.playing = s.demoPlaying;
+        if (s.demoPlaying && demoClock.position >= current.item.duration_ms) demoClock.position = 0;
+      }
+      if (action === "next" || action === "previous") {
+        const step = action === "previous" ? -1 : s.demoShuffle ? 1 + Math.floor(Math.random() * (DEMO_TRACKS.length - 1)) : 1;
+        s.demoTrack = (s.demoTrack + step + DEMO_TRACKS.length) % DEMO_TRACKS.length;
+      }
+      if (action === "seek") demoClock.position = Math.min(value, current.item.duration_ms);
+      if (action === "shuffle") s.demoShuffle = value;
+      if (action === "repeat") s.demoRepeat = value;
+      saveSettings(s);
+      return res.json({ ok: true, demo: true });
+    }
+    const endpoint = action === "seek" ? `seek?position_ms=${value}` :
+      action === "shuffle" || action === "repeat" ? `${action}?state=${value}` : action;
+    const response = await fetch(`https://api.spotify.com/v1/me/player/${endpoint}`, {
+      method: action === "next" || action === "previous" ? "POST" : "PUT",
+      headers: { Authorization: `Bearer ${token}` },
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!response.ok) {
+      const messages = {
+        401: "Reconnecte Spotify pour autoriser les commandes de lecture.",
+        403: "Reconnecte Spotify avec les droits de lecture et vérifie ton abonnement Premium.",
+        404: "Ouvre Spotify et lance un titre sur un appareil.",
+        429: "Spotify reçoit trop de commandes. Réessaie dans un instant.",
+      };
+      return res.status(response.status).json({ error: messages[response.status] || "Commande refusée par Spotify." });
+    }
+    res.json({ ok: true });
+  } catch {
+    res.status(502).json({ error: "Spotify est injoignable. Réessaie dans un instant." });
+  }
 });
 
 app.get("/api/now-playing", async (req, res) => {
