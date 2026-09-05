@@ -3,6 +3,18 @@
   let settings = null;
   let status = null;
 
+  function showSection() {
+    const ids = ["apparence", "visibilite", "spotify", "obs"];
+    const current = ids.includes(location.hash.slice(1)) ? location.hash.slice(1) : "apparence";
+    ids.forEach(id => { document.getElementById(id).hidden = id !== current; });
+    document.querySelectorAll(".sidebar nav a").forEach(a => {
+      const active = a.hash === "#" + current;
+      a.classList.toggle("active", active);
+      if (active) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("hashchange", showSection);
+  showSection();
   const fields = [
     "coverGlow",
     "playerGlow",
@@ -92,6 +104,8 @@
 
     $("playerScale").value = p.playerScale ?? (p.player === "galaxybunny" ? 65 : 100);
     $("playerScaleValue").textContent = $("playerScale").value + " %";
+    $("playerOpacity").value = p.playerOpacity ?? 100;
+    $("playerOpacityValue").textContent = $("playerOpacity").value + " %";
     fields.forEach((k) => {
       const el = $(k);
       if (el) el.checked = !!p[k];
@@ -202,6 +216,10 @@
     $("playerScaleValue").textContent = $("playerScale").value + " %";
   });
   $("playerScale").addEventListener("change", () => saveProfile({ playerScale: Number($("playerScale").value) }));
+  $("playerOpacity").addEventListener("input", () => {
+    $("playerOpacityValue").textContent = $("playerOpacity").value + " %";
+  });
+  $("playerOpacity").addEventListener("change", () => saveProfile({ playerOpacity: Number($("playerOpacity").value) }));
   $("hideOnPauseDelay").addEventListener("change", () => saveProfile({ hideOnPauseDelay: Number($("hideOnPauseDelay").value) }));
   $("songChangeDuration").addEventListener("change", () => saveProfile({ songChangeDuration: Number($("songChangeDuration").value) }));
   $("appearDuration").addEventListener("change", () => saveProfile({ appearDuration: Number($("appearDuration").value) }));

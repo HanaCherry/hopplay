@@ -101,6 +101,7 @@ function defaultProfile(id, name) {
     id,
     name,
     player: "compact",
+    playerOpacity: 100,
     cover: "square",
     coverGlow: true,
     playerGlow: true,

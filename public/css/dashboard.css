@@ -360,3 +360,57 @@ iframe {
   .layout { grid-template-columns: 1fr; }
   .preview-wrap { position: relative; top: 0; }
 }
+/* Studio layout: quiet surfaces, grouped settings and a persistent preview. */
+body { grid-template-columns:208px minmax(0,1fr); font-size:14px; }
+.galaxy { opacity:.32; }
+.nebula,.stars i { animation:none; }
+.sidebar { padding:24px 18px; gap:24px; background:#100d20e8; }
+.brand-logo { max-width:116px; margin:0 auto; }
+.studio-logo { width:28px; height:28px; }
+.studio-link { gap:6px; font-size:11px; }
+.sidebar nav a { padding:13px 14px; }
+.sidebar nav a.active { background:#8170ff20; color:#dbd4ff; box-shadow:inset 3px 0 #b298ff; }
+main { min-width:0; padding:28px 32px; max-width:1740px; width:100%; margin:auto; }
+.top { align-items:center; margin-bottom:26px; }
+h1 { font-size:25px; font-weight:700; }
+.sub { font-size:13px; }
+.layout { display:grid; grid-template-columns:minmax(390px,1.15fr) minmax(330px,1fr); gap:24px; align-items:start; }
+.col { min-width:0; }
+.panel { padding:24px; background:#131121ec; border:1px solid #ffffff0e; border-radius:20px; margin:0; }
+.panel[hidden] { display:none; }
+.panel-head { margin-bottom:18px; }
+h2 { font-size:17px; }
+.row-actions { padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:20px; }
+#profile-name { width:100px; flex:1; min-width:0; }
+button { transition:background .15s,border-color .15s; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible { outline:2px solid #c4adff; outline-offset:3px; }
+.label { margin:0 0 10px; font-size:11px; letter-spacing:.06em; }
+#player-styles { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; max-height:206px; overflow:auto; padding:2px 8px 8px 2px; scrollbar-width:thin; scrollbar-color:#63508a transparent; margin-bottom:22px; }
+#player-styles button { min-height:38px; border-radius:9px; font-size:12px; padding:8px 5px; white-space:normal; background:#ffffff04; border:1px solid #ffffff0c; }
+#player-styles button[data-player="galaxybunny"] { order:-1; }
+#player-styles button.active,.chips button.active { background:#8270e52b; border-color:#a18bee; color:#eee7ff; box-shadow:none; }
+.settings-pair { display:grid; grid-template-columns:1fr 1.5fr; gap:14px; }
+.setting-box { padding:16px; border:1px solid var(--line); border-radius:12px; }
+.place-grid { margin:0; }
+#cover-styles { gap:6px; margin:0; }
+#cover-styles button { font-size:12px; padding:8px 10px; }
+.size-setting { margin:16px 0; padding:16px; background:#ffffff03; border:1px solid var(--line); border-radius:12px; }
+.size-setting label { color:var(--muted); font-size:12px; }
+.size-control { display:flex; align-items:center; gap:18px; margin-top:12px; }
+#playerScale,#playerOpacity { accent-color:#ad91f6; padding:0; min-width:0; width:100%; }
+#playerScaleValue,#playerOpacityValue { white-space:nowrap; font-variant-numeric:tabular-nums; color:#d7c9ff; min-width:46px; }
+.size-control + label { display:block; margin-top:18px; }
+.toggles { gap:0 18px; margin-top:18px; }
+.toggles .switch { padding:12px 0; border-bottom:1px solid #ffffff08; font-size:12px; }
+.switch em { font-style:normal; }
+.color-row { margin-top:20px; }
+.preview-wrap { top:24px; border-radius:20px; background:#100f1e; border-color:#ffffff10; }
+.preview-head { padding:18px 20px; }
+.live { color:#bda8ff; }
+iframe { display:block; height:400px; background:radial-gradient(ellipse at bottom,#25213d,#11101b); }
+.preview-note { font-size:12px; padding:4px 20px 16px; }
+.field { margin:14px 0; }
+#visibilite > .switch { margin-top:18px; }
+@media(max-width:1150px) { body { grid-template-columns:176px minmax(0,1fr); } main { padding:22px; } .layout { grid-template-columns:minmax(0,1fr); } .sidebar { height:100vh; position:sticky; flex-direction:column; } .preview-wrap { position:relative; top:0; } iframe { height:300px; } }
+@media(max-width:640px) { body { display:block; } .sidebar { height:auto; position:relative; padding:14px; gap:12px; } .brand,.side-foot { display:none; } .sidebar nav { flex-direction:row; flex-wrap:wrap; gap:4px; } .sidebar nav a { padding:10px; font-size:12px; } .lang-wrap { max-width:180px; } main { padding:16px; } .top { flex-wrap:wrap; } .panel { padding:16px; } .settings-pair { grid-template-columns:1fr; } #player-styles { grid-template-columns:repeat(3,minmax(0,1fr)); } .top-actions { flex-wrap:wrap; } }
+main { margin:0 auto; }
