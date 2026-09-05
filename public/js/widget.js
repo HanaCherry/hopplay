@@ -157,6 +157,8 @@
     if (stage) stage.dataset.place = place;
     const scale = Number(profile.playerScale ?? (style === "galaxybunny" ? 65 : 100));
     playerEl.style.zoom = Math.min(150, Math.max(30, Number.isFinite(scale) ? scale : 100)) / 100;
+    const opacity = Number(profile.playerOpacity ?? 100);
+    playerEl.style.opacity = Math.min(100, Math.max(20, Number.isFinite(opacity) ? opacity : 100)) / 100;
     applyMotion(profile);
     playerEl.className = `player ${style}${np.is_playing ? " playing" : ""}${profile.coverBlur ? " blur-on" : ""}${profile.hideVisualizer ? " hide-viz" : ""}${profile.playerGlow ? " player-glow" : ""}`;
 
@@ -931,6 +933,7 @@
       const signature = JSON.stringify({
         player: settings.player,
         playerScale: settings.playerScale,
+        playerOpacity: settings.playerOpacity,
         cover: settings.cover,
         coverGlow: settings.coverGlow,
         playerGlow: settings.playerGlow,

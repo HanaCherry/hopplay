@@ -42,6 +42,7 @@
   <main>
     <header class="top">
       <div>
+        <h1>HopPlay Studio</h1>
         <p class="sub" data-i18n="tagline">Now-playing overlay for OBS.</p>
       </div>
       <div class="top-actions">
@@ -142,6 +143,7 @@
             <button data-player="sleeve">Sleeve</button>
           </div>
 
+          <div class="settings-pair"><div class="setting-box">
           <label class="label" data-i18n="placement">Player position</label>
           <div class="place-grid" id="place-grid" role="group">
             <button type="button" data-place="tl" title="Top left"></button>
@@ -155,6 +157,7 @@
             <button type="button" data-place="br" title="Bottom right"></button>
           </div>
 
+          </div><div class="setting-box">
           <label class="label" data-i18n="coverStyle">Cover art</label>
           <div class="chips" id="cover-styles">
             <button data-cover="square">Square</button>
@@ -163,12 +166,20 @@
             <button data-cover="none">None</button>
           </div>
 
-          <div class="toggles">
+          </div></div>
+          <div class="size-setting">
             <label for="playerScale" data-i18n="playerSize">Taille du lecteur</label>
-            <div style="display:flex;align-items:center;gap:12px;margin:10px 0 20px">
+            <div class="size-control">
               <input id="playerScale" type="range" min="30" max="150" step="5" style="flex:1" aria-describedby="playerScaleValue" />
               <output id="playerScaleValue" for="playerScale">100 %</output>
             </div>
+            <label for="playerOpacity" data-i18n="playerOpacity">Opacité du lecteur</label>
+            <div class="size-control">
+              <input id="playerOpacity" type="range" min="20" max="100" step="5" aria-describedby="playerOpacityValue" />
+              <output id="playerOpacityValue" for="playerOpacity">100 %</output>
+            </div>
+          </div>
+          <div class="toggles">
             <label class="switch"><input type="checkbox" id="coverGlow" /><span></span> <em data-i18n="coverGlow">Cover glow</em></label>
             <label class="switch"><input type="checkbox" id="playerGlow" /><span></span> <em data-i18n="playerGlow">Player glow</em></label>
             <label class="switch"><input type="checkbox" id="magicColors" /><span></span> <em data-i18n="magicColors">Magic colors</em></label>

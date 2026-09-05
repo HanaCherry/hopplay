@@ -370,3 +370,5 @@ window.hopplayApplyI18n = function () {
 
 window.HOPPLAY_I18N.en.playerSize = "Player size";
 window.HOPPLAY_I18N.fr.playerSize = "Taille du lecteur";
+window.HOPPLAY_I18N.en.playerOpacity = "Player opacity";
+window.HOPPLAY_I18N.fr.playerOpacity = "Opacité du lecteur";
