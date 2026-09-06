@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HopPlay · GalaxyBunny Studio</title>
+  <meta name="description" content="Overlay now playing pour OBS et Streamlabs. 61 skins, mode démo, Spotify optionnel. 100 % local, par GalaxyBunny Studio.">
+  <meta name="theme-color" content="#070513">
+  <link rel="canonical" href="https://hanacherry.github.io/hopplay/">
+  <link rel="icon" href="assets/studio-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HopPlay · GalaxyBunny Studio">
+  <meta property="og:description" content="Overlay now playing pour OBS et Streamlabs. 61 skins, mode démo, Spotify optionnel.">
+  <meta property="og:image" content="https://hanacherry.github.io/hopplay/assets/hero-banner.jpg">
+  <meta property="og:url" content="https://hanacherry.github.io/hopplay/">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --bg: #070513; --card: rgba(16, 17, 34, .78); --line: rgba(213, 201, 255, .14);
+      --text: #f4f6fb; --muted: #aab1c4; --pink: #c9bcff; --accent: #8670ef;
+      --font: Inter, "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100vh; font-family: var(--font); color: var(--text); background: #070513; }
+    .galaxy { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: radial-gradient(ellipse at 12% 0%, #38207988, transparent 55%), radial-gradient(ellipse at 90% 80%, #152f7088, transparent 50%), #070513; }
+    .nebula { position: absolute; width: 60vw; height: 60vh; filter: blur(70px); border-radius: 50%; opacity: .45; }
+    .n1 { left: -18%; top: -12%; background: radial-gradient(ellipse, #8436d9aa, transparent 68%); }
+    .n2 { right: -16%; top: 28%; background: radial-gradient(ellipse, #296aeb99, transparent 68%); }
+    .n3 { left: 20%; bottom: -30%; background: radial-gradient(ellipse, #c139a466, transparent 68%); }
+    header, main, footer { position: relative; z-index: 1; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 28px; border-bottom: 1px solid var(--line); background: rgba(7, 5, 19, .55); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 5; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand img { width: 46px; height: 46px; object-fit: contain; }
+    .brand strong { display: block; font-size: 14px; }
+    .brand small { color: var(--muted); font-size: 12px; }
+    nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    nav a, .btn { color: var(--text); text-decoration: none; font-size: 14px; padding: 9px 14px; border-radius: 10px; border: 1px solid transparent; }
+    nav a:hover { background: #9980ff22; }
+    .btn { background: #8670ef; border-color: #a897ff50; font-weight: 700; cursor: pointer; }
+    .btn:hover { background: #9b85fc; }
+    .btn.ghost { background: #ffffff09; border-color: var(--line); }
+    select#lang { background: #090b16; color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; font: inherit; font-size: 13px; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .hero { padding: 54px 0 28px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 36px; align-items: center; }
+    .kicker { color: var(--pink); letter-spacing: .18em; font-size: 12px; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.08; letter-spacing: -1.2px; margin: 0 0 16px; }
+    .lead { color: var(--muted); font-size: 18px; line-height: 1.6; margin: 0 0 22px; max-width: 540px; }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill { font-size: 12px; color: var(--pink); border: 1px solid var(--line); background: #8971ec18; border-radius: 999px; padding: 6px 10px; }
+    .hero-visual { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: #0b0918; box-shadow: 0 30px 80px #00000066; }
+    .hero-visual img { width: 100%; display: block; }
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 10px 0 50px; }
+    figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px; overflow: hidden; }
+    figure img { width: 100%; border-radius: 12px; display: block; }
+    figure.dark { background: radial-gradient(ellipse at center, #24184a, #070513); }
+    figcaption { color: var(--muted); font-size: 13px; margin-top: 10px; }
+    h2 { font-size: 28px; letter-spacing: -.6px; margin: 0 0 18px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 18px 16px; }
+    .card h3 { margin: 0 0 8px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    section { padding: 18px 0 46px; }
+    ol.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    ol.steps li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+    .num { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: #8670ef33; color: #d8d1f9; font-weight: 800; }
+    pre { margin-top: 16px; background: #090b16; border: 1px solid var(--line); border-radius: 14px; padding: 16px; overflow: auto; }
+    .banner-sim { display: flex; justify-content: space-between; gap: 18px; align-items: center; background: linear-gradient(135deg, #8971ec22, #c139a422); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    @media (max-width: 900px) {
+      .hero, .shots, .grid, .banner-sim { grid-template-columns: 1fr; display: grid; }
+      header { flex-wrap: wrap; }
+      nav a:not(.btn) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="galaxy" aria-hidden="true"><div class="nebula n1"></div><div class="nebula n2"></div><div class="nebula n3"></div></div>
+  <header>
+    <a class="brand" href="index.html">
+      <img src="assets/studio-logo.png" alt="GalaxyBunny Studio" width="46" height="46">
+      <span><strong>GalaxyBunny</strong><small>Studio</small></span>
+    </a>
+    <nav>
+      <a href="index.html" data-i18n="navHome">Accueil</a>
+      <a href="https://github.com/HanaCherry/hopplay" data-i18n="navGithub">GitHub</a>
+      <select id="lang" aria-label="Language"></select>
+      <a class="btn" href="#install" data-i18n="ctaInstall">Installer</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="kicker" data-i18n="heroKicker">HOPPLAY · 2026</div>
+        <h1 data-i18n="heroTitle">Le titre en cours, en direct sur le stream.</h1>
+        <p class="lead" data-i18n="heroLead">Overlay now playing pour OBS et Streamlabs. Skins Galaxy Bunny, mode démo, Spotify optionnel. Tout reste sur votre PC.</p>
+        <div class="cta">
+          <a class="btn" href="#install" data-i18n="ctaInstall">Installer</a>
+          <a class="btn ghost" href="https://github.com/HanaCherry/hopplay/releases/latest" data-i18n="ctaRelease">Dernière release</a>
+        </div>
+        <div class="pills">
+          <span class="pill" data-i18n="pillLocal">100 % local</span>
+          <span class="pill" data-i18n="pillObs">OBS & Streamlabs</span>
+          <span class="pill" data-i18n="pillFree">Gratuit & open source</span>
+        </div>
+      </div>
+      <div class="hero-visual"><img src="assets/hero-banner.jpg" alt="HopPlay"></div>
+    </section>
+    <section class="shots">
+      <figure class="dark">
+        <img src="assets/overlay.png" alt="Galaxy Bunny overlay">
+        <figcaption data-i18n="shotOverlay">Skin Galaxy Bunny</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hopplay-logo.png" alt="HopPlay">
+        <figcaption data-i18n="shotLogo">HopPlay</figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2 data-i18n="featuresTitle">Un player de stream, pas seulement un widget</h2>
+      <div class="grid">
+        <article class="card"><h3 data-i18n="fSkinT">61 skins</h3><p data-i18n="fSkinD">Galaxy Bunny, kawaii, chrome, walkman, film, sakura, tarot, arcade et plus.</p></article>
+        <article class="card"><h3 data-i18n="fOverlayT">Overlay OBS</h3><p data-i18n="fOverlayD">Source Navigateur transparente, 9 positions, effets d’apparition et de disparition.</p></article>
+        <article class="card"><h3 data-i18n="fSpotT">Spotify ou local</h3><p data-i18n="fSpotD">Compte Spotify optionnel, détection Windows, ou mode démo sans compte.</p></article>
+        <article class="card"><h3 data-i18n="fFxT">Couleurs magiques</h3><p data-i18n="fFxD">Lueur, flou, visualiseur, pochettes carrée, canvas ou vinyle.</p></article>
+        <article class="card"><h3 data-i18n="fProfT">5 profils</h3><p data-i18n="fProfD">Chaque profil a son URL OBS, sa taille et son opacité.</p></article>
+        <article class="card"><h3 data-i18n="fI18nT">30 langues</h3><p data-i18n="fI18nD">L’interface du dashboard parle déjà votre langue. Ce site aussi.</p></article>
+      </div>
+    </section>
+    <section id="install">
+      <h2 data-i18n="installTitle">Démarrage en 4 étapes</h2>
+      <p class="lead" data-i18n="installLead">Node.js 18 ou plus. Sous Windows, start.bat suffit après l’installation.</p>
+      <ol class="steps">
+        <li><span class="num">1</span><div><strong data-i18n="step1T">Installer Node.js</strong><p data-i18n="step1D" style="margin:6px 0 0;color:var(--muted)">Téléchargez LTS 18+ depuis nodejs.org.</p></div></li>
+        <li><span class="num">2</span><div><strong data-i18n="step2T">Cloner le dépôt</strong><p data-i18n="step2D" style="margin:6px 0 0;color:var(--muted)">git clone puis npm install.</p></div></li>
+        <li><span class="num">3</span><div><strong data-i18n="step3T">Lancer</strong><p data-i18n="step3D" style="margin:6px 0 0;color:var(--muted)">npm start — ou start.bat sous Windows.</p></div></li>
+        <li><span class="num">4</span><div><strong data-i18n="step4T">Ouvrir le dashboard</strong><p data-i18n="step4D" style="margin:6px 0 0;color:var(--muted)">http://127.0.0.1:3000 — le mode démo fonctionne tout de suite.</p></div></li>
+      </ol>
+      <pre><code>git clone https://github.com/HanaCherry/hopplay.git
+cd hopplay
+npm install
+npm start</code></pre>
+    </section>
+    <section>
+      <h2 data-i18n="obsTitle">OBS / Streamlabs</h2>
+      <ol class="steps">
+        <li><span class="num">1</span><div data-i18n="obs1">Démarrez HopPlay et laissez-le ouvert pendant le stream.</div></li>
+        <li><span class="num">2</span><div data-i18n="obs2">Copiez l’URL de l’overlay dans le dashboard.</div></li>
+        <li><span class="num">3</span><div data-i18n="obs3">Ajoutez une source Navigateur.</div></li>
+        <li><span class="num">4</span><div data-i18n="obs4">Collez l’URL. Fond transparent. Taille conseillée : 1920 × 1080.</div></li>
+      </ol>
+    </section>
+    <section>
+      <div class="banner-sim">
+        <div>
+          <h2 data-i18n="spotTitle">Spotify reste optionnel</h2>
+          <p class="lead" style="margin:0" data-i18n="spotLead">Le mode démo suffit pour tester. Vos Client ID et secrets restent dans data/, jamais publiés.</p>
+        </div>
+        <a class="btn ghost" href="https://github.com/HanaCherry/hopplay" data-i18n="navGithub">GitHub</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p data-i18n="disclaimer">HopPlay est un projet indépendant. Spotify et OBS appartiennent à leurs détenteurs. Non affilié.</p>
+      <p data-i18n="footer">GalaxyBunny Studio · overlay now playing local</p>
+    </div>
+  </footer>
+  <script src="i18n.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>
