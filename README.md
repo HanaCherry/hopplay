@@ -71,11 +71,11 @@ Le **mode démo** fonctionne sans compte. Spotify et la détection Windows reste
 ## Aperçu
 
 <p align="center">
-  <img src="docs/assets/overlay.png" alt="Skin Galaxy Bunny" width="720">
+  <img src="docs/assets/dashboard.png" alt="Tableau de bord HopPlay Studio" width="900">
 </p>
 
 <p align="center">
-  <img src="docs/assets/hopplay-logo.png" alt="HopPlay" width="280">
+  <img src="docs/assets/overlay.png" alt="Overlay Galaxy Bunny" width="720">
 </p>
 
 ## Fonctions

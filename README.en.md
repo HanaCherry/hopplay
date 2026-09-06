@@ -42,11 +42,11 @@ HopPlay is a **now-playing overlay** for streamers: local dashboard, 61 skins in
 ## Preview
 
 <p align="center">
-  <img src="docs/assets/overlay.png" alt="Galaxy Bunny skin" width="720">
+  <img src="docs/assets/dashboard.png" alt="HopPlay Studio dashboard" width="900">
 </p>
 
 <p align="center">
-  <img src="docs/assets/hopplay-logo.png" alt="HopPlay" width="280">
+  <img src="docs/assets/overlay.png" alt="Galaxy Bunny overlay" width="720">
 </p>
 
 ## Features
