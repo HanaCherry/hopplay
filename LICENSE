@@ -1,21 +1,49 @@
-MIT License
+GalaxyBunny Studio — Free Application Use License 1.0
+Copyright (c) 2026 HanaCherry / GalaxyBunny Studio
+Effective for the revision introducing this file and later revisions.
 
-Copyright (c) 2026 GalaxyBunny Studio
+1. Scope and earlier permissions
+These terms cover only original material owned by HanaCherry / GalaxyBunny
+Studio and offered under these terms. They do not revoke, replace or restrict
+permissions already granted for any material under MIT or another license.
+Previously published MIT code remains usable under MIT, including when that
+same code is included in a later version. New original additions not previously
+offered under MIT are covered by these terms. Third-party code, dependencies,
+artwork, trademarks and contributions remain subject to their own terms.
+No ownership or exclusive rights over third-party material are claimed.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+2. Free application use
+You may download, install, run and use the application without paying a license
+fee, for personal or business purposes, including monetized streams and videos.
+You may make the copies, backups and local builds reasonably necessary for that
+use, install dependencies and configure the application using its settings.
+You may display its normal application output, including overlays, in streams,
+recordings and screenshots. This does not grant rights over third-party content.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+3. Other uses require permission
+Except for section 2, earlier licenses, platform rights in section 4, or rights
+that applicable law does not allow us to restrict, prior written permission from
+HanaCherry is required to extract or reuse covered code or assets in another
+project; modify covered code; distribute modified or unmodified copies; publish
+a derivative application; sublicense; or sell copies of the covered material.
+Share the official project or download link instead of redistributing files.
+Commercial use of the application itself, as allowed above, is not prohibited.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+4. Public repository
+The rights to view and fork a public repository under GitHub's Terms of Service
+are preserved. A GitHub fork alone grants no additional rights to the material
+covered by this license. This is a source-available, not an open-source, license.
+
+5. Notices and permission requests
+Keep applicable copyright and license notices with your copies.
+Request additional permission by opening an issue in this project's official
+HanaCherry GitHub repository. Silence does not constitute permission.
+
+6. Warranty and mandatory rights
+To the extent permitted by applicable law, the software is provided as is,
+without warranties, and the copyright holders are not liable for damages arising
+from its use. Nothing here excludes mandatory consumer rights, statutory
+exceptions or any rights that cannot lawfully be excluded.
+
+Repository: https://github.com/HanaCherry/hopplay
+Last revision before this transition: d90a0d6ed8533edf8602c0ad333f259e06a1dd58

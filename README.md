@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://hanacherry.github.io/hopplay/"><img src="https://img.shields.io/badge/site-multilingue-8670ef?style=for-the-badge" alt="Site"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-c9bcff?style=for-the-badge" alt="MIT"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-Free%20use-c9bcff?style=for-the-badge" alt="Usage terms"></a>
   <a href="package.json"><img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge" alt="Node.js 18+"></a>
   <a href="https://github.com/HanaCherry/hopplay/releases/latest"><img src="https://img.shields.io/badge/release-v1.8.1-c9bcff?style=for-the-badge" alt="v1.8.1"></a>
 </p>
@@ -122,4 +122,10 @@ Ne commitez jamais les secrets. Ils restent dans `data/` (gitignored).
 
 ## Licence
 
-MIT © GalaxyBunny Studio
+[Usage terms](LICENSE) © GalaxyBunny Studio
+
+## Conditions d’utilisation
+
+L’application reste gratuite à utiliser, y compris pour les streams et vidéos monétisés. L’installation, la compilation locale, les sauvegardes et la configuration nécessaires à cet usage sont autorisées. Pour reprendre le nouveau code couvert dans un autre projet, le modifier, redistribuer l’application ou en vendre des copies, demandez l’accord écrit de HanaCherry via les issues du dépôt.
+
+Ces conditions ne retirent aucun droit déjà accordé : le code précédemment publié sous MIT reste sous MIT et les composants d’autres auteurs conservent leurs licences. Les nouveaux apports originaux couverts suivent la [licence d’utilisation gratuite](LICENSE). Les droits de consultation et de fork prévus par GitHub sont préservés.

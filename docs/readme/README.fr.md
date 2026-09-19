@@ -72,4 +72,10 @@ Ne commite pas les secrets. Garde le Client ID / Client Secret sur ta machine (`
 
 ## Licence
 
-MIT © GalaxyBunny Studio
+[Usage terms](../../LICENSE) © GalaxyBunny Studio
+
+## Conditions d’utilisation
+
+L’application reste gratuite à utiliser, y compris pour les streams et vidéos monétisés. L’installation, la compilation locale, les sauvegardes et la configuration nécessaires à cet usage sont autorisées. Pour reprendre le nouveau code couvert dans un autre projet, le modifier, redistribuer l’application ou en vendre des copies, demandez l’accord écrit de HanaCherry via les issues du dépôt.
+
+Ces conditions ne retirent aucun droit déjà accordé : le code précédemment publié sous MIT reste sous MIT et les composants d’autres auteurs conservent leurs licences. Les nouveaux apports originaux couverts suivent la [licence d’utilisation gratuite](../../LICENSE). Les droits de consultation et de fork prévus par GitHub sont préservés.
